@@ -18,11 +18,11 @@
     /* Efek Gerakan Cahaya Pilar Altar (Sacred Cosmic Light) */
     @keyframes cosmicAura {
       0%, 100% { opacity: 0.15; transform: scale(1) translate(-5%, -5%); }
-      50% { opacity: 0.35; transform: scale(1.15) translate(5%, 5%); }
+      50% { opacity: 0.38; transform: scale(1.15) translate(5%, 5%); }
     }
     .cosmic-blur { animation: cosmicAura 15s ease-in-out infinite; }
 
-    /* Animasi Genta Bergetar */
+    /* Animasi Genta Bergetar Kerajaan */
     @keyframes royalBellRing {
       0%, 100% { transform: rotate(0deg); }
       20% { transform: rotate(22deg) scale(1.1); filter: drop-shadow(0 0 25px #f59e0b); }
@@ -34,7 +34,7 @@
 
     /* Bingkai Kaca Emas Berlapis */
     .emperor-glow {
-      box-shadow: 0 0 70px -10px rgba(217, 119, 6, 0.4), inset 0 0 50px rgba(217, 119, 6, 0.15);
+      box-shadow: 0 0 70px -10px rgba(217, 119, 6, 0.45), inset 0 0 50px rgba(217, 119, 6, 0.15);
     }
     canvas { pointer-events: none; }
   </style>
@@ -70,10 +70,10 @@
     <div class="py-4 flex justify-center relative select-none">
       <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-20 rounded-full blur-[45px] w-36 h-36 mx-auto animate-pulse"></div>
       
-      <svg class="w-36 h-36 text-amber-400 filter drop-shadow-[0_0_25px_rgba(245,158,11,0.65)] transform hover:scale-105 transition-transform duration-700" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-36 h-36 text-amber-400 filter drop-shadow-[0_0_25px_rgba(245,158,11,0.7)] transform hover:scale-105 transition-transform duration-700" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
         <circle cx="50" cy="50" r="39" stroke="currentColor" stroke-width="2" opacity="0.8"/>
-        <path d="M51 26C51 24.5 52.5 23 54 23C55.5 23 57 24.5 57 26C57 27.5 55.5 29 54 29C52.5 29 51 27.5 51 26ZM44 38C44 32 50 29.5 54 32C59 35 52 44 49 46C44 49.5 41 54 41 60C41 68 47 72 54 72C61 72 67 66 67 58C67 53 64 50 60 48.5C64 47 66 43 66 39C66 33 60 29 52 29C42 29 36 35 36 43M54 48.5C61 48.5 69 51 72 57M67 36C71 33 75 33 78 36" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M36 43C36 35 42 29 52 29C60 29 66 33 66 39C66 43 64 47 60 48.5C64 50 67 53 67 58C67 66 61 72 54 72C47 72 41 68 41 60C41 54 44 49.5 49 46C52 44 59 35 54 32C50 29.5 44 32 44 38M67 36C71 33 75 33 78 36M54 48.5C61 48.5 69 51 72 57M51 26C51 24.5 52.5 23 54 23C55.5 23 57 24.5 57 26C57 27.5 55.5 29 54 29C52.5 29 51 27.5 51 26Z" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
@@ -164,6 +164,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+    // Silakan perbarui objek di bawah ini menggunakan data SDK proyek barumu jika diperlukan, San!
     const firebaseConfig = {
       apiKey: "AIzaSyB6vxZNwQXXShiWNWAxiI5EVZypVbLJFQI",
       authDomain: "sanatana-8c4e9.firebaseapp.com",
@@ -209,7 +210,6 @@
             email: email,
             waktuLogin: new Date().toISOString()
           });
-          console.log("Firestore Berhasil Disimpan!");
         } catch (error) { console.error("Error Firestore:", error); }
 
         sessionStorage.setItem("user_name", name);
