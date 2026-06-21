@@ -39,6 +39,9 @@
             box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
             text-align: center;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Memberikan jarak otomatis antar elemen agar tidak menumpuk */
         }
 
         .altar-container::after {
@@ -56,14 +59,13 @@
             color: #d1b49e;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 15px;
             font-weight: bold;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .image-frame {
             width: 100%;
-            height: 480px;
+            height: 450px;
             border-radius: 15px;
             overflow: hidden;
             border: 2px solid #3a2510;
@@ -78,11 +80,11 @@
         }
 
         .deity-info {
-            margin: 20px 0;
+            padding: 5px 0;
         }
 
         .deity-info h1 {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             color: var(--gold);
             text-shadow: 0 2px 5px rgba(0,0,0,0.9);
             letter-spacing: 1px;
@@ -92,7 +94,7 @@
             display: flex;
             gap: 15px;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .btn {
@@ -155,29 +157,29 @@
     <audio id="audio-chant" src="chants.mp3" loop></audio>
 
     <script>
-        // Database Mutakhir: Berisi Seluruh 33 Aset Foto Asli Milikmu
+        // Database 33 File Foto Asli Kamu
         const altarImages = [
             { name: "Lord Palani Murugan", file: "1000488924.jpg" },
             { name: "Lord Shiva Mahadev", file: "1000488925.jpg" },
             { name: "Lord Ganesha Agami", file: "1000488926.jpg" },
             { name: "Goddess Durga Amman", file: "1000488927.jpg" },
             { name: "Goddess Mahalakshmi Devi", file: "1000488928.jpg" },
-            { name: "Lord Swaminatha Swami (Kadavul)", file: "1000488992.jpg" },
+            { name: "Lord Swaminatha Swami", file: "1000488992.jpg" },
             { name: "Lord Kanpati Pillaiyar", file: "1000488999.jpg" },
-            { name: "Lord Shiva Parvati Ganesha", file: "1000489020.jpg" },
+            { name: "Lord Shiva Parvati Ganesha Kosmik", file: "1000489020.jpg" },
             { name: "Lord Thiruttani Murugan", file: "1000489030.jpg" },
-            { name: "Lord Narasimha Swamy (Avatar)", file: "1000489036.jpg" },
-            { name: "Lord Shiva (Silhouette Mahadev)", file: "ba3e9b1e1b1ee8053c1474c5fad805e8.jpg" },
-            { name: "Lord Vinayagar Emas Kosmik", file: "0fb14a044daba941af4113c99a8d0b1e.jpg" },
+            { name: "Lord Narasimha Swamy", file: "1000489036.jpg" },
+            { name: "Lord Shiva (Silhouette)", file: "ba3e9b1e1b1ee8053c1474c5fad805e8.jpg" },
+            { name: "Lord Vinayagar Emas", file: "0fb14a044daba941af4113c99a8d0b1e.jpg" },
             { name: "Goddess Sri Durga Sakthi", file: "47dee0185ce271f09e053354e7981454.jpg" },
             { name: "Goddess Mahalakshmi Gajendra", file: "c9fcc50c5a64872c3c3aa29de8321fc2.jpg" },
-            { name: "Lord Murugan Royal Attire", file: "461481ebe5ef243b7fb8531efdbad1f3-ezgif.com-jpg-to-png-converter.png" },
+            { name: "Lord Murugan Attire", file: "461481ebe5ef243b7fb8531efdbad1f3-ezgif.com-jpg-to-png-converter.png" },
             { name: "Lord Chidambaram Nataraja", file: "e5ac217f4d30d62a57b2ec9b6b19602a.jpg" },
-            { name: "Lord Palani Murugan (Petapa)", file: "23e68026a1f998e3d7bb0994d0ff286c.jpg" },
+            { name: "Lord Palani Murugan Petapa", file: "23e68026a1f998e3d7bb0994d0ff286c.jpg" },
             { name: "Goddess Madurai Meenakshi", file: "457fb7acb619f88cceb055a5615c060b.jpg" },
             { name: "Lord Dakshinamurthy Guru", file: "416a11d41e60007185696a7bd95e70da.jpg" },
-            { name: "Lord Tirupati Venkateswara Perumal", file: "26043a26e95e09686bb01d7a5d056bc9.jpg" },
-            { name: "Lord Karuppasamy Kali", file: "b38b927688fdc21e7066bc2c21c8ca30.jpg" },
+            { name: "Lord Tirupati Venkateswara", file: "26043a26e95e09686bb01d7a5d056bc9.jpg" },
+            { name: "Lord Karuppasamy Guardian", file: "b38b927688fdc21e7066bc2c21c8ca30.jpg" },
             { name: "Lord Uchchi Pillaiyar Ganesha", file: "1782050287899.png" },
             { name: "Goddess Samayapuram Mariamman", file: "ad8c83d500df55ed19c937c5f92336eb.jpg" },
             { name: "Lord Swaminatha Raja Murugan", file: "f19be3427da0fcb68fc6a02949e243c7.jpg" },
@@ -188,10 +190,10 @@
             { name: "Lord Sriranganathar Adishesha", file: "fd74ba4a2ddfdf9c26c561f9ce461bb0.jpg" },
             { name: "Lord Hayagriva Swamy Wisnu", file: "e9e2ad7482fa2a1c8890164bd62697e8.jpg" },
             { name: "Lord Shani Bhagavan Navagraha", file: "087d59920dc37165b42699e5834de57b.jpg" },
-            { name: "Lord Kalahasteeswarar Kobra", file: "dd6acf74696c8e240e843f3a22584d8b.jpg" },
+            { name: "Lord Kalahasteeswarar", file: "dd6acf74696c8e240e843f3a22584d8b.jpg" },
             { name: "Lord Dhanvantari Pengobatan", file: "55542a6be8d2cfcb6817ffd449e26490.jpg" },
-            { name: "Goddess Kanchi Kamakshi Peedam", file: "c2c60c4949fe231719abf3f3abe078f3.jpg" },
-            { name: "Lord Brahma Devan Takdir", file: "0b73e234e1494ffd9a5ee3a550d3ed5c.jpg" },
+            { name: "Goddess Kanchi Kamakshi", file: "c2c60c4949fe231719abf3f3abe078f3.jpg" },
+            { name: "Lord Brahma Devan Creator", file: "0b73e234e1494ffd9a5ee3a550d3ed5c.jpg" },
             { name: "Goddess Andal Kothai Poet", file: "Screenshot_20260621_220426.jpg" },
             { name: "Lord Narasimha Swamy Protector", file: "b400e023a9ff0f7591b26adad2cd0fd8.jpg" },
             { name: "Maha Pratyangira Devi Lion", file: "d61cfb11bed126c5b4d55d36b2514c2f.jpg" },
@@ -204,13 +206,11 @@
 
         function initAltar() {
             const today = new Date();
-            const currentDayNumber = today.getDate(); // Mengambil tanggal hari ini (1-31)
+            const currentDayNumber = today.getDate();
             
-            // Menggunakan rumus matematika Modulo (%) agar total seluruh gambar berputar berurutan tanpa error
             const targetIndex = (currentDayNumber - 1) % altarImages.length;
             const currentMurthi = altarImages[targetIndex];
 
-            // Suntik data langsung ke elemen HTML (Bukan dummy UI)
             document.getElementById("altar-day-label").innerText = `Siklus Murthi Hari ke-${currentDayNumber}`;
             document.getElementById("altar-img").src = currentMurthi.file;
             document.getElementById("altar-img").alt = currentMurthi.name;
@@ -236,7 +236,6 @@
             }
         }
 
-        // Jalankan program utama secara real-time saat dokumen terbuka
         window.onload = initAltar;
     </script>
 </body>
