@@ -1,224 +1,243 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanatana Tamil - Altar Agung Mahakudus</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght=600;700;900&family=Plus+Jakarta+Sans:wght=300;400;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #020100; }
-    .font-serif-royal { font-family: 'Cinzel', serif; }
-    .font-serif-ultra { font-family: 'Cinzel Decorative', serif; }
-    
-    @keyframes cosmicGlow {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.1); }
-    }
-    .cosmic-glow { animation: cosmicGlow 12s ease-in-out infinite; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altar Kosmik Harian Navagraha</title>
+    <style>
+        :root {
+            --gold: #FFD700;
+            --dark-bg: #0d0d0d;
+            --panel-bg: rgba(20, 20, 20, 0.9);
+        }
 
-    @keyframes bellRing {
-      0%, 100% { transform: rotate(0deg); }
-      20% { transform: rotate(20deg); filter: drop-shadow(0 0 20px #f59e0b); }
-      40% { transform: rotate(-15deg); }
-      60% { transform: rotate(10deg); }
-      80% { transform: rotate(-5deg); }
-    }
-    .animate-bell { animation: bellRing 0.6s ease-in-out; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .gold-border-glow {
-      box-shadow: 0 0 50px -10px rgba(217, 119, 6, 0.4), inset 0 0 30px rgba(217, 119, 6, 0.15);
-    }
-    canvas { pointer-events: none; }
-  </style>
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #2c1604 0%, #050505 100%);
+            padding: 20px;
+        }
+
+        .altar-container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--panel-bg);
+            border: 3px solid #4a3319;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+            text-align: center;
+            position: relative;
+        }
+
+        .altar-container::after {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .day-indicator {
+            font-size: 0.95rem;
+            color: #d1b49e;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .image-frame {
+            width: 100%;
+            height: 480px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #3a2510;
+            background-color: #000;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .deity-info {
+            margin: 20px 0;
+        }
+
+        .deity-info h1 {
+            font-size: 1.7rem;
+            color: var(--gold);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+            letter-spacing: 1px;
+        }
+
+        .audio-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            background: linear-gradient(135deg, #4a2f13 0%, #211204 100%);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 14px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: #000;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn.active {
+            background: linear-gradient(135deg, #00ffcc 0%, #008866 100%);
+            color: #000;
+            border-color: #00ffcc;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+        }
+    </style>
 </head>
-<body class="text-stone-200 min-h-screen flex flex-col items-center justify-start p-4 md:p-8 relative overflow-x-hidden">
+<body>
 
-  <audio id="bellAudio" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg" preload="auto"></audio>
-  <audio id="chantsAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop preload="auto"></audio>
-
-  <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden z-50"></canvas>
-
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-b from-amber-500/10 via-orange-600/5 to-transparent rounded-full blur-[140px] cosmic-glow pointer-events-none"></div>
-
-  <div class="w-full max-w-xl space-y-6 z-10">
-    
-    <header class="w-full flex justify-between items-center bg-stone-900/60 border border-amber-500/20 backdrop-blur-xl p-4 rounded-2xl shadow-xl">
-      <div class="flex flex-col">
-        <span class="text-[9px] tracking-[0.4em] uppercase font-bold text-amber-500">Sanctum Menu</span>
-        <h1 class="text-sm font-black font-serif-royal tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-400">SANATANA TAMIL</h1>
-      </div>
-      <div class="flex gap-2">
-        <button id="ambientBtn" class="text-[9px] tracking-widest font-bold uppercase bg-stone-950 border border-amber-500/30 hover:border-amber-400 text-amber-400 py-2 px-3 rounded-xl transition-all duration-300 cursor-pointer flex items-center gap-1.5">
-          <span id="ambientIcon">📿</span> <span id="ambientText">Nyalakan Mantra</span>
-        </button>
-        <a href="dashboard.html" class="text-[9px] tracking-widest font-bold uppercase bg-stone-950 border border-stone-800 hover:border-amber-500/40 text-stone-400 hover:text-amber-300 py-2 px-4 rounded-xl transition-all duration-300">
-          Kembali
-        </a>
-      </div>
-    </header>
-
-    <div class="gold-border-glow bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 border-2 border-amber-500/30 rounded-[3rem] p-6 md:p-8 text-center relative space-y-6 shadow-2xl">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 to-orange-600 text-stone-950 text-[9px] tracking-[0.3em] uppercase font-black px-5 py-1.5 rounded-full border border-amber-300/30">
-        Maha Sannidhanam (Altar Harian)
-      </div>
-
-      <div class="space-y-1 pt-2">
-        <h2 id="deityName" class="text-3xl font-black font-serif-royal text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-600 tracking-wide">Loading...</h2>
-        <p id="deityTamil" class="text-orange-500 text-xl font-bold tracking-[0.2em]">-</p>
-      </div>
-
-      <div class="w-full h-[480px] bg-stone-950 rounded-[2.5rem] border border-amber-500/10 overflow-hidden relative shadow-inner">
-        <img id="deityImage" src="" alt="Dewa Peradaban Tamil" class="w-full h-full object-cover opacity-90 transition-opacity duration-1000" />
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/20"></div>
-      </div>
-
-      <p id="deityDesc" class="text-[11px] text-stone-400 italic font-light px-4 max-w-lg mx-auto leading-relaxed">
-        Memuat hikmah spiritual kosmik...
-      </p>
-
-      <div class="flex justify-center gap-12 pt-2 relative">
-        <button id="bellBtn" class="w-16 h-16 bg-gradient-to-br from-yellow-300 via-amber-500 to-orange-600 text-stone-950 rounded-full flex items-center justify-center text-3xl shadow-lg transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
-          🔔
-          <span class="absolute -bottom-6 text-[9px] tracking-widest font-bold text-stone-500 group-hover:text-amber-400 uppercase">Bunyi Genta</span>
-        </button>
+    <div class="altar-container">
+        <div class="day-indicator" id="altar-day-label">Siklus Murthi Hari --</div>
         
-        <button id="flowerBtn" class="w-16 h-16 bg-gradient-to-br from-orange-500 via-rose-600 to-fuchsia-800 text-stone-100 rounded-full flex items-center justify-center text-3xl shadow-lg transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
-          🌸
-          <span class="absolute -bottom-6 text-[9px] tracking-widest font-bold text-stone-500 group-hover:text-rose-400 uppercase">Tabur Puspa</span>
-        </button>
-      </div>
+        <div class="image-frame">
+            <img id="altar-img" src="" alt="Loading Murthi Agung...">
+        </div>
+        
+        <div class="deity-info">
+            <h1 id="altar-name">Memanggil Energi Suci...</h1>
+        </div>
+
+        <div class="audio-controls">
+            <button class="btn" id="btn-bell" onclick="toggleAudio('bell')">🔔 Bunyikan Genta</button>
+            <button class="btn" id="btn-chant" onclick="toggleAudio('chant')">🕉️ Putar Mantra</button>
+        </div>
     </div>
 
-    <div class="bg-gradient-to-b from-stone-900/80 to-stone-950/90 border border-amber-500/15 backdrop-blur-xl p-5 rounded-[2rem] text-center space-y-1 shadow-xl">
-      <h4 class="text-[10px] tracking-[0.3em] uppercase text-orange-500 font-bold font-serif-royal">Mantra Agung Hari Ini</h4>
-      <p class="text-base font-serif-royal text-amber-300 font-bold italic" id="deityMantra">-</p>
-    </div>
+    <audio id="audio-bell" src="bell.mp3" loop></audio>
+    <audio id="audio-chant" src="chants.mp3" loop></audio>
 
-    <footer class="text-center pt-2 pb-6">
-      <p class="text-[9px] text-stone-600 tracking-[0.3em] uppercase font-bold">
-        Sanatana Tamil Sanctum Ecosystem • Global Cloud CDN Link Verified
-      </p>
-    </footer>
+    <script>
+        // Database Mutakhir: Berisi Seluruh 33 Aset Foto Asli Milikmu
+        const altarImages = [
+            { name: "Lord Palani Murugan", file: "1000488924.jpg" },
+            { name: "Lord Shiva Mahadev", file: "1000488925.jpg" },
+            { name: "Lord Ganesha Agami", file: "1000488926.jpg" },
+            { name: "Goddess Durga Amman", file: "1000488927.jpg" },
+            { name: "Goddess Mahalakshmi Devi", file: "1000488928.jpg" },
+            { name: "Lord Swaminatha Swami (Kadavul)", file: "1000488992.jpg" },
+            { name: "Lord Kanpati Pillaiyar", file: "1000488999.jpg" },
+            { name: "Lord Shiva Parvati Ganesha", file: "1000489020.jpg" },
+            { name: "Lord Thiruttani Murugan", file: "1000489030.jpg" },
+            { name: "Lord Narasimha Swamy (Avatar)", file: "1000489036.jpg" },
+            { name: "Lord Shiva (Silhouette Mahadev)", file: "ba3e9b1e1b1ee8053c1474c5fad805e8.jpg" },
+            { name: "Lord Vinayagar Emas Kosmik", file: "0fb14a044daba941af4113c99a8d0b1e.jpg" },
+            { name: "Goddess Sri Durga Sakthi", file: "47dee0185ce271f09e053354e7981454.jpg" },
+            { name: "Goddess Mahalakshmi Gajendra", file: "c9fcc50c5a64872c3c3aa29de8321fc2.jpg" },
+            { name: "Lord Murugan Royal Attire", file: "461481ebe5ef243b7fb8531efdbad1f3-ezgif.com-jpg-to-png-converter.png" },
+            { name: "Lord Chidambaram Nataraja", file: "e5ac217f4d30d62a57b2ec9b6b19602a.jpg" },
+            { name: "Lord Palani Murugan (Petapa)", file: "23e68026a1f998e3d7bb0994d0ff286c.jpg" },
+            { name: "Goddess Madurai Meenakshi", file: "457fb7acb619f88cceb055a5615c060b.jpg" },
+            { name: "Lord Dakshinamurthy Guru", file: "416a11d41e60007185696a7bd95e70da.jpg" },
+            { name: "Lord Tirupati Venkateswara Perumal", file: "26043a26e95e09686bb01d7a5d056bc9.jpg" },
+            { name: "Lord Karuppasamy Kali", file: "b38b927688fdc21e7066bc2c21c8ca30.jpg" },
+            { name: "Lord Uchchi Pillaiyar Ganesha", file: "1782050287899.png" },
+            { name: "Goddess Samayapuram Mariamman", file: "ad8c83d500df55ed19c937c5f92336eb.jpg" },
+            { name: "Lord Swaminatha Raja Murugan", file: "f19be3427da0fcb68fc6a02949e243c7.jpg" },
+            { name: "Swami Raghavendra Mahaprabhu", file: "f2d4eebcf04395da7ded66331c572e50.jpg" },
+            { name: "Goddess Kanya Kumari Amman", file: "c6bb0a181f38b9c6b9627679eae2251a.jpg" },
+            { name: "Lord Arunachaleswarar Pilar Api", file: "ec93c9c8af1cd76a71eaa1c6626fe647.jpg" },
+            { name: "Lord Thiruchendur Murugan", file: "f708b6cfdced2d2dd085eeede52a3bdd.jpg" },
+            { name: "Lord Sriranganathar Adishesha", file: "fd74ba4a2ddfdf9c26c561f9ce461bb0.jpg" },
+            { name: "Lord Hayagriva Swamy Wisnu", file: "e9e2ad7482fa2a1c8890164bd62697e8.jpg" },
+            { name: "Lord Shani Bhagavan Navagraha", file: "087d59920dc37165b42699e5834de57b.jpg" },
+            { name: "Lord Kalahasteeswarar Kobra", file: "dd6acf74696c8e240e843f3a22584d8b.jpg" },
+            { name: "Lord Dhanvantari Pengobatan", file: "55542a6be8d2cfcb6817ffd449e26490.jpg" },
+            { name: "Goddess Kanchi Kamakshi Peedam", file: "c2c60c4949fe231719abf3f3abe078f3.jpg" },
+            { name: "Lord Brahma Devan Takdir", file: "0b73e234e1494ffd9a5ee3a550d3ed5c.jpg" },
+            { name: "Goddess Andal Kothai Poet", file: "Screenshot_20260621_220426.jpg" },
+            { name: "Lord Narasimha Swamy Protector", file: "b400e023a9ff0f7591b26adad2cd0fd8.jpg" },
+            { name: "Maha Pratyangira Devi Lion", file: "d61cfb11bed126c5b4d55d36b2514c2f.jpg" },
+            { name: "Lord Ganesha Nirtha Ganapati", file: "46325bca37e11a23998ee134ae12725d.jpg" },
+            { name: "Lord Murugan Thiruttani Swamy", file: "ea014a7838d6235d420b541a18f368b2.jpg" },
+            { name: "Lord Murugan Patung Batu Klasik", file: "0ce8ae90271126f10d944bf51991d0f7.jpg" },
+            { name: "Lord Dhanvantari (Cutout PNG)", file: "IMG_20260621_221236.png" },
+            { name: "Maha Pratyangira Devi (Transparan)", file: "IMG_20260621_221523.png" }
+        ];
 
-  </div>
+        function initAltar() {
+            const today = new Date();
+            const currentDayNumber = today.getDate(); // Mengambil tanggal hari ini (1-31)
+            
+            // Menggunakan rumus matematika Modulo (%) agar total seluruh gambar berputar berurutan tanpa error
+            const targetIndex = (currentDayNumber - 1) % altarImages.length;
+            const currentMurthi = altarImages[targetIndex];
 
-  <script type="module">
-    // CDN Gambar & Audio Online agar langsung berfungsi tanpa konfigurasi rumit
-    const deitiesDatabase = [
-      {
-        name: "Lord Murugan",
-        tamil: "முருகன்",
-        image: "https://images.unsplash.com/photo-1609137144813-9118bc27df0b?q=80&w=600&auto=format&fit=crop",
-        desc: "Dewa tertinggi pelindung bahasa, sastra, dan peradaban spiritual Tamil kuno. Pembawa tombak suci Kebijaksanaan (Vel).",
-        mantra: "“Om Saravana Bhava”"
-      },
-      {
-        name: "Lord Shiva",
-        tamil: "சிவன்",
-        image: "https://images.unsplash.com/photo-1663155700755-e41c4826b009?q=80&w=600&auto=format&fit=crop",
-        desc: "Manifestasi Sang Penari Kosmik Pencipta Alam Semesta, yang detak tariannya menghasilkan ketukan ritme Sastra Tamil.",
-        mantra: "“Om Namah Shivaya”"
-      },
-      {
-        name: "Lord Ganesha",
-        tamil: "பிள்ளையார்",
-        image: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?q=80&w=600&auto=format&fit=crop",
-        desc: "Dewa Pembuka Gerbang dan Penghancur segala rintangan dalam menjalani kehidupan duniawi maupun perjalanan rohani.",
-        mantra: "“Om Gam Ganapataye Namaha”"
-      }
-    ];
+            // Suntik data langsung ke elemen HTML (Bukan dummy UI)
+            document.getElementById("altar-day-label").innerText = `Siklus Murthi Hari ke-${currentDayNumber}`;
+            document.getElementById("altar-img").src = currentMurthi.file;
+            document.getElementById("altar-img").alt = currentMurthi.name;
+            document.getElementById("altar-name").innerText = currentMurthi.name;
+        }
 
-    // Logika perhitungan tanggal agar berganti otomatis setiap hari
-    const currentDay = new Date().getDate();
-    const todayData = deitiesDatabase[currentDay % deitiesDatabase.length];
+        function toggleAudio(id) {
+            const audioEl = document.getElementById(`audio-${id}`);
+            const btnEl = document.getElementById(`btn-${id}`);
 
-    // Terapkan data ke HTML
-    document.getElementById("deityName").innerText = todayData.name;
-    document.getElementById("deityTamil").innerText = todayData.tamil;
-    document.getElementById("deityImage").src = todayData.image;
-    document.getElementById("deityDesc").innerText = todayData.desc;
-    document.getElementById("deityMantra").innerText = todayData.mantra;
+            if (audioEl.paused) {
+                audioEl.play().catch(err => {
+                    alert("Klik layar sekali terlebih dahulu untuk mengaktifkan izin audio browser!");
+                });
+                btnEl.classList.add("active");
+                if (id === 'bell') btnEl.innerText = "🛑 Hentikan Genta";
+                if (id === 'chant') btnEl.innerText = "🛑 Hentikan Mantra";
+            } else {
+                audioEl.pause();
+                btnEl.classList.remove("active");
+                if (id === 'bell') btnEl.innerText = "🔔 Bunyikan Genta";
+                if (id === 'chant') btnEl.innerText = "🕉️ Putar Mantra";
+            }
+        }
 
-    const bellAudio = document.getElementById("bellAudio");
-    const chantsAudio = document.getElementById("chantsAudio");
-    const ambientBtn = document.getElementById("ambientBtn");
-    const ambientIcon = document.getElementById("ambientIcon");
-    const ambientText = document.getElementById("ambientText");
-    const bellBtn = document.getElementById("bellBtn");
-    const flowerBtn = document.getElementById("flowerBtn");
-    const canvas = document.getElementById("flowerCanvas");
-
-    // Pemutar suara ritual backsound
-    let isChanting = false;
-    ambientBtn.addEventListener("click", () => {
-      if(!isChanting) {
-        chantsAudio.volume = 0.4;
-        chantsAudio.play().then(() => {
-          isChanting = true;
-          ambientIcon.innerText = "🕉️";
-          ambientText.innerText = "Matikan Mantra";
-          ambientBtn.classList.add("border-orange-500", "text-orange-400");
-        }).catch(() => alert("Ketuk layar HP-mu sekali lagi untuk mengaktifkan izin suara!"));
-      } else {
-        chantsAudio.pause();
-        isChanting = false;
-        ambientIcon.innerText = "📿";
-        ambientText.innerText = "Nyalakan Mantra";
-        ambientBtn.classList.remove("border-orange-500", "text-orange-400");
-      }
-    });
-
-    // Pemutar suara bel genta
-    bellBtn.addEventListener("click", () => {
-      bellBtn.classList.remove("animate-bell");
-      void bellBtn.offsetWidth; 
-      bellBtn.classList.add("animate-bell");
-      
-      bellAudio.currentTime = 0;
-      bellAudio.volume = 0.8;
-      bellAudio.play().catch(err => console.log("Izin audio browser ditangguhkan"));
-    });
-
-    // Efek visual tabur bunga
-    let animationId;
-    flowerBtn.addEventListener("click", () => {
-      canvas.classList.remove("hidden");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const flowers = Array.from({ length: 60 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * -canvas.height,
-        r: Math.random() * 5 + 4,
-        color: ["#fbbf24", "#f97316", "#f43f5e", "#ec4899", "#ffffff"][Math.floor(Math.random() * 5)],
-        speed: Math.random() * 2 + 2.5,
-        angle: Math.random() * 2
-      }));
-
-      function drawShower() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        flowers.forEach((f) => {
-          f.y += f.speed; f.x += Math.sin(f.angle) * 0.7; f.angle += 0.02;
-          ctx.beginPath(); ctx.fillStyle = f.color;
-          ctx.ellipse(f.x, f.y, f.r, f.r * 1.3, f.angle, 0, Math.PI * 2); ctx.fill();
-        });
-        animationId = requestAnimationFrame(drawShower);
-      }
-
-      cancelAnimationFrame(animationId);
-      drawShower();
-
-      setTimeout(() => {
-        cancelAnimationFrame(animationId);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.classList.add("hidden");
-      }, 4000);
-    });
-  </script>
+        // Jalankan program utama secara real-time saat dokumen terbuka
+        window.onload = initAltar;
+    </script>
 </body>
 </html>
