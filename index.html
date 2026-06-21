@@ -68,18 +68,19 @@
     </div>
 
     <div class="py-4 flex justify-center relative select-none">
-      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-20 rounded-full blur-[45px] w-36 h-36 mx-auto animate-pulse"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-25 rounded-full blur-[45px] w-36 h-36 mx-auto animate-pulse"></div>
       
-      <svg class="w-36 h-36 text-amber-400 filter drop-shadow-[0_0_25px_rgba(245,158,11,0.7)] transform hover:scale-105 transition-transform duration-700" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-        <circle cx="50" cy="50" r="39" stroke="currentColor" stroke-width="2" opacity="0.8"/>
-        <path d="M36 43C36 35 42 29 52 29C60 29 66 33 66 39C66 43 64 47 60 48.5C64 50 67 53 67 58C67 66 61 72 54 72C47 72 41 68 41 60C41 54 44 49.5 49 46C52 44 59 35 54 32C50 29.5 44 32 44 38M67 36C71 33 75 33 78 36M54 48.5C61 48.5 69 51 72 57M51 26C51 24.5 52.5 23 54 23C55.5 23 57 24.5 57 26C57 27.5 55.5 29 54 29C52.5 29 51 27.5 51 26Z" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="w-36 h-36 text-amber-400 filter drop-shadow-[0_0_30px_rgba(245,158,11,0.85)] transform hover:scale-105 transition-transform duration-700" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.4"/>
+        <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="2" opacity="0.8"/>
+        
+        <path d="M 45 35 C 55 35, 60 45, 50 52 C 62 52, 65 68, 48 70 C 35 71, 32 62, 32 60 M 48 52 C 32 52, 33 42, 33 42 M 52 52 C 58 52, 66 56, 68 64 M 55 34 C 62 26, 74 34, 74 34 M 61 24 C 63 26, 66 24, 64 22 C 62 20, 59 22, 61 24" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
     <div class="space-y-4 pt-2 flex flex-col items-center justify-center">
       <div id="g_id_onload"
-           data-client_id="662168673258-f3sqntr04e9i7danp1fngroicmpk9gac.apps.googleusercontent.com"
+           data-client_id="574255599495-i8u0oipvdlb02dku2f34beqmfopueojn.apps.googleusercontent.com"
            data-context="signin"
            data-ux_mode="popup"
            data-callback="handleCredentialResponse"
@@ -164,7 +165,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // Silakan perbarui objek di bawah ini menggunakan data SDK proyek barumu jika diperlukan, San!
+    // Menggunakan Firebase Config bawaan kuil lama, pastikan ID Firestore sinkron
     const firebaseConfig = {
       apiKey: "AIzaSyB6vxZNwQXXShiWNWAxiI5EVZypVbLJFQI",
       authDomain: "sanatana-8c4e9.firebaseapp.com",
