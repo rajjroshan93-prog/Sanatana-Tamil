@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanatana Tamil - Istana Altar Suci</title>
+  <title>Sanatana Tamil - Istana Altar Agung</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,30 +11,30 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #050302; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #030201; }
     .font-serif-royal { font-family: 'Cinzel', serif; }
     .font-serif-ultra { font-family: 'Cinzel Decorative', serif; }
     
-    /* Efek Animasi Aura Cahaya Kuil */
-    @keyframes divineAura {
-      0%, 100% { opacity: 0.15; transform: scale(1) translate(-10%, -10%); }
-      50% { opacity: 0.35; transform: scale(1.15) translate(10%, 10%); }
+    /* Efek Kabut Aura Altar Emas Bergerak */
+    @keyframes cosmicAura {
+      0%, 100% { opacity: 0.2; transform: scale(1) translate(-5%, -5%); }
+      50% { opacity: 0.4; transform: scale(1.12) translate(5%, 5%); }
     }
-    .divine-aura { animation: divineAura 10s ease-in-out infinite; }
+    .cosmic-blur { animation: cosmicAura 12s ease-in-out infinite; }
 
-    /* Efek Genta Lonceng Bergetar */
-    @keyframes bellRing {
+    /* Animasi Lonceng Getar Kerajaan */
+    @keyframes royalBellRing {
       0%, 100% { transform: rotate(0deg); }
-      20% { transform: rotate(25deg) scale(1.1); filter: drop-shadow(0 0 15px #f59e0b); }
-      40% { transform: rotate(-20deg); }
-      60% { transform: rotate(12deg); }
-      80% { transform: rotate(-8deg); }
+      20% { transform: rotate(24deg) scale(1.1); filter: drop-shadow(0 0 20px #f59e0b); }
+      40% { transform: rotate(-18deg); }
+      60% { transform: rotate(10deg); }
+      80% { transform: rotate(-6deg); }
     }
-    .animate-bell { animation: bellRing 0.6s ease-in-out; }
+    .animate-bell { animation: royalBellRing 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-    /* Bingkai Pijar Kerajaan Emas */
-    .royal-glow {
-      box-shadow: 0 0 50px -10px rgba(217, 119, 6, 0.4), inset 0 0 40px rgba(217, 119, 6, 0.15);
+    /* Bingkai Kaca Pijar Emas Luks */
+    .emperor-glow {
+      box-shadow: 0 0 60px -15px rgba(217, 119, 6, 0.45), inset 0 0 40px rgba(217, 119, 6, 0.1);
     }
     canvas { pointer-events: none; }
   </style>
@@ -43,33 +43,37 @@
 
   <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden z-50"></canvas>
 
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-b from-amber-600/10 via-orange-600/5 to-transparent rounded-full blur-[130px] divine-aura pointer-events-none"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-amber-600/15 via-orange-700/5 to-transparent rounded-full blur-[140px] cosmic-blur pointer-events-none"></div>
 
-  <div id="welcomeScreen" class="w-full max-w-md bg-gradient-to-b from-stone-900/80 via-stone-950/70 to-stone-950/90 backdrop-blur-2xl border-2 border-amber-500/30 p-10 rounded-[3rem] text-center space-y-8 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.95)] z-10 relative">
+  <div id="welcomeScreen" class="w-full max-w-md bg-gradient-to-b from-stone-900/90 via-stone-950/85 to-stone-950/95 backdrop-blur-3xl border-2 border-amber-500/30 p-10 rounded-[3.5rem] text-center space-y-8 shadow-[0_35px_80px_-20px_rgba(0,0,0,0.98)] z-10 relative overflow-hidden emperor-glow">
     
-    <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-amber-500/50 rounded-tl-xl"></div>
-    <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-amber-500/50 rounded-tr-xl"></div>
-    <div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-amber-500/50 rounded-bl-xl"></div>
-    <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-amber-500/50 rounded-br-xl">xl</div>
+    <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-amber-500/40 rounded-tl-xl"></div>
+    <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-amber-500/40 rounded-tr-xl"></div>
+    <div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-amber-500/40 rounded-bl-xl"></div>
+    <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-amber-500/40 rounded-br-xl"></div>
 
     <div class="space-y-3">
-      <div class="text-[9px] tracking-[0.4em] uppercase font-bold text-amber-500/80 font-serif-royal">Portal Spiritual Kuno</div>
-      <h1 class="text-3xl sm:text-4xl font-black font-serif-ultra tracking-widest bg-clip-text text-transparent bg-gradient-to-b from-amber-200 via-yellow-400 to-orange-600 drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">
+      <div class="text-[10px] tracking-[0.45em] uppercase font-bold text-amber-500/90 font-serif-royal">Sanctum Portal</div>
+      <h1 class="text-3xl sm:text-4xl font-black font-serif-ultra tracking-widest bg-clip-text text-transparent bg-gradient-to-b from-amber-200 via-amber-400 to-orange-600 drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)]">
         SANATANA TAMIL
       </h1>
       <div class="flex items-center justify-center gap-3 py-1">
-        <div class="h-[1px] w-14 bg-gradient-to-r from-transparent to-amber-500/30"></div>
-        <div class="text-xs text-amber-500/50">🔱</div>
-        <div class="h-[1px] w-14 bg-gradient-to-l from-transparent to-amber-500/30"></div>
+        <div class="h-[1px] w-16 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+        <div class="text-xs text-amber-500/60">🔱</div>
+        <div class="h-[1px] w-16 bg-gradient-to-l from-transparent via-amber-500/40 to-transparent"></div>
       </div>
-      <p class="text-stone-400 text-xs leading-relaxed font-light px-2">
-        Masuki dimensi spiritual paling suci. Silakan verifikasi identitas Anda untuk menyalakan dupa di Altar Agung.
+      <p class="text-stone-400 text-xs leading-relaxed font-light px-4">
+        Gerbang Kebudayaan & Spiritualitas Tamil Kuno. Silakan verifikasi akun Anda untuk menyalakan Altar Suci.
       </p>
     </div>
 
-    <div class="py-4 flex justify-center relative select-none">
-      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 opacity-20 rounded-full blur-[45px] w-28 h-28 mx-auto animate-pulse"></div>
-      <div class="text-8xl filter drop-shadow-[0_0_25px_rgba(245,158,11,0.5)] transform hover:scale-105 transition-transform duration-500 cursor-default">🕉️</div>
+    <div class="py-2 flex justify-center relative select-none">
+      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-25 rounded-full blur-[40px] w-32 h-32 mx-auto animate-pulse"></div>
+      <svg class="w-32 h-32 text-amber-400 filter drop-shadow-[0_0_20px_rgba(245,158,11,0.6)] transform hover:scale-105 transition-transform duration-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+        <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+        <path d="M48 35C43 35 38 38 38 44C38 49 43 51 47 51C42 51 35 55 35 62C35 70 43 73 51 73C60 73 66 66 66 58C66 52 61 48 57 47C62 45 64 41 64 37C64 31 58 27 50 27C44 27 40 30 38 33M52 51C59 51 68 53 72 60M68 33C71 30 75 30 78 33M45 20C48 17 52 17 55 20" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
 
     <div class="space-y-4 pt-2 flex flex-col items-center justify-center">
@@ -89,8 +93,8 @@
            data-logo_alignment="left"
            data-width="320">
       </div>
-      <p class="text-[9px] text-stone-500 tracking-wider">
-        🔒 Otentikasi Terenkripsi & Data Tersimpan Aman di Google Node
+      <p class="text-[9px] text-stone-500 tracking-[0.15em] uppercase">
+        🔒 Sistem Keamanan Database Cloud Terverifikasi
       </p>
     </div>
   </div>
@@ -98,23 +102,23 @@
 
   <div id="mainScreen" class="w-full max-w-md space-y-6 z-10 hidden transition-all duration-700 transform scale-95 opacity-0">
     
-    <header class="w-full flex justify-between items-center bg-stone-900/50 border border-amber-500/20 backdrop-blur-xl p-4 rounded-2xl shadow-xl">
+    <header class="w-full flex justify-between items-center bg-stone-900/60 border border-amber-500/20 backdrop-blur-2xl p-4 rounded-2xl shadow-2xl">
       <div class="flex flex-col">
         <h1 class="text-md font-extrabold font-serif-royal tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-orange-400">
           SANATANA TAMIL
         </h1>
         <div class="flex items-center gap-2 mt-0.5">
           <span class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping"></span>
-          <p id="userGreeting" class="text-[11px] text-amber-100/70 font-bold uppercase tracking-wider">Pemuja Agung</p>
+          <p id="userGreeting" class="text-[11px] text-amber-100/70 font-bold uppercase tracking-wider">Memuat Kuil...</p>
         </div>
       </div>
-      <button id="logoutBtn" class="text-[9px] tracking-widest font-black uppercase bg-stone-950 border border-stone-800 hover:border-red-500/40 hover:text-red-400 text-stone-400 py-2 px-3 rounded-xl transition-all duration-300 cursor-pointer">
+      <button id="logoutBtn" class="text-[9px] tracking-widest font-black uppercase bg-stone-950 border border-stone-800 hover:border-red-500/40 hover:text-red-400 text-stone-400 py-2.5 px-3.5 rounded-xl transition-all duration-300 cursor-pointer">
         Keluar
       </button>
     </header>
 
-    <div class="royal-glow bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 border-2 border-amber-500/30 rounded-[3rem] p-6 relative shadow-[0_35px_80px_-20px_rgba(0,0,0,0.95)] space-y-6 text-center">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 to-orange-600 text-stone-950 text-[9px] tracking-[0.3em] uppercase font-black px-5 py-1.5 rounded-full border border-amber-300/30 shadow-md">
+    <div class="emperor-glow bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 border-2 border-amber-500/30 rounded-[3rem] p-6 relative shadow-[0_35px_80px_-20px_rgba(0,0,0,0.95)] space-y-6 text-center">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-600 text-stone-950 text-[9px] tracking-[0.3em] uppercase font-black px-5 py-1.5 rounded-full border border-amber-300/30 shadow-md">
         Ruang Mahakudus
       </div>
       
@@ -146,7 +150,7 @@
     <div class="bg-stone-900/30 border border-amber-500/10 p-6 rounded-3xl space-y-4 backdrop-blur-xl">
       <div class="space-y-1">
         <h3 class="text-amber-500 font-extrabold text-[9px] tracking-widest uppercase">Atribut Utama</h3>
-        <p class="text-stone-300 text-xs leading-relaxed font-light">Maha Dewa Perang, perlambang keberanian mutlak, kebijaksanaan tinggi, serta pelindung abadi kebudayaan Tamil.</p>
+        <p class="text-stone-300 text-xs leading-relaxed font-light">Maha Dewa Perang, perlambang keberanian mutlak, kebijaksanaan tinggi, serta pelindung abadi kebudayaan Tamil kuno.</p>
       </div>
       
       <div class="border-t border-stone-800/60 pt-4 bg-gradient-to-r from-amber-950/20 via-stone-950 to-amber-950/20 p-4 rounded-2xl text-center border border-amber-500/20 shadow-inner">
@@ -158,7 +162,25 @@
   </div>
 
 
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Firebase Config Asli Milik Anda
+    const firebaseConfig = {
+      apiKey: "AIzaSyB6vxZNwQXXShiWNWAxiI5EVZypVbLJFQI",
+      authDomain: "sanatana-8c4e9.firebaseapp.com",
+      projectId: "sanatana-8c4e9",
+      storageBucket: "sanatana-8c4e9.firebasestorage.app",
+      messagingSenderId: "662168673258",
+      appId: "1:662168673258:web:5fc7e5e93618782ccff093",
+      measurementId: "G-0BJwKH1R33"
+    };
+
+    // Inisialisasi Jalur Database
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
     const welcomeScreen = document.getElementById("welcomeScreen");
     const mainScreen = document.getElementById("mainScreen");
     const logoutBtn = document.getElementById("logoutBtn");
@@ -167,7 +189,7 @@
     const flowerBtn = document.getElementById("flowerBtn");
     const canvas = document.getElementById("flowerCanvas");
 
-    // ─── PARSING TOKEN JWT GOOGLE (BENERAN AMBIL DATA AKUN) ───
+    // Dekode Enkripsi Data Google Account Token
     function parseJwt(token) {
       try {
         var base64Url = token.split('.')[1];
@@ -181,16 +203,31 @@
       }
     }
 
-    // Fungsi callback setelah user beneran klik & login akun Google-nya
-    window.handleCredentialResponse = function(response) {
+    // Aksi Sukses Otentikasi Google Login
+    window.handleCredentialResponse = async function(response) {
       const responsePayload = parseJwt(response.credential);
       
       if (responsePayload) {
-        // MENYIMPAN DATA SECARA NYATA KE SESSION STORAGE WEB
-        sessionStorage.setItem("user_name", responsePayload.name);
+        const uid = responsePayload.sub;
+        const name = responsePayload.name;
+        const email = responsePayload.email;
+
+        // 🌟 KIRIM DATA EMAIL & NAMA LANGSUNG KE CLOUD FIRESTORE 🌟
+        try {
+          await setDoc(doc(db, "pemuja_altar", uid), {
+            nama: name,
+            email: email,
+            waktuLogin: new Date().toISOString()
+          });
+          console.log("Koneksi Sukses! Data Akun Masuk ke Cloud Firestore.");
+        } catch (error) {
+          console.error("Gagal Mengirim Data ke Server Firestore:", error);
+        }
+
+        // Simpan Status di Local Browser Session
+        sessionStorage.setItem("user_name", name);
         sessionStorage.setItem("is_logged_in", "true");
 
-        // Masuk ke Halaman Utama Altar
         renderAppSession();
       }
     }
@@ -210,18 +247,16 @@
       }
     }
 
-    // Cek Sesi Saat Website Di-refresh
     window.onload = function() {
       renderAppSession();
     }
 
-    // Aksi Keluar Akun
     logoutBtn.addEventListener("click", () => {
       sessionStorage.clear();
       window.location.reload();
     });
 
-    // ─── FITUR LONCENG INTERAKTIF ───
+    // ─── RITUAL GENTA LONCENG ───
     bellBtn.addEventListener("click", () => {
       bellBtn.classList.remove("animate-bell");
       void bellBtn.offsetWidth; 
@@ -232,7 +267,7 @@
       audio.play().catch(err => console.log("Audio tertahan proteksi"));
     });
 
-    // ─── FITUR TABUR BUNGA EMAS KOSMIK ───
+    // ─── RITUAL TABUR BUNGA EMAS KOSMIK ───
     let animationId;
     flowerBtn.addEventListener("click", () => {
       canvas.classList.remove("hidden");
@@ -276,3 +311,4 @@
   </script>
 </body>
 </html>
+
