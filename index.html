@@ -3,143 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanatana Tamil - Altar Spiritual</title>
+  <title>Sanatana Tamil - Altar Agung Semesta</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .font-serif-luxury {
-      font-family: 'Cinzel', serif;
-    }
-    /* Efek Animasi Lonceng Megah */
-    @keyframes bellRing {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      20% { transform: rotate(25deg) scale(1.1); }
-      40% { transform: rotate(-20deg) scale(1.1); }
-      60% { transform: rotate(15deg) scale(1.05); }
-      80% { transform: rotate(-10deg) scale(1.05); }
-    }
-    .animate-bell { animation: bellRing 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #070503; }
+    .font-serif-royal { font-family: 'Cinzel', serif; }
+    .font-serif-ultra { font-family: 'Cinzel Decorative', serif; }
     
-    /* Efek Cahaya Altar Aura */
-    .altar-glow {
-      box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.25);
+    /* Efek Gerakan Cahaya Pilar Altar (Sacred Pillar Light) */
+    @keyframes auraMove {
+      0%, 100% { transform: translateY(-30%) translateX(-20%) scale(1); opacity: 0.2; }
+      50% { transform: translateY(-10%) translateX(20%) scale(1.2); opacity: 0.4; }
     }
-    canvas { pointer-events: none; }
+    .sacred-pillar { animation: auraMove 12s ease-in-out infinite; }
+
+    /* Animasi Lonceng Kerajaan */
+    @keyframes royalBell {
+      0%, 100% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 0 5px rgba(245,158,11,0)); }
+      20% { transform: rotate(28deg) scale(1.15); filter: drop-shadow(0 0 20px rgba(245,158,11,0.6)); }
+      40% { transform: rotate(-24deg) scale(1.15); }
+      60% { transform: rotate(18deg) scale(1.05); }
+      80% { transform: rotate(-12deg) scale(1.05); }
+    }
+    .animate-bell { animation: royalBell 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+
+    /* Efek Pijaran Frame Emas Ilahi */
+    .divine-glow {
+      box-shadow: 0 0 40px -5px rgba(217, 119, 6, 0.3), inset 0 0 30px rgba(217, 119, 6, 0.2);
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-stone-950 via-neutral-950 to-stone-900 text-stone-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden selection:bg-amber-500/30">
+<body class="text-stone-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden selection:bg-amber-600/40">
 
-  <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden z-50"></canvas>
+  <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden z-50 pointer-events-none"></canvas>
 
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,119,6,0.07)_0%,transparent_65%)] pointer-events-none"></div>
+  <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-amber-600/10 via-orange-600/5 to-transparent rounded-full blur-[120px] sacred-pillar pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-tr from-rose-700/10 via-amber-700/5 to-transparent rounded-full blur-[100px] sacred-pillar pointer-events-none" style="animation-delay: -6s;"></div>
 
-  <div id="welcomeScreen" class="w-full max-w-md bg-stone-900/40 backdrop-blur-xl border border-amber-500/20 p-8 rounded-[2.5rem] text-center space-y-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] z-10 transition-all duration-500 transform scale-100 relative">
-    <div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-amber-500/30 rounded-tl"></div>
-    <div class="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-amber-500/30 rounded-tr"></div>
-    <div class="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-amber-500/30 rounded-bl"></div>
-    <div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-amber-500/30 rounded-br"></div>
-
-    <div class="space-y-3">
-      <div class="text-xs uppercase tracking-[0.3em] text-amber-500 font-semibold">Welcome to Portal</div>
-      <h1 class="text-4xl font-black tracking-wide font-serif-luxury bg-clip-text text-transparent bg-gradient-to-b from-amber-300 via-orange-400 to-amber-600 drop-shadow-md">
-        SANATANA TAMIL
-      </h1>
-      <div class="w-24 h-[2px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mt-2"></div>
-      <p class="text-stone-400 text-xs px-4 leading-relaxed font-light">
-        Mulai perjalanan rohani ke dalam Gerbang Kebudayaan & Spiritualitas Tamil Kuno. Masuk untuk menyalakan Altar Suci Anda.
-      </p>
-    </div>
-
-    <div class="py-6 flex justify-center relative">
-      <div class="absolute inset-0 bg-amber-500/20 rounded-full blur-3xl w-24 h-24 mx-auto animate-pulse"></div>
-      <div class="text-7xl drop-shadow-[0_0_20px_rgba(245,158,11,0.5)] transform hover:scale-110 transition-transform duration-300 select-none cursor-default">🕉️</div>
-    </div>
+  <div id="welcomeScreen" class="w-full max-w-md bg-gradient-to-b from-stone-900/60 via-stone-900/40 to-stone-950/80 backdrop-blur-2xl border-2 border-amber-500/30 p-10 rounded-[3rem] text-center space-y-8 shadow-[0_35px_80px_-20px_rgba(0,0,0,0.9)] z-10 relative">
+    
+    <div class="absolute top-6 left-6 w-6 h-6 border-t-2 border-l-2 border-amber-500/40 rounded-tl-lg"></div>
+    <div class="absolute top-6 right-6 w-6 h-6 border-t-2 border-r-2 border-amber-500/40 rounded-tr-lg"></div>
+    <div class="absolute bottom-6 left-6 w-6 h-6 border-b-2 border-l-2 border-amber-500/40 rounded-bl-lg"></div>
+    <div class="absolute bottom-6 right-6 w-6 h-6 border-b-2 border-r-2 border-amber-500/40 rounded-br-lg"></div>
 
     <div class="space-y-4">
-      <button id="loginBtn" class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_25px_-5px_rgba(217,119,6,0.4)] transition-all duration-300 transform active:scale-98 cursor-pointer group">
-        <div class="bg-white p-1.5 rounded-xl shadow-inner group-hover:scale-105 transition-transform">
+      <div class="text-[10px] tracking-[0.4em] uppercase font-bold text-amber-500/80 font-serif-royal">Pintu Gerbang Rohani</div>
+      <h1 class="text-3xl sm:text-4xl font-black font-serif-ultra tracking-wide bg-clip-text text-transparent bg-gradient-to-b from-amber-200 via-yellow-400 to-orange-600 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+        SANATANA TAMIL
+      </h1>
+      <div class="flex items-center justify-center gap-4 py-1">
+        <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-amber-500/40"></div>
+        <div class="text-xs text-amber-500/60">🔱</div>
+        <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-500/40"></div>
+      </div>
+      <p class="text-stone-400 text-xs leading-relaxed font-light px-2">
+        Masuki dimensi kesadaran spiritual tinggi dari kebudayaan Tamil kuno terlkukus. Aktifkan Altar Agung Anda sekarang.
+      </p>
+    </div>
+
+    <div class="py-4 flex justify-center relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 via-orange-600 to-amber-500 opacity-20 rounded-full blur-[40px] w-28 h-28 mx-auto animate-pulse"></div>
+      <div class="text-8xl filter drop-shadow-[0_0_25px_rgba(245,158,11,0.6)] transform hover:scale-110 transition-transform duration-500 cursor-default select-none">🕉️</div>
+    </div>
+
+    <div class="space-y-4 pt-2">
+      <button id="loginBtn" class="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-extrabold py-4 px-6 rounded-2xl flex items-center justify-center gap-3.5 shadow-[0_15px_35px_-5px_rgba(217,119,6,0.4)] transition-all duration-300 transform active:scale-97 cursor-pointer group">
+        <div class="bg-white p-1.5 rounded-xl shadow-md group-hover:scale-105 transition-transform duration-300">
           <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5">
         </div>
-        <span class="tracking-wide text-sm font-semibold">Masuk Secara Amankan via Google</span>
+        <span class="tracking-wider text-sm font-bold uppercase">Masuk dengan Akun Google</span>
       </button>
-      <p class="text-[10px] text-stone-500 tracking-wider">
-        🔒 Otentikasi terenkripsi & data tersimpan aman di database Firebase
-      </p>
+      <div class="text-[9px] text-stone-500 uppercase tracking-[0.15em] flex items-center justify-center gap-1.5">
+        <span>🔒 Sistem Kunci Keamanan Firebase</span>
+      </div>
     </div>
   </div>
 
 
-  <div id="mainScreen" class="w-full max-w-md space-y-6 z-10 hidden transition-all duration-500 transform scale-95 opacity-0">
+  <div id="mainScreen" class="w-full max-w-md space-y-6 z-10 hidden transition-all duration-700 transform scale-95 opacity-0">
     
-    <header class="w-full flex justify-between items-center bg-stone-900/30 border border-stone-800/60 backdrop-blur-md p-4 rounded-2xl shadow-lg">
+    <header class="w-full flex justify-between items-center bg-stone-900/40 border border-amber-500/20 backdrop-blur-xl p-4 rounded-2xl shadow-xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
       <div class="flex flex-col">
-        <h1 class="text-lg font-bold font-serif-luxury tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-orange-500">
+        <h1 class="text-md font-extrabold font-serif-royal tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400">
           SANATANA TAMIL
         </h1>
-        <div class="flex items-center gap-1.5 mt-0.5">
-          <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
-          <p id="userGreeting" class="text-[11px] text-stone-400 font-medium tracking-wide">Menghubungkan...</p>
+        <div class="flex items-center gap-2 mt-0.5">
+          <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse shadow-[0_0_10px_#f59e0b]"></span>
+          <p id="userGreeting" class="text-[11px] text-amber-100/70 font-semibold tracking-wide uppercase">Memuat Energi...</p>
         </div>
       </div>
-      <button id="logoutBtn" class="text-[10px] tracking-widest uppercase bg-stone-950 border border-stone-800 hover:border-red-500/40 hover:text-red-400 text-stone-400 font-bold py-2 px-3 rounded-xl transition-all duration-300 cursor-pointer">
+      <button id="logoutBtn" class="text-[9px] tracking-[0.2em] font-black uppercase bg-stone-950 border border-stone-800 hover:border-red-600/40 hover:text-red-400 text-stone-400 py-2.5 px-4 rounded-xl transition-all duration-300 cursor-pointer">
         Keluar
       </button>
     </header>
 
-    <div class="altar-glow bg-gradient-to-b from-amber-950/30 via-stone-900/90 to-stone-950 border-2 border-amber-500/20 rounded-[2.5rem] p-6 relative shadow-[0_30px_70px_-20px_rgba(0,0,0,0.9)] space-y-6 text-center">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-600 to-orange-600 text-stone-950 text-[9px] tracking-[0.25em] uppercase font-bold px-4 py-1 rounded-full shadow-md">
-        Kuil Digital Anda
+    <div class="divine-glow bg-gradient-to-b from-stone-900/80 via-stone-950 to-stone-950 border-2 border-amber-500/30 rounded-[3rem] p-6 relative shadow-[0_35px_80px_-25px_rgba(0,0,0,0.95)] space-y-6 text-center">
+      
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-600 text-stone-950 text-[9px] tracking-[0.3em] uppercase font-black px-5 py-1.5 rounded-full shadow-lg border border-amber-300/30">
+        Ruang Mahakudus
       </div>
       
-      <div class="space-y-1 pt-2">
-        <h2 class="text-3xl font-extrabold font-serif-luxury text-transparent bg-clip-text bg-gradient-to-b from-amber-300 to-amber-500 tracking-wide drop-shadow">
+      <div class="space-y-1 pt-3">
+        <h2 class="text-3xl font-black font-serif-royal text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-600 tracking-wider drop-shadow-md">
           Lord Murugan
         </h2>
-        <p class="text-orange-500 text-xl font-bold tracking-widest">முருகன்</p>
+        <p class="text-orange-500 text-xl font-black tracking-[0.2em] font-serif-royal">முருகன்</p>
       </div>
 
-      <div class="w-full h-80 bg-stone-950 rounded-3xl border border-amber-500/10 overflow-hidden relative group shadow-inner">
-        <img src="https://images.unsplash.com/photo-1609137144813-9118bc27df0b?q=80&w=600&auto=format&fit=crop" alt="Lord Murugan" class="w-full h-full object-cover opacity-85 transition-transform duration-700 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-80"></div>
+      <div class="w-full h-80 bg-stone-950 rounded-[2rem] border-2 border-amber-500/10 overflow-hidden relative group shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
+        <img src="https://images.unsplash.com/photo-1609137144813-9118bc27df0b?q=80&w=600&auto=format&fit=crop" alt="Lord Murugan" class="w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/40 opacity-90 pointer-events-none"></div>
       </div>
 
-      <div class="flex justify-center gap-10 pt-2 relative">
-        <div class="absolute inset-0 bg-amber-500/5 blur-xl w-48 h-16 mx-auto rounded-full pointer-events-none"></div>
+      <div class="flex justify-center gap-12 pt-2 relative">
+        <div class="absolute inset-0 bg-amber-500/5 blur-2xl w-56 h-16 mx-auto rounded-full pointer-events-none"></div>
         
-        <button id="bellBtn" class="w-18 h-18 bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 hover:from-amber-300 hover:to-orange-500 text-stone-950 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_25px_rgba(217,119,6,0.35)] transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
+        <button id="bellBtn" class="w-20 h-20 bg-gradient-to-br from-yellow-300 via-amber-500 to-orange-600 hover:from-yellow-200 hover:to-orange-500 text-stone-950 rounded-full flex items-center justify-center text-4xl shadow-[0_12px_30px_rgba(217,119,6,0.45)] transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
           🔔
-          <span class="absolute -bottom-6 text-[10px] tracking-wider text-stone-500 font-bold group-hover:text-amber-400 transition-colors">BUNYIKAN</span>
+          <span class="absolute -bottom-7 text-[9px] tracking-[0.2em] font-black text-stone-500 group-hover:text-amber-400 transition-colors uppercase">Genta Suci</span>
         </button>
         
-        <button id="flowerBtn" class="w-18 h-18 bg-gradient-to-br from-orange-500 via-pink-600 to-rose-700 hover:from-orange-400 hover:to-rose-600 text-stone-100 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_25px_rgba(225,29,72,0.3)] transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
+        <button id="flowerBtn" class="w-20 h-20 bg-gradient-to-br from-orange-500 via-rose-600 to-fuchsia-800 hover:from-orange-400 hover:to-fuchsia-700 text-stone-100 rounded-full flex items-center justify-center text-4xl shadow-[0_12px_30px_rgba(225,29,72,0.4)] transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
           🌸
-          <span class="absolute -bottom-6 text-[10px] tracking-wider text-stone-500 font-bold group-hover:text-rose-400 transition-colors">PERSEMBAHKAN</span>
+          <span class="absolute -bottom-7 text-[9px] tracking-[0.2em] font-black text-stone-500 group-hover:text-rose-400 transition-colors uppercase">Tabur Puspa</span>
         </button>
       </div>
     </div>
 
-    <div class="bg-stone-900/30 border border-stone-800/60 p-6 rounded-3xl space-y-4 backdrop-blur-sm shadow-md">
+    <div class="bg-stone-900/30 border border-amber-500/10 p-6 rounded-3xl space-y-4 backdrop-blur-xl shadow-2xl relative">
       <div class="space-y-1">
-        <h3 class="text-amber-500 font-bold text-[10px] tracking-widest uppercase">Atribut Utama</h3>
-        <p class="text-stone-300 text-xs leading-relaxed">Dewa perang, kebijaksanaan tinggi, keberanian, serta pelindung abadi dari peradaban dan sastra Tamil kuno.</p>
+        <h3 class="text-amber-500 font-extrabold text-[9px] tracking-[0.25em] uppercase font-serif-royal">Atribut Utama</h3>
+        <p class="text-stone-300 text-xs leading-relaxed font-light">Maha Dewa Perang, perlambang keberanian mutlak, kebijaksanaan tertinggi, serta pelindung peradaban bahasa Tamil kuno.</p>
       </div>
-      <div class="border-t border-stone-800/40 pt-3 space-y-1">
-        <h3 class="text-amber-500 font-bold text-[10px] tracking-widest uppercase">Filosofi Esensi</h3>
-        <p class="text-stone-300 text-xs leading-relaxed">Simbol kemenangan mutlak kesadaran spiritual sejati atas kebodohan, egoisme, dan kegelapan batin.</p>
+      <div class="border-t border-stone-800/60 pt-3 space-y-1">
+        <h3 class="text-amber-500 font-extrabold text-[9px] tracking-[0.25em] uppercase font-serif-royal">Esensi Kebatinan</h3>
+        <p class="text-stone-300 text-xs leading-relaxed font-light">Simbol kebangkitan kesadaran jiwa murni atas kebodohan ilusi materi dan kegelapan ego diri.</p>
       </div>
       
-      <div class="border border-amber-500/20 bg-gradient-to-r from-amber-950/20 via-stone-950 to-amber-950/20 p-4 rounded-2xl text-center shadow-inner relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-amber-500/20"></div>
-        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-amber-500/20"></div>
-        <h4 class="text-amber-400 font-bold text-[10px] tracking-widest uppercase mb-1">Mantra Harian Agung</h4>
-        <p class="font-serif-luxury tracking-wide text-base font-bold text-orange-400">"Om Saravana Bhava"</p>
-        <p class="text-stone-400 text-[10px] mt-1 font-light italic leading-normal">Artinya: Salam kepada Energi Ilahi Pelindung Kedamaian Universal.</p>
+      <div class="border-2 border-amber-500/20 bg-gradient-to-r from-amber-950/30 via-stone-950 to-amber-950/30 p-4 rounded-2xl text-center shadow-[inset_0_2px_10px_rgba(0,0,0,0.8)] relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-amber-500/20"></div>
+        <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-amber-500/20"></div>
+        <h4 class="text-amber-400 font-extrabold text-[9px] tracking-[0.3em] uppercase mb-1 font-serif-royal">Mantra Agung Harian</h4>
+        <p class="font-serif-royal tracking-widest text-lg font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-orange-500">"Om Saravana Bhava"</p>
+        <p class="text-stone-400 text-[10px] mt-1 font-light italic leading-normal">Artinya: Salam Penghormatan kepada Energi Suci Pembawa Kedamaian Agung Semesta.</p>
       </div>
     </div>
   </div>
@@ -147,9 +159,9 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getAuth, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-    // 🌟 DATABASE DIHUBUNGKAN LANGSUNG MENGGUNAKAN API KEY ASLI MILIK SANATANA TAMIL 🌟
+    // Firebase Config Asli Milik Anda
     const firebaseConfig = {
       apiKey: "AIzaSyB6vxZNwQXXShiWNWAxiI5EVZypVbLJFQI",
       authDomain: "sanatana-8c4e9.firebaseapp.com",
@@ -160,12 +172,11 @@
       measurementId: "G-0BJwKH1R33"
     };
 
-    // Eksekusi Inisialisasi Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    // Inisialisasi Akses DOM HTML
+    // DOM Elements
     const welcomeScreen = document.getElementById("welcomeScreen");
     const mainScreen = document.getElementById("mainScreen");
     const loginBtn = document.getElementById("loginBtn");
@@ -175,13 +186,15 @@
     const flowerBtn = document.getElementById("flowerBtn");
     const canvas = document.getElementById("flowerCanvas");
 
-    // ─── AUTH STATE LISTENER (AUTH GUARD INTERNAL) ───
+    // ─── AMBIL HASIL REDIRECT SAAT KEMBALI KESINI (ANTI FORCE CLOSE) ───
+    getRedirectResult(auth).catch((error) => {
+      console.error("Gagal mendapatkan data redirect login:", error);
+    });
+
+    // ─── MEMANTAU LOG IN STATUS USER ───
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // Otomatis terpicu jika user sudah login (Data otomatis tersimpan aman di Firebase)
-        userGreeting.innerText = `Halo, ${user.displayName || 'Pemuja Agung'}`;
-        
-        // Transisi Halus Masuk Altar Utama
+        userGreeting.innerText = `Selamat Datang, ${user.displayName || 'Pemuja Agung'}`;
         welcomeScreen.classList.add("hidden");
         mainScreen.classList.remove("hidden");
         setTimeout(() => {
@@ -189,7 +202,6 @@
           mainScreen.classList.add("scale-100", "opacity-100");
         }, 50);
       } else {
-        // Jika belum masuk atau klik logout, kunci rute kembali ke Welcome Screen
         mainScreen.classList.add("scale-95", "opacity-0");
         setTimeout(() => {
           mainScreen.classList.add("hidden");
@@ -198,33 +210,28 @@
       }
     });
 
-    // Event Masuk dengan Akun Google Popup
+    // AKSI MASUK MENGGUNAKAN METODE REDIRECT (SANGAT AMAN UNTUK HP)
     loginBtn.addEventListener("click", () => {
-      signInWithPopup(auth, provider).catch((error) => {
-        console.error("Firebase Login Eror: ", error);
-        alert("Gagal masuk: Pastikan domain '" + window.location.hostname + "' sudah dimasukkan ke Authorized Domains di Firebase Auth Settings!");
-      });
+      signInWithRedirect(auth, provider);
     });
 
-    // Event Log Out Keluar Akun
+    // AKSI KELUAR AKUN
     logoutBtn.addEventListener("click", () => {
       signOut(auth);
     });
 
-    // ─── RITUAL BEL LONCENG ───
+    // ─── INTERAKSI GENTA LONCENG KUIL ───
     bellBtn.addEventListener("click", () => {
       bellBtn.classList.remove("animate-bell");
-      // Memicu trigger reflow browser agar animasi bisa berulang
-      void bellBtn.offsetWidth; 
+      void bellBtn.offsetWidth; // Reflow browser trigger
       bellBtn.classList.add("animate-bell");
 
-      // Audio Lonceng Jernih Khas Kuil
       const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/911/911-84.wav");
-      audio.volume = 0.5;
-      audio.play().catch(err => console.log("Izin audio browser ditahan"));
+      audio.volume = 0.6;
+      audio.play().catch(err => console.log("Izin audio browser diblokir"));
     });
 
-    // ─── RITUAL TABUR HUJAN BUNGA PREMIUM ───
+    // ─── INTERAKSI HUJAN BUNGA KOSMIK LUXURY ───
     let animationId;
     flowerBtn.addEventListener("click", () => {
       canvas.classList.remove("hidden");
@@ -232,27 +239,26 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Membuat 45 kelopak bunga dengan kombinasi warna premium (Amber, Orange, Rose, Magenta)
-      const flowers = Array.from({ length: 45 }, () => ({
+      // 55 Kelopak Puspa dengan Gradasi Warna Kerajaan Melayang
+      const flowers = Array.from({ length: 55 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        r: Math.random() * 5 + 4,
-        color: ["#f59e0b", "#ea580c", "#f43f5e", "#d946ef", "#facc15"][Math.floor(Math.random() * 5)],
-        speed: Math.random() * 2.5 + 2,
-        angle: Math.random() * 2
+        r: Math.random() * 5 + 4.5,
+        color: ["#fbbf24", "#f97316", "#f43f5e", "#ec4899", "#eab308", "#ffffff"][Math.floor(Math.random() * 6)],
+        speed: Math.random() * 2.8 + 2.2,
+        angle: Math.random() * 2.5
       }));
 
       function renderShower() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         flowers.forEach((f) => {
           f.y += f.speed;
-          f.x += Math.sin(f.angle) * 0.8;
-          f.angle += 0.03;
+          f.x += Math.sin(f.angle) * 0.9;
+          f.angle += 0.035;
 
           ctx.beginPath();
           ctx.fillStyle = f.color;
-          // Membuat bentuk kelopak oval halus
-          ctx.ellipse(f.x, f.y, f.r, f.r * 1.4, f.angle, 0, Math.PI * 2);
+          ctx.ellipse(f.x, f.y, f.r, f.r * 1.5, f.angle, 0, Math.PI * 2);
           ctx.fill();
         });
         animationId = requestAnimationFrame(renderShower);
@@ -261,7 +267,7 @@
       cancelAnimationFrame(animationId);
       renderShower();
 
-      // Hujan selesai & terhapus otomatis setelah 4.5 detik
+      // Berhenti total setelah 4.5 detik
       setTimeout(() => {
         cancelAnimationFrame(animationId);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
