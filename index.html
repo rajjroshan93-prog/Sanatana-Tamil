@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanatana Tamil - Istana Altar Agung</title>
+  <title>Sanatana Tamil - Istana Altar Suci Agung</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,30 +11,30 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #030201; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #020100; }
     .font-serif-royal { font-family: 'Cinzel', serif; }
     .font-serif-ultra { font-family: 'Cinzel Decorative', serif; }
     
-    /* Efek Kabut Aura Altar Emas Bergerak */
+    /* Efek Gerakan Cahaya Pilar Altar (Sacred Cosmic Light) */
     @keyframes cosmicAura {
-      0%, 100% { opacity: 0.2; transform: scale(1) translate(-5%, -5%); }
-      50% { opacity: 0.4; transform: scale(1.12) translate(5%, 5%); }
+      0%, 100% { opacity: 0.15; transform: scale(1) translate(-5%, -5%); }
+      50% { opacity: 0.35; transform: scale(1.15) translate(5%, 5%); }
     }
-    .cosmic-blur { animation: cosmicAura 12s ease-in-out infinite; }
+    .cosmic-blur { animation: cosmicAura 15s ease-in-out infinite; }
 
-    /* Animasi Lonceng Getar Kerajaan */
+    /* Animasi Genta Bergetar */
     @keyframes royalBellRing {
       0%, 100% { transform: rotate(0deg); }
-      20% { transform: rotate(24deg) scale(1.1); filter: drop-shadow(0 0 20px #f59e0b); }
-      40% { transform: rotate(-18deg); }
+      20% { transform: rotate(22deg) scale(1.1); filter: drop-shadow(0 0 25px #f59e0b); }
+      40% { transform: rotate(-16deg); }
       60% { transform: rotate(10deg); }
-      80% { transform: rotate(-6deg); }
+      80% { transform: rotate(-5deg); }
     }
     .animate-bell { animation: royalBellRing 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-    /* Bingkai Kaca Pijar Emas Luks */
+    /* Bingkai Kaca Emas Berlapis */
     .emperor-glow {
-      box-shadow: 0 0 60px -15px rgba(217, 119, 6, 0.45), inset 0 0 40px rgba(217, 119, 6, 0.1);
+      box-shadow: 0 0 70px -10px rgba(217, 119, 6, 0.4), inset 0 0 50px rgba(217, 119, 6, 0.15);
     }
     canvas { pointer-events: none; }
   </style>
@@ -43,42 +43,43 @@
 
   <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden z-50"></canvas>
 
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-amber-600/15 via-orange-700/5 to-transparent rounded-full blur-[140px] cosmic-blur pointer-events-none"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-amber-500/15 via-orange-600/5 to-transparent rounded-full blur-[150px] cosmic-blur pointer-events-none"></div>
 
-  <div id="welcomeScreen" class="w-full max-w-md bg-gradient-to-b from-stone-900/90 via-stone-950/85 to-stone-950/95 backdrop-blur-3xl border-2 border-amber-500/30 p-10 rounded-[3.5rem] text-center space-y-8 shadow-[0_35px_80px_-20px_rgba(0,0,0,0.98)] z-10 relative overflow-hidden emperor-glow">
+  <div id="welcomeScreen" class="w-full max-w-md bg-gradient-to-b from-stone-900/95 via-stone-950/90 to-stone-950/98 backdrop-blur-3xl border-2 border-amber-500/40 p-10 rounded-[3.5rem] text-center space-y-8 shadow-[0_40px_90px_-15px_rgba(0,0,0,1)] z-10 relative overflow-hidden emperor-glow">
     
-    <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-amber-500/40 rounded-tl-xl"></div>
-    <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-amber-500/40 rounded-tr-xl"></div>
-    <div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-amber-500/40 rounded-bl-xl"></div>
-    <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-amber-500/40 rounded-br-xl"></div>
+    <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-amber-500/50 rounded-tl-xl"></div>
+    <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-amber-500/50 rounded-tr-xl"></div>
+    <div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-amber-500/50 rounded-bl-xl"></div>
+    <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-amber-500/50 rounded-br-xl"></div>
 
     <div class="space-y-3">
-      <div class="text-[10px] tracking-[0.45em] uppercase font-bold text-amber-500/90 font-serif-royal">Sanctum Portal</div>
-      <h1 class="text-3xl sm:text-4xl font-black font-serif-ultra tracking-widest bg-clip-text text-transparent bg-gradient-to-b from-amber-200 via-amber-400 to-orange-600 drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)]">
+      <div class="text-[10px] tracking-[0.5em] uppercase font-black text-amber-500/90 font-serif-royal">Sanctum Portal</div>
+      <h1 class="text-3xl sm:text-4xl font-black font-serif-ultra tracking-widest bg-clip-text text-transparent bg-gradient-to-b from-amber-100 via-amber-400 to-orange-500 drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">
         SANATANA TAMIL
       </h1>
       <div class="flex items-center justify-center gap-3 py-1">
-        <div class="h-[1px] w-16 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
-        <div class="text-xs text-amber-500/60">🔱</div>
-        <div class="h-[1px] w-16 bg-gradient-to-l from-transparent via-amber-500/40 to-transparent"></div>
+        <div class="h-[1px] w-16 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+        <div class="text-xs text-amber-500/70">🔱</div>
+        <div class="h-[1px] w-16 bg-gradient-to-l from-transparent via-amber-500/50 to-transparent"></div>
       </div>
       <p class="text-stone-400 text-xs leading-relaxed font-light px-4">
-        Gerbang Kebudayaan & Spiritualitas Tamil Kuno. Silakan verifikasi akun Anda untuk menyalakan Altar Suci.
+        Gerbang Kebudayaan & Spiritualitas Tamil Kuno. Silakan verifikasi jiwa Anda untuk membuka Altar Suci.
       </p>
     </div>
 
-    <div class="py-2 flex justify-center relative select-none">
-      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-25 rounded-full blur-[40px] w-32 h-32 mx-auto animate-pulse"></div>
-      <svg class="w-32 h-32 text-amber-400 filter drop-shadow-[0_0_20px_rgba(245,158,11,0.6)] transform hover:scale-105 transition-transform duration-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
-        <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
-        <path d="M48 35C43 35 38 38 38 44C38 49 43 51 47 51C42 51 35 55 35 62C35 70 43 73 51 73C60 73 66 66 66 58C66 52 61 48 57 47C62 45 64 41 64 37C64 31 58 27 50 27C44 27 40 30 38 33M52 51C59 51 68 53 72 60M68 33C71 30 75 30 78 33M45 20C48 17 52 17 55 20" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <div class="py-4 flex justify-center relative select-none">
+      <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-20 rounded-full blur-[45px] w-36 h-36 mx-auto animate-pulse"></div>
+      
+      <svg class="w-36 h-36 text-amber-400 filter drop-shadow-[0_0_25px_rgba(245,158,11,0.65)] transform hover:scale-105 transition-transform duration-700" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+        <circle cx="50" cy="50" r="39" stroke="currentColor" stroke-width="2" opacity="0.8"/>
+        <path d="M51 26C51 24.5 52.5 23 54 23C55.5 23 57 24.5 57 26C57 27.5 55.5 29 54 29C52.5 29 51 27.5 51 26ZM44 38C44 32 50 29.5 54 32C59 35 52 44 49 46C44 49.5 41 54 41 60C41 68 47 72 54 72C61 72 67 66 67 58C67 53 64 50 60 48.5C64 47 66 43 66 39C66 33 60 29 52 29C42 29 36 35 36 43M54 48.5C61 48.5 69 51 72 57M67 36C71 33 75 33 78 36" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
     <div class="space-y-4 pt-2 flex flex-col items-center justify-center">
       <div id="g_id_onload"
-           data-client_id="662168673258-vujqfom22p3pfe69b5v25nd1lre46sh7.apps.googleusercontent.com"
+           data-client_id="662168673258-f3sqntr04e9i7danp1fngroicmpk9gac.apps.googleusercontent.com"
            data-context="signin"
            data-ux_mode="popup"
            data-callback="handleCredentialResponse"
@@ -93,16 +94,14 @@
            data-logo_alignment="left"
            data-width="320">
       </div>
-      <p class="text-[9px] text-stone-500 tracking-[0.15em] uppercase">
+      <p class="text-[9px] text-stone-500 tracking-[0.2em] uppercase font-bold">
         🔒 Sistem Keamanan Database Cloud Terverifikasi
       </p>
     </div>
   </div>
 
-
   <div id="mainScreen" class="w-full max-w-md space-y-6 z-10 hidden transition-all duration-700 transform scale-95 opacity-0">
-    
-    <header class="w-full flex justify-between items-center bg-stone-900/60 border border-amber-500/20 backdrop-blur-2xl p-4 rounded-2xl shadow-2xl">
+    <header class="w-full flex justify-between items-center bg-stone-900/70 border border-amber-500/20 backdrop-blur-2xl p-4 rounded-2xl shadow-2xl">
       <div class="flex flex-col">
         <h1 class="text-md font-extrabold font-serif-royal tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-orange-400">
           SANATANA TAMIL
@@ -161,12 +160,10 @@
     </div>
   </div>
 
-
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // Firebase Config Asli Milik Anda
     const firebaseConfig = {
       apiKey: "AIzaSyB6vxZNwQXXShiWNWAxiI5EVZypVbLJFQI",
       authDomain: "sanatana-8c4e9.firebaseapp.com",
@@ -177,7 +174,6 @@
       measurementId: "G-0BJwKH1R33"
     };
 
-    // Inisialisasi Jalur Database
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
@@ -189,7 +185,6 @@
     const flowerBtn = document.getElementById("flowerBtn");
     const canvas = document.getElementById("flowerCanvas");
 
-    // Dekode Enkripsi Data Google Account Token
     function parseJwt(token) {
       try {
         var base64Url = token.split('.')[1];
@@ -198,36 +193,27 @@
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
         return JSON.parse(jsonPayload);
-      } catch(e) {
-        return null;
-      }
+      } catch(e) { return null; }
     }
 
-    // Aksi Sukses Otentikasi Google Login
     window.handleCredentialResponse = async function(response) {
       const responsePayload = parseJwt(response.credential);
-      
       if (responsePayload) {
         const uid = responsePayload.sub;
         const name = responsePayload.name;
         const email = responsePayload.email;
 
-        // 🌟 KIRIM DATA EMAIL & NAMA LANGSUNG KE CLOUD FIRESTORE 🌟
         try {
           await setDoc(doc(db, "pemuja_altar", uid), {
             nama: name,
             email: email,
             waktuLogin: new Date().toISOString()
           });
-          console.log("Koneksi Sukses! Data Akun Masuk ke Cloud Firestore.");
-        } catch (error) {
-          console.error("Gagal Mengirim Data ke Server Firestore:", error);
-        }
+          console.log("Firestore Berhasil Disimpan!");
+        } catch (error) { console.error("Error Firestore:", error); }
 
-        // Simpan Status di Local Browser Session
         sessionStorage.setItem("user_name", name);
         sessionStorage.setItem("is_logged_in", "true");
-
         renderAppSession();
       }
     }
@@ -235,7 +221,6 @@
     function renderAppSession() {
       const name = sessionStorage.getItem("user_name");
       const logged = sessionStorage.getItem("is_logged_in");
-
       if (logged === "true") {
         userGreeting.innerText = `Halo, ${name}`;
         welcomeScreen.classList.add("hidden");
@@ -247,34 +232,24 @@
       }
     }
 
-    window.onload = function() {
-      renderAppSession();
-    }
+    window.onload = function() { renderAppSession(); }
+    logoutBtn.addEventListener("click", () => { sessionStorage.clear(); window.location.reload(); });
 
-    logoutBtn.addEventListener("click", () => {
-      sessionStorage.clear();
-      window.location.reload();
-    });
-
-    // ─── RITUAL GENTA LONCENG ───
     bellBtn.addEventListener("click", () => {
       bellBtn.classList.remove("animate-bell");
       void bellBtn.offsetWidth; 
       bellBtn.classList.add("animate-bell");
-
       const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/911/911-84.wav");
       audio.volume = 0.5;
-      audio.play().catch(err => console.log("Audio tertahan proteksi"));
+      audio.play().catch(err => console.log("Audio tertahan"));
     });
 
-    // ─── RITUAL TABUR BUNGA EMAS KOSMIK ───
     let animationId;
     flowerBtn.addEventListener("click", () => {
       canvas.classList.remove("hidden");
       const ctx = canvas.getContext("2d");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-
       const flowers = Array.from({ length: 55 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
@@ -283,32 +258,18 @@
         speed: Math.random() * 2.5 + 2.2,
         angle: Math.random() * 2
       }));
-
       function renderShower() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         flowers.forEach((f) => {
-          f.y += f.speed;
-          f.x += Math.sin(f.angle) * 0.8;
-          f.angle += 0.03;
-
-          ctx.beginPath();
-          ctx.fillStyle = f.color;
-          ctx.ellipse(f.x, f.y, f.r, f.r * 1.4, f.angle, 0, Math.PI * 2);
-          ctx.fill();
+          f.y += f.speed; f.x += Math.sin(f.angle) * 0.8; f.angle += 0.03;
+          ctx.beginPath(); ctx.fillStyle = f.color;
+          ctx.ellipse(f.x, f.y, f.r, f.r * 1.4, f.angle, 0, Math.PI * 2); ctx.fill();
         });
         animationId = requestAnimationFrame(renderShower);
       }
-      
-      cancelAnimationFrame(animationId);
-      renderShower();
-
-      setTimeout(() => {
-        cancelAnimationFrame(animationId);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.classList.add("hidden");
-      }, 4500);
+      cancelAnimationFrame(animationId); renderShower();
+      setTimeout(() => { cancelAnimationFrame(animationId); ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.classList.add("hidden"); }, 4500);
     });
   </script>
 </body>
 </html>
-
