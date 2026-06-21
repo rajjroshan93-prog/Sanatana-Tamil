@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanatana Tamil - Welcome & Altar</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    /* Animasi sederhana untuk lonceng dan bunga */
+    @keyframes bounce-custom {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15) rotate(15deg); }
+    }
+    .animate-bell { animation: bounce-custom 0.3s ease-in-out; }
+    canvas { pointer-events: none; fixed: inset-0; z-index: 50; }
+  </style>
+</head>
+<body class="bg-stone-950 text-stone-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+
+  <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden"></canvas>
+
+  <div id="welcomeScreen" class="w-full max-w-md bg-stone-900/60 border border-stone-800 p-8 rounded-3xl text-center space-y-6 shadow-2xl z-10">
+    <div class="space-y-2">
+      <h1 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">
+        Sanatana Tamil
+      </h1>
+      <p class="text-stone-400 text-sm px-4">
+        Selamat datang di Gerbang Digital Kebudayaan & Spiritualitas Tamil Kuno. Silakan masuk untuk mengakses Altar Suci.
+      </p>
+    </div>
+
+    <div class="py-4 flex justify-center">
+      <div class="text-6xl animate-pulse">🕉️</div>
+    </div>
+
+    <button id="loginBtn" class="w-full bg-white hover:bg-stone-100 text-stone-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-3 shadow-lg transition-all transform active:scale-95 cursor-pointer">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5">
+      <span>Masuk dengan Google</span>
+    </button>
+    
+    <p class="text-[11px] text-stone-500">
+      Data akun kamu akan tersimpan dengan aman secara otomatis via Firebase Auth.
+    </p>
+  </div>
+
+
+  <div id="mainScreen" class="w-full max-w-md space-y-6 z-10 hidden">
+    <header class="w-full flex justify-between items-center border-b border-stone-800 pb-4">
+      <div>
+        <h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">
+          Sanatana Tamil
+        </h1>
+        <p id="userGreeting" class="text-xs text-stone-400 mt-0.5">Halo, Pengguna</p>
+      </div>
+      <button id="logoutBtn" class="text-xs bg-stone-900 border border-stone-800 hover:bg-stone-800 text-stone-400 py-1.5 px-3 rounded-lg transition-all cursor-pointer">
+        Keluar
+      </button>
+    </header>
+
+    <div class="bg-gradient-to-b from-amber-900/20 to-stone-900/90 border-2 border-amber-600/30 rounded-3xl p-6 shadow-2xl text-center space-y-4">
+      <div class="text-stone-500 text-[10px] tracking-widest uppercase font-semibold">Altar Suci harian</div>
+      
+      <div>
+        <h2 class="text-2xl font-bold text-amber-400">Lord Murugan</h2>
+        <p class="text-orange-500 text-lg font-bold">முருகன்</p>
+      </div>
+
+      <div class="w-full h-72 bg-stone-950 rounded-2xl border border-stone-800 overflow-hidden relative">
+        <img src="https://images.unsplash.com/photo-1609137144813-9118bc27df0b?q=80&w=600&auto=format&fit=crop" alt="Lord Murugan" class="w-full h-full object-cover opacity-80" />
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-orange-600/30 to-transparent"></div>
+      </div>
+
+      <div class="flex justify-center gap-8 pt-2">
+        <button id="bellBtn" class="w-16 h-16 bg-amber-500 text-stone-950 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all transform active:scale-90 cursor-pointer">
+          🔔
+        </button>
+        <button id="flowerBtn" class="w-16 h-16 bg-orange-500 text-stone-950 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all transform active:scale-90 cursor-pointer">
+          🌸
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-stone-900/40 border border-stone-800/60 p-5 rounded-2xl space-y-4">
+      <div>
+        <h3 class="text-amber-500 font-bold text-xs uppercase">Tentang Beliau</h3>
+        <p class="text-stone-300 text-sm">Dewa perang, keberanian, dan pelindung bahasa serta kebudayaan Tamil.</p>
+      </div>
+      <div class="border-t border-stone-800/40 pt-3">
+        <h3 class="text-amber-500 font-bold text-xs uppercase">Filosofi</h3>
+        <p class="text-stone-300 text-sm">Simbol kemenangan kesadaran spiritual atas kebodohan dan kegelapan.</p>
+      </div>
+      <div class="border-t border-stone-800/40 pt-3 bg-stone-950/60 p-4 rounded-xl text-center">
+        <h4 class="text-orange-400 font-bold text-xs uppercase">Mantra Harian</h4>
+        <p class="italic text-stone-100 text-sm">"Om Saravana Bhava"</p>
+        <p class="text-stone-500 text-xs mt-1">Artinya: Salam kepada Yang Lahir di Alang-Alang Suci, Pembawa Kedamaian dan Energi Ilahi.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // KONTROL KONFIGURASI FIREBASE KAMU
+    // Ganti objek di bawah ini dengan milikmu dari Firebase Console jika perlu!
+    const firebaseConfig = {
+      apiKey: "AIzaSyA1...", 
+      authDomain: "sanatana-tamil.firebaseapp.com",
+      projectId: "sanatana-tamil",
+      storageBucket: "sanatana-tamil.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456:web:abcd"
+    };
+
+    // Inisialisasi Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // DOM Elemen HTML
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const mainScreen = document.getElementById("mainScreen");
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userGreeting = document.getElementById("userGreeting");
+    const bellBtn = document.getElementById("bellBtn");
+    const flowerBtn = document.getElementById("flowerBtn");
+    const canvas = document.getElementById("flowerCanvas");
+
+    // ─── STATUS LOGIN (AUTH LISTENER) ───
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Jika user berhasil login, data akun tersimpan otomatis di sistem Firebase
+        userGreeting.innerText = `Selamat Datang, ${user.displayName}`;
+        welcomeScreen.classList.add("hidden");
+        mainScreen.classList.remove("hidden");
+      } else {
+        // Jika belum/sudah logout
+        welcomeScreen.classList.remove("hidden");
+        mainScreen.classList.add("hidden");
+      }
+    });
+
+    // Tombol Login Aksi
+    loginBtn.addEventListener("click", () => {
+      signInWithPopup(auth, provider).catch((error) => {
+        console.error("Gagal login:", error);
+        alert("Gagal login: Pastikan domain '" + window.location.hostname + "' sudah ditambahkan di Authorized Domains Firebase!");
+      });
+    });
+
+    // Tombol Keluar Aksi
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth);
+    });
+
+    // ─── FITUR LONCENG BUNYI ───
+    bellBtn.addEventListener("click", () => {
+      bellBtn.classList.add("animate-bell");
+      const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/911/911-84.wav");
+      audio.volume = 0.4;
+      audio.play().catch(err => console.log("Audio diblokir browser sebelum interaksi penuh"));
+      setTimeout(() => bellBtn.classList.remove("animate-bell"), 300);
+    });
+
+    // ─── FITUR HUJAN BUNGA (CANVAS JS) ───
+    let animationId;
+    flowerBtn.addEventListener("click", () => {
+      canvas.classList.remove("hidden");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Membuat 35 titik kelopak bunga acak
+      const flowers = Array.from({ length: 35 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        r: Math.random() * 5 + 4,
+        color: ["#f59e0b", "#f97316", "#f43f5e", "#ec4899"][Math.floor(Math.random() * 4)],
+        speed: Math.random() * 2 + 2.5,
+        angle: Math.random() * 2
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        flowers.forEach((f) => {
+          f.y += f.speed;
+          f.x += Math.sin(f.angle);
+          f.angle += 0.02;
+
+          ctx.beginPath();
+          ctx.fillStyle = f.color;
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        animationId = requestAnimationFrame(draw);
+      }
+      
+      cancelAnimationFrame(animationId);
+      draw();
+
+      // Hujan berhenti otomatis setelah 4 detik
+      setTimeout(() => {
+        cancelAnimationFrame(animationId);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.classList.add("hidden");
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
