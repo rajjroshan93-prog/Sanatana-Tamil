@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght=600;700;900&family=Plus+Jakarta+Sans:wght=300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: #020100; }
@@ -30,7 +30,7 @@
     .animate-bell { animation: bellRing 0.6s ease-in-out; }
 
     .gold-border-glow {
-      box-shadow: 0 0 50px -10px rgba(217, 119, 6, 0.3), inset 0 0 30px rgba(217, 119, 6, 0.1);
+      box-shadow: 0 0 50px -10px rgba(217, 119, 6, 0.4), inset 0 0 30px rgba(217, 119, 6, 0.15);
     }
     canvas { pointer-events: none; }
   </style>
@@ -44,7 +44,7 @@
 
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-b from-amber-500/10 via-orange-600/5 to-transparent rounded-full blur-[140px] cosmic-glow pointer-events-none"></div>
 
-  <div class="w-full max-w-2xl space-y-6 z-10">
+  <div class="w-full max-w-xl space-y-6 z-10">
     
     <header class="w-full flex justify-between items-center bg-stone-900/60 border border-amber-500/20 backdrop-blur-xl p-4 rounded-2xl shadow-xl">
       <div class="flex flex-col">
@@ -71,12 +71,12 @@
         <p id="deityTamil" class="text-orange-500 text-xl font-bold tracking-[0.2em]">-</p>
       </div>
 
-      <div class="w-full h-85 bg-stone-950 rounded-[2rem] border border-amber-500/10 overflow-hidden relative shadow-inner">
-        <img id="deityImage" src="" alt="Dewa Peradaban Tamil" class="w-full h-full object-cover opacity-85 transition-opacity duration-1000" />
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/40"></div>
+      <div class="w-full h-[500px] bg-stone-950 rounded-[2.5rem] border border-amber-500/10 overflow-hidden relative shadow-inner">
+        <img id="deityImage" src="" alt="Dewa Peradaban Tamil" class="w-full h-full object-cover opacity-90 transition-opacity duration-1000" />
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/20"></div>
       </div>
 
-      <p id="deityDesc" class="text-[11px] text-stone-400 italic font-light px-4 max-w-lg mx-auto">
+      <p id="deityDesc" class="text-[11px] text-stone-400 italic font-light px-4 max-w-lg mx-auto leading-relaxed">
         Memuat hikmah spiritual kosmik...
       </p>
 
@@ -93,71 +93,71 @@
       </div>
     </div>
 
-    <div class="bg-gradient-to-b from-stone-900/80 to-stone-950/90 border border-amber-500/15 backdrop-blur-xl p-6 rounded-[2rem] text-center space-y-2">
+    <div class="bg-gradient-to-b from-stone-900/80 to-stone-950/90 border border-amber-500/15 backdrop-blur-xl p-5 rounded-[2rem] text-center space-y-1 shadow-xl">
       <h4 class="text-[10px] tracking-[0.3em] uppercase text-orange-500 font-bold font-serif-royal">Mantra Agung Hari Ini</h4>
-      <p class="text-base font-serif-royal text-amber-300 font-bold italic" id="deityMantra">"Om Saravana Bhava"</p>
+      <p class="text-base font-serif-royal text-amber-300 font-bold italic" id="deityMantra">-</p>
     </div>
 
     <footer class="text-center pt-2 pb-6">
       <p class="text-[9px] text-stone-600 tracking-[0.3em] uppercase font-bold">
-        Sanatana Tamil Sanctum Ecosystem • Audio Engine Ver 1.2
+        Sanatana Tamil Sanctum Ecosystem • Real Asset Integrated
       </p>
     </footer>
 
   </div>
 
   <script type="module">
-    // 1. DATABASE DEWA-DEWI PERADABAN TAMIL (Akan berputar otomatis berdasarkan tanggal kalender)
+    // DATABASE LINKED LANGSUNG KE FOTO HD PREMIUM DARI KAMU
     const deitiesDatabase = [
       {
         name: "Lord Murugan",
         tamil: "முருகன்",
-        image: "https://images.unsplash.com/photo-1609137144813-9118bc27df0b?q=80&w=600&auto=format&fit=crop",
+        image: "1000488924.jpg",
         desc: "Dewa tertinggi pelindung bahasa, sastra, dan peradaban spiritual Tamil kuno. Pembawa tombak suci Kebijaksanaan (Vel).",
         mantra: "“Om Saravana Bhava”"
       },
       {
-        name: "Lord Shiva (Nataraja)",
+        name: "Lord Shiva",
         tamil: "சிவன்",
-        image: "https://images.unsplash.com/photo-1663155700755-e41c4826b009?q=80&w=600&auto=format&fit=crop",
+        image: "1000488925.jpg",
         desc: "Manifestasi Sang Penari Kosmik Pencipta Alam Semesta, yang detak tariannya menghasilkan ketukan ritme Sastra Tamil.",
         mantra: "“Om Namah Shivaya”"
       },
       {
         name: "Lord Ganesha",
         tamil: "பிள்ளையார்",
-        image: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?q=80&w=600&auto=format&fit=crop",
+        image: "1000488926.jpg",
         desc: "Dewa Pembuka Gerbang dan Penghancur segala rintangan dalam menjalani kehidupan duniawi maupun perjalanan rohani.",
         mantra: "“Om Gam Ganapataye Namaha”"
       },
       {
-        name: "Goddess Parvati (Shakti)",
+        name: "Goddess Parvati",
         tamil: "பார்வதி",
-        image: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=600&auto=format&fit=crop",
+        image: "1000488927.jpg",
         desc: "Ibu Alam Semesta, manifestasi energi suci mutlak tempat bersumbernya kekuatan perlindungan, cinta, dan pengabdian jiwa.",
         mantra: "“Om Dum Durgayei Namaha”"
       },
       {
         name: "Goddess Lakshmi",
         tamil: "லட்சுமி",
-        image: "https://images.unsplash.com/photo-1634724905307-f27bd57a3e87?q=80&w=600&auto=format&fit=crop",
+        image: "1000488928.jpg",
         desc: "Sang Dewi pembawa cahaya keberuntungan, kemakmuran spritual, kedamaian batiniah, serta harmoni seisi Istana.",
         mantra: "“Om Shreem Mahalakshmyei Namaha”"
       }
     ];
 
-    // Rumus Matematika menentukan Dewa hari ini berdasarkan tanggal sekarang
+    // Logika pergantian harian otomatis berdasarkan tanggal kalender
     const currentDay = new Date().getDate();
     const todayData = deitiesDatabase[currentDay % deitiesDatabase.length];
 
-    // Pasang data harian ke dalam UI HTML
+    // Render Data ke Komponen UI HTML
     document.getElementById("deityName").innerText = todayData.name;
     document.getElementById("deityTamil").innerText = todayData.tamil;
     document.getElementById("deityImage").src = todayData.image;
     document.getElementById("deityDesc").innerText = todayData.desc;
     document.getElementById("deityMantra").innerText = todayData.mantra;
 
-    // 2. LOGIKA AUDIO SOUND DARI USER
+    // LOGIKA HANDLING AUDIO JALUR USER INTERACTION
     const bellAudio = document.getElementById("bellAudio");
     const chantsAudio = document.getElementById("chantsAudio");
     const ambientBtn = document.getElementById("ambientBtn");
@@ -167,7 +167,7 @@
     const flowerBtn = document.getElementById("flowerBtn");
     const canvas = document.getElementById("flowerCanvas");
 
-    // Kontrol Backsound Chants (chants.mp3)
+    // Kontrol Backsound Mantra (chants.mp3)
     let isChanting = false;
     ambientBtn.addEventListener("click", () => {
       if(!isChanting) {
@@ -177,7 +177,7 @@
           ambientIcon.innerText = "🕉️";
           ambientText.innerText = "Matikan Mantra";
           ambientBtn.classList.add("border-orange-500", "text-orange-400");
-        }).catch(err => console.log("Izin audio browser ditolak"));
+        }).catch(err => alert("Ketuk layar sekali lagi untuk memberi izin suara pada browser!"));
       } else {
         chantsAudio.pause();
         isChanting = false;
@@ -194,11 +194,11 @@
       bellBtn.classList.add("animate-bell");
       
       bellAudio.currentTime = 0;
-      bellAudio.volume = 0.6;
-      bellAudio.play().catch(err => console.log("Gagal memutar bell.mp3"));
+      bellAudio.volume = 0.7;
+      bellAudio.play().catch(err => console.log("Audio tertahan proteksi autoplay browser"));
     });
 
-    // 3. EFEK RITUAL TABUR BUNGA PUSPA (INTERAKTIF)
+    // RITUAL INTERAKTIF KELOPAK BUNGA PUSPA
     let animationId;
     flowerBtn.addEventListener("click", () => {
       canvas.classList.remove("hidden");
@@ -211,7 +211,7 @@
         y: Math.random() * -canvas.height,
         r: Math.random() * 5 + 4,
         color: ["#fbbf24", "#f97316", "#f43f5e", "#ec4899", "#ffffff"][Math.floor(Math.random() * 5)],
-        speed: Math.random() * 2 + 2,
+        speed: Math.random() * 2 + 2.5,
         angle: Math.random() * 2
       }));
 
@@ -237,4 +237,3 @@
   </script>
 </body>
 </html>
-
