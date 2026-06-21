@@ -104,8 +104,13 @@
       const responsePayload = parseJwt(response.credential);
       if (responsePayload) {
         console.log("User terverifikasi:", responsePayload.name);
-        // Di sini nanti tempat kita menghubungkan ke fungsi dashboard buatanmu sendiri!
-        alert("Selamat Datang di Sanatana Tamil, " + responsePayload.name + "!");
+        
+        // Simpan sesi login di browser
+        sessionStorage.setItem("user_name", responsePayload.name);
+        sessionStorage.setItem("is_logged_in", "true");
+        
+        // Langsung lompat otomatis ke file dashboard buatanmu
+        window.location.href = "dashboard.html"; 
       }
     }
   </script>
