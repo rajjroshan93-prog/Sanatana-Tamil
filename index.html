@@ -22,26 +22,13 @@
     }
     .cosmic-blur { animation: cosmicAura 15s ease-in-out infinite; }
 
-    /* Animasi Genta Bergetar Kerajaan */
-    @keyframes royalBellRing {
-      0%, 100% { transform: rotate(0deg); }
-      20% { transform: rotate(22deg) scale(1.1); filter: drop-shadow(0 0 25px #f59e0b); }
-      40% { transform: rotate(-16deg); }
-      60% { transform: rotate(10deg); }
-      80% { transform: rotate(-5deg); }
-    }
-    .animate-bell { animation: royalBellRing 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
-
     /* Bingkai Kaca Emas Berlapis */
     .emperor-glow {
       box-shadow: 0 0 70px -10px rgba(217, 119, 6, 0.45), inset 0 0 50px rgba(217, 119, 6, 0.15);
     }
-    canvas { pointer-events: none; }
   </style>
 </head>
 <body class="text-stone-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
-
-  <canvas id="flowerCanvas" class="absolute inset-0 w-full h-full hidden z-50"></canvas>
 
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-amber-500/15 via-orange-600/5 to-transparent rounded-full blur-[150px] cosmic-blur pointer-events-none"></div>
 
@@ -101,92 +88,7 @@
     </div>
   </div>
 
-  <div id="mainScreen" class="w-full max-w-md space-y-6 z-10 hidden transition-all duration-700 transform scale-95 opacity-0">
-    <header class="w-full flex justify-between items-center bg-stone-900/70 border border-amber-500/20 backdrop-blur-2xl p-4 rounded-2xl shadow-2xl">
-      <div class="flex flex-col">
-        <h1 class="text-md font-extrabold font-serif-royal tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-orange-400">
-          SANATANA TAMIL
-        </h1>
-        <div class="flex items-center gap-2 mt-0.5">
-          <span class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping"></span>
-          <p id="userGreeting" class="text-[11px] text-amber-100/70 font-bold uppercase tracking-wider">Memuat Kuil...</p>
-        </div>
-      </div>
-      <button id="logoutBtn" class="text-[9px] tracking-widest font-black uppercase bg-stone-950 border border-stone-800 hover:border-red-500/40 hover:text-red-400 text-stone-400 py-2.5 px-3.5 rounded-xl transition-all duration-300 cursor-pointer">
-        Keluar
-      </button>
-    </header>
-
-    <div class="emperor-glow bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 border-2 border-amber-500/30 rounded-[3rem] p-6 relative shadow-[0_35px_80px_-20px_rgba(0,0,0,0.95)] space-y-6 text-center">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-600 text-stone-950 text-[9px] tracking-[0.3em] uppercase font-black px-5 py-1.5 rounded-full border border-amber-300/30 shadow-md">
-        Ruang Mahakudus
-      </div>
-      
-      <div class="space-y-1 pt-2">
-        <h2 class="text-3xl font-black font-serif-royal text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-600 tracking-wide">
-          Lord Murugan
-        </h2>
-        <p class="text-orange-500 text-xl font-bold tracking-[0.2em]">முருகன்</p>
-      </div>
-
-      <div class="w-full h-80 bg-stone-950 rounded-[2rem] border border-amber-500/10 overflow-hidden relative group shadow-2xl">
-        <img src="https://images.unsplash.com/photo-1609137144813-9118bc27df0b?q=80&w=600&auto=format&fit=crop" alt="Lord Murugan" class="w-full h-full object-cover opacity-90 transition-transform duration-[1.5s] group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/30 opacity-90"></div>
-      </div>
-
-      <div class="flex justify-center gap-12 pt-1 relative">
-        <button id="bellBtn" class="w-20 h-20 bg-gradient-to-br from-yellow-300 via-amber-500 to-orange-600 text-stone-950 rounded-full flex items-center justify-center text-4xl shadow-[0_12px_30px_rgba(217,119,6,0.45)] transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
-          🔔
-          <span class="absolute -bottom-7 text-[9px] tracking-widest font-bold text-stone-500 group-hover:text-amber-400 uppercase">Genta Suci</span>
-        </button>
-        
-        <button id="flowerBtn" class="w-20 h-20 bg-gradient-to-br from-orange-500 via-rose-600 to-fuchsia-800 text-stone-100 rounded-full flex items-center justify-center text-4xl shadow-[0_12px_30px_rgba(225,29,72,0.4)] transition-all duration-300 transform active:scale-90 hover:scale-105 cursor-pointer relative group">
-          🌸
-          <span class="absolute -bottom-7 text-[9px] tracking-widest font-bold text-stone-500 group-hover:text-rose-400 uppercase">Tabur Puspa</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="bg-stone-900/30 border border-amber-500/10 p-6 rounded-3xl space-y-4 backdrop-blur-xl">
-      <div class="space-y-1">
-        <h3 class="text-amber-500 font-extrabold text-[9px] tracking-widest uppercase">Atribut Utama</h3>
-        <p class="text-stone-300 text-xs leading-relaxed font-light">Maha Dewa Perang, perlambang keberanian mutlak, kebijaksanaan tinggi, serta pelindung abadi kebudayaan Tamil kuno.</p>
-      </div>
-      
-      <div class="border-t border-stone-800/60 pt-4 bg-gradient-to-r from-amber-950/20 via-stone-950 to-amber-950/20 p-4 rounded-2xl text-center border border-amber-500/20 shadow-inner">
-        <h4 class="text-amber-400 font-extrabold text-[9px] tracking-[0.25em] uppercase mb-1">Mantra Agung Harian</h4>
-        <p class="font-serif-royal tracking-widest text-lg font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-orange-500">"Om Saravana Bhava"</p>
-        <p class="text-stone-400 text-[10px] mt-1 font-light italic">Artinya: Salam Penghormatan kepada Energi Suci Pembawa Kedamaian Semesta.</p>
-      </div>
-    </div>
-  </div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    // Menggunakan Firebase Config bawaan kuil lama, pastikan ID Firestore sinkron
-    const firebaseConfig = {
-      apiKey: "AIzaSyB6vxZNwQXXShiWNWAxiI5EVZypVbLJFQI",
-      authDomain: "sanatana-8c4e9.firebaseapp.com",
-      projectId: "sanatana-8c4e9",
-      storageBucket: "sanatana-8c4e9.firebasestorage.app",
-      messagingSenderId: "662168673258",
-      appId: "1:662168673258:web:5fc7e5e93618782ccff093",
-      measurementId: "G-0BJwKH1R33"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const welcomeScreen = document.getElementById("welcomeScreen");
-    const mainScreen = document.getElementById("mainScreen");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const userGreeting = document.getElementById("userGreeting");
-    const bellBtn = document.getElementById("bellBtn");
-    const flowerBtn = document.getElementById("flowerBtn");
-    const canvas = document.getElementById("flowerCanvas");
-
+  <script>
     function parseJwt(token) {
       try {
         var base64Url = token.split('.')[1];
@@ -198,79 +100,14 @@
       } catch(e) { return null; }
     }
 
-    window.handleCredentialResponse = async function(response) {
+    window.handleCredentialResponse = function(response) {
       const responsePayload = parseJwt(response.credential);
       if (responsePayload) {
-        const uid = responsePayload.sub;
-        const name = responsePayload.name;
-        const email = responsePayload.email;
-
-        try {
-          await setDoc(doc(db, "pemuja_altar", uid), {
-            nama: name,
-            email: email,
-            waktuLogin: new Date().toISOString()
-          });
-        } catch (error) { console.error("Error Firestore:", error); }
-
-        sessionStorage.setItem("user_name", name);
-        sessionStorage.setItem("is_logged_in", "true");
-        renderAppSession();
+        console.log("User terverifikasi:", responsePayload.name);
+        // Di sini nanti tempat kita menghubungkan ke fungsi dashboard buatanmu sendiri!
+        alert("Selamat Datang di Sanatana Tamil, " + responsePayload.name + "!");
       }
     }
-
-    function renderAppSession() {
-      const name = sessionStorage.getItem("user_name");
-      const logged = sessionStorage.getItem("is_logged_in");
-      if (logged === "true") {
-        userGreeting.innerText = `Halo, ${name}`;
-        welcomeScreen.classList.add("hidden");
-        mainScreen.classList.remove("hidden");
-        setTimeout(() => {
-          mainScreen.classList.remove("scale-95", "opacity-0");
-          mainScreen.classList.add("scale-100", "opacity-100");
-        }, 50);
-      }
-    }
-
-    window.onload = function() { renderAppSession(); }
-    logoutBtn.addEventListener("click", () => { sessionStorage.clear(); window.location.reload(); });
-
-    bellBtn.addEventListener("click", () => {
-      bellBtn.classList.remove("animate-bell");
-      void bellBtn.offsetWidth; 
-      bellBtn.classList.add("animate-bell");
-      const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/911/911-84.wav");
-      audio.volume = 0.5;
-      audio.play().catch(err => console.log("Audio tertahan"));
-    });
-
-    let animationId;
-    flowerBtn.addEventListener("click", () => {
-      canvas.classList.remove("hidden");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const flowers = Array.from({ length: 55 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * -canvas.height,
-        r: Math.random() * 5 + 4,
-        color: ["#fbbf24", "#f97316", "#f43f5e", "#ec4899", "#ffffff"][Math.floor(Math.random() * 5)],
-        speed: Math.random() * 2.5 + 2.2,
-        angle: Math.random() * 2
-      }));
-      function renderShower() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        flowers.forEach((f) => {
-          f.y += f.speed; f.x += Math.sin(f.angle) * 0.8; f.angle += 0.03;
-          ctx.beginPath(); ctx.fillStyle = f.color;
-          ctx.ellipse(f.x, f.y, f.r, f.r * 1.4, f.angle, 0, Math.PI * 2); ctx.fill();
-        });
-        animationId = requestAnimationFrame(renderShower);
-      }
-      cancelAnimationFrame(animationId); renderShower();
-      setTimeout(() => { cancelAnimationFrame(animationId); ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.classList.add("hidden"); }, 4500);
-    });
   </script>
 </body>
 </html>
