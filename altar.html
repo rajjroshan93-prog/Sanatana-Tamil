@@ -7,153 +7,392 @@
     <style>
         :root {
             --gold: #FFD700;
-            --dark-bg: #0d0d0d;
-            --panel-bg: rgba(20, 20, 20, 0.9);
+            --gold2: #d4af37;
+            --deep-gold: #8B6914;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--dark-bg);
-            color: #fff;
-            font-family: 'Segoe UI', Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle, #2c1604 0%, #050505 100%);
             padding: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background-color: #0a0500;
+
+            /* Latar kuil berlapis */
+            background-image:
+                /* Lilin kiri */
+                radial-gradient(ellipse 18px 60px at 8% 75%, rgba(255,160,0,0.35) 0%, transparent 100%),
+                radial-gradient(ellipse 10px 10px at 8% 68%, rgba(255,220,80,0.9) 0%, transparent 100%),
+                /* Lilin kanan */
+                radial-gradient(ellipse 18px 60px at 92% 75%, rgba(255,160,0,0.35) 0%, transparent 100%),
+                radial-gradient(ellipse 10px 10px at 92% 68%, rgba(255,220,80,0.9) 0%, transparent 100%),
+                /* Cahaya altar tengah atas */
+                radial-gradient(ellipse 60% 40% at 50% 0%, rgba(180,100,0,0.5) 0%, transparent 70%),
+                /* Cahaya lantai bawah */
+                radial-gradient(ellipse 80% 30% at 50% 100%, rgba(120,60,0,0.4) 0%, transparent 70%),
+                /* Background utama kuil */
+                radial-gradient(ellipse 120% 100% at 50% 50%, #1a0800 0%, #080300 100%);
         }
 
-        .altar-container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--panel-bg);
-            border: 3px solid #4a3319;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
-            text-align: center;
-            position: relative;
+        /* Pilar kiri & kanan (ornamen kuil) */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            top: 0; bottom: 0;
+            width: 52px;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(180,120,20,0.18) 0px,
+                    rgba(80,40,0,0.22) 18px,
+                    rgba(180,120,20,0.18) 36px
+                );
+            border: 1px solid rgba(180,120,20,0.2);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::before { left: 0; }
+        body::after  { right: 0; }
+
+        /* Ornamen atas seperti gopuram */
+        .temple-top {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 90px;
+            background: linear-gradient(180deg, rgba(100,50,0,0.55) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 6px;
+            gap: 22px;
+        }
+        .temple-top span {
+            font-size: 1.7rem;
+            opacity: 0.55;
+            animation: flicker 2.5s infinite alternate;
+        }
+        .temple-top span:nth-child(2) { animation-delay: 0.7s; font-size: 2.2rem; opacity: 0.7; }
+        .temple-top span:nth-child(3) { animation-delay: 1.3s; }
+
+        /* Ornamen bawah */
+        .temple-bottom {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            height: 55px;
+            background: linear-gradient(0deg, rgba(100,50,0,0.45) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Lilin animasi kiri & kanan */
+        .candle {
+            position: fixed;
+            bottom: 60px;
+            z-index: 1;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            gap: 2px;
+        }
+        .candle.left  { left: 10px; }
+        .candle.right { right: 10px; }
+        .candle-flame {
+            width: 10px; height: 18px;
+            background: radial-gradient(ellipse at 50% 80%, #fff 0%, #ffe066 40%, #ff9900 80%, transparent 100%);
+            border-radius: 50% 50% 30% 30%;
+            animation: flicker 1.2s infinite alternate;
+            filter: blur(0.5px);
+        }
+        .candle-body {
+            width: 14px;
+            height: 55px;
+            background: linear-gradient(to right, #d4af37, #fffbe6 40%, #d4af37);
+            border-radius: 3px 3px 2px 2px;
+        }
+        .candle-base {
+            width: 20px; height: 6px;
+            background: linear-gradient(to right, #8B6914, #FFD700, #8B6914);
+            border-radius: 3px;
         }
 
-        .altar-container::after {
-            content: '';
-            position: absolute;
-            top: -6px; left: -6px; right: -6px; bottom: -6px;
-            border: 1px solid var(--gold);
-            border-radius: 30px;
-            opacity: 0.25;
+        @keyframes flicker {
+            0%   { transform: scaleX(1) scaleY(1); opacity: 0.9; }
+            40%  { transform: scaleX(0.88) scaleY(1.08); opacity: 1; }
+            70%  { transform: scaleX(1.1) scaleY(0.95); opacity: 0.85; }
+            100% { transform: scaleX(0.95) scaleY(1.05); opacity: 0.95; }
+        }
+
+        /* Partikel dupa mengambang */
+        .incense-smoke {
+            position: fixed;
+            bottom: 80px;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: rgba(255,200,100,0.5);
+            animation: rise 4s infinite ease-in;
             pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes rise {
+            0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+            50%  { transform: translateY(-120px) translateX(8px) scale(1.5); opacity: 0.3; }
+            100% { transform: translateY(-240px) translateX(-5px) scale(0.5); opacity: 0; }
+        }
+
+        /* Container utama */
+        .altar-container {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* Mahkota / Gopuram atas panel */
+        .panel-crown {
+            width: 90%;
+            text-align: center;
+            font-size: 1.5rem;
+            letter-spacing: 8px;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: -4px;
+            text-shadow: 0 0 12px rgba(255,215,0,0.5);
+        }
+
+        /* Panel utama */
+        .panel {
+            width: 100%;
+            background: linear-gradient(180deg, rgba(30,12,2,0.97) 0%, rgba(15,6,1,0.99) 100%);
+            border: 2px solid var(--deep-gold);
+            border-radius: 6px 6px 20px 20px;
+            padding: 18px 18px 22px;
+            box-shadow:
+                0 0 0 1px rgba(255,215,0,0.08),
+                0 0 60px rgba(180,90,0,0.3),
+                inset 0 0 40px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Garis ornamen dalam panel */
+        .panel::before {
+            content: '— 𑀉𑀁 —';
+            display: block;
+            text-align: center;
+            color: rgba(212,175,55,0.35);
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            margin-bottom: 2px;
         }
 
         .day-indicator {
-            font-size: 0.95rem;
-            color: #d1b49e;
+            text-align: center;
+            font-size: 0.78rem;
+            color: #c9a96e;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
+        /* Frame gambar dengan efek kuil */
         .image-frame {
             width: 100%;
-            height: 450px;
-            border-radius: 15px;
+            aspect-ratio: 3/4;
+            position: relative;
+            border-radius: 8px;
             overflow: hidden;
-            border: 2px solid #3a2510;
-            background-color: #000;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 5px 15px rgba(0,0,0,0.5);
+            background: #000;
+        }
+
+        /* Border ornamen emas di frame */
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 3px solid transparent;
+            border-image: linear-gradient(135deg, #FFD700, #8B6914, #FFD700, #8B6914, #FFD700) 1;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Overlay gradien bawah gambar */
+        .image-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 35%;
+            background: linear-gradient(to top, rgba(10,3,0,0.85) 0%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .image-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
+        /* Ornamen sudut frame */
+        .corner { position: absolute; font-size: 1.1rem; color: var(--gold); z-index: 3; opacity: 0.8; }
+        .corner.tl { top: 4px; left: 6px; }
+        .corner.tr { top: 4px; right: 6px; transform: scaleX(-1); }
+        .corner.bl { bottom: 4px; left: 6px; transform: scaleY(-1); }
+        .corner.br { bottom: 4px; right: 6px; transform: scale(-1,-1); }
+
+        .deity-info {
+            text-align: center;
+        }
         .deity-info h1 {
-            font-size: 1.6rem;
+            font-size: 1.35rem;
             color: var(--gold);
-            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+            text-shadow: 0 0 16px rgba(255,215,0,0.5), 0 2px 4px rgba(0,0,0,0.9);
             letter-spacing: 1px;
+            line-height: 1.3;
+        }
+        .deity-info .om {
+            font-size: 0.85rem;
+            color: rgba(212,175,55,0.5);
+            letter-spacing: 6px;
+            margin-top: 4px;
+        }
+
+        /* Divider ornamen */
+        .divider {
+            text-align: center;
+            color: rgba(180,120,20,0.4);
+            font-size: 0.75rem;
+            letter-spacing: 8px;
         }
 
         .audio-controls {
             display: flex;
-            gap: 15px;
-            justify-content: center;
+            gap: 12px;
         }
 
         .btn {
             flex: 1;
-            background: linear-gradient(135deg, #4a2f13 0%, #211204 100%);
-            border: 1px solid var(--gold);
+            background: linear-gradient(135deg, #3d2008 0%, #1a0a02 100%);
+            border: 1px solid var(--deep-gold);
             color: var(--gold);
-            padding: 14px 10px;
+            padding: 13px 8px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,215,0,0.1);
             transition: all 0.3s ease;
         }
-
-        .btn:hover {
-            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
-            color: #000;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-            transform: translateY(-2px);
+        .btn:active, .btn:hover {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+            color: #1a0800;
+            box-shadow: 0 0 22px rgba(255,215,0,0.45);
+            transform: translateY(-1px);
+        }
+        .btn.active {
+            background: linear-gradient(135deg, #00e6b0 0%, #007755 100%);
+            color: #001a10;
+            border-color: #00e6b0;
         }
 
-        .btn.active {
-            background: linear-gradient(135deg, #00ffcc 0%, #008866 100%);
-            color: #000;
-            border-color: #00ffcc;
+        /* Doa kecil di bawah */
+        .footer-mantra {
+            text-align: center;
+            font-size: 0.72rem;
+            color: rgba(180,130,50,0.45);
+            letter-spacing: 2px;
+            margin-top: 6px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Ornamen kuil atas -->
+    <div class="temple-top">
+        <span>🪔</span>
+        <span>🕉️</span>
+        <span>🪔</span>
+    </div>
+
+    <!-- Lilin kiri -->
+    <div class="candle left">
+        <div class="candle-flame"></div>
+        <div class="candle-body"></div>
+        <div class="candle-base"></div>
+    </div>
+
+    <!-- Lilin kanan -->
+    <div class="candle right">
+        <div class="candle-flame"></div>
+        <div class="candle-body"></div>
+        <div class="candle-base"></div>
+    </div>
+
+    <!-- Partikel dupa -->
+    <div class="incense-smoke" style="left:14%;animation-delay:0s"></div>
+    <div class="incense-smoke" style="left:16%;animation-delay:1.5s"></div>
+    <div class="incense-smoke" style="right:14%;animation-delay:0.8s"></div>
+    <div class="incense-smoke" style="right:16%;animation-delay:2.2s"></div>
+
+    <!-- Ornamen bawah -->
+    <div class="temple-bottom"></div>
+
     <div class="altar-container">
-        <div class="day-indicator" id="altar-day-label">Siklus Murthi Hari --</div>
-        
-        <div class="image-frame">
-            <img id="altar-img" src="" alt="Loading Murthi...">
-        </div>
-        
-        <div class="deity-info">
-            <h1 id="altar-name">Memanggil Energi...</h1>
+        <div class="panel-crown">𖣯 ✦ 𖣯</div>
+
+        <div class="panel">
+            <div class="day-indicator" id="altar-day-label">Siklus Murthi Hari —</div>
+
+            <div class="image-frame">
+                <span class="corner tl">❧</span>
+                <span class="corner tr">❧</span>
+                <span class="corner bl">❧</span>
+                <span class="corner br">❧</span>
+                <img id="altar-img" src="" alt="Memanggil Murthi...">
+            </div>
+
+            <div class="deity-info">
+                <h1 id="altar-name">Memanggil Energi...</h1>
+                <div class="om">— ॐ नमः शिवाय —</div>
+            </div>
+
+            <div class="divider">⸻ ✦ ⸻</div>
+
+            <div class="audio-controls">
+                <button class="btn" id="btn-bell" onclick="toggleAudio('bell')">🔔 Bunyikan Genta</button>
+                <button class="btn" id="btn-chant" onclick="toggleAudio('chant')">🕉️ Putar Mantra</button>
+            </div>
         </div>
 
-        <div class="audio-controls">
-            <button class="btn" id="btn-bell" onclick="toggleAudio('bell')">🔔 Bunyikan Genta</button>
-            <button class="btn" id="btn-chant" onclick="toggleAudio('chant')">🕉️ Putar Mantra</button>
-        </div>
+        <div class="footer-mantra">OM NAMAH SHIVAYA • OM SHARAVANABHAVA</div>
     </div>
 
     <audio id="audio-bell" src="bell.mp3" loop></audio>
     <audio id="audio-chant" src="chants.mp3" loop></audio>
 
     <script src="images.js"></script>
-
     <script>
         function initAltar() {
             const today = new Date();
             const currentDayNumber = today.getDate();
-            
-            // Mengambil data dari array di dalam file images.js
             const targetIndex = (currentDayNumber - 1) % altarImages.length;
             const currentMurthi = altarImages[targetIndex];
 
@@ -166,17 +405,14 @@
         function toggleAudio(id) {
             const audioEl = document.getElementById(`audio-${id}`);
             const btnEl = document.getElementById(`btn-${id}`);
-
             if (audioEl.paused) {
-                audioEl.play().catch(err => alert("Klik area layar mana saja dulu untuk izinkan audio!"));
+                audioEl.play().catch(() => alert("Tap layar dulu untuk izinkan audio!"));
                 btnEl.classList.add("active");
-                if (id === 'bell') btnEl.innerText = "🛑 Hentikan Genta";
-                if (id === 'chant') btnEl.innerText = "🛑 Hentikan Mantra";
+                btnEl.innerText = id === 'bell' ? "🛑 Hentikan Genta" : "🛑 Hentikan Mantra";
             } else {
                 audioEl.pause();
                 btnEl.classList.remove("active");
-                if (id === 'bell') btnEl.innerText = "🔔 Bunyikan Genta";
-                if (id === 'chant') btnEl.innerText = "🕉️ Putar Mantra";
+                btnEl.innerText = id === 'bell' ? "🔔 Bunyikan Genta" : "🕉️ Putar Mantra";
             }
         }
 
