@@ -22,7 +22,7 @@ body {
   height:100%;
 }
 
-/* ── BACKGROUND KUIL TAMIL (ALTAR UTAMA) ── */
+/* ── BACKGROUND KUIL ASLI VIA URL ── */
 .bg-temple {
   position:fixed;
   inset:0;
@@ -31,7 +31,7 @@ body {
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
-  filter:brightness(0.5) saturate(1.1);
+  filter:brightness(0.55) saturate(1.05);
 }
 /* Overlay pencahayaan mistis */
 .bg-overlay {
@@ -39,19 +39,19 @@ body {
   inset:0;
   z-index:1;
   background:
-    radial-gradient(circle 80% 60% at 50% 38%, rgba(0,0,0,0) 15%, rgba(12,5,1,0.7) 100%),
-    linear-gradient(180deg, rgba(8,3,0,0.5) 0%, transparent 25%, transparent 75%, rgba(12,5,1,0.95) 100%);
+    radial-gradient(circle 85% 65% at 50% 40%, rgba(0,0,0,0) 10%, rgba(12,5,1,0.65) 100%),
+    linear-gradient(180deg, rgba(8,3,0,0.4) 0%, transparent 25%, transparent 75%, rgba(12,5,1,0.9) 100%);
 }
 
-/* ── LILIN PREMIUM DI SISI BAWAH ── */
+/* ── LILIN PREMIUM ── */
 .candle-wrap {
   position:fixed; bottom:20px; z-index:20;
   display:flex; flex-direction:column; align-items:center;
 }
 .candle-wrap.cl{left:16px;} .candle-wrap.cr{right:16px;}
-.c-halo{width:40px;height:65px;background:radial-gradient(ellipse at 50% 90%,rgba(255,150,20,0.6) 0%,transparent 70%);margin-bottom:-15px;}
+.c-halo{width:40px;height:65px;background:radial-gradient(ellipse at 50% 90%,rgba(255,150,20,0.55) 0%,transparent 70%);margin-bottom:-15px;}
 .c-flame{width:13px;height:26px;background:radial-gradient(ellipse at 50% 70%,#fff 0%,#ffe566 35%,#ff7700 75%,transparent 100%);border-radius:50% 50% 35% 35%;animation:flicker 1s infinite alternate;filter:blur(.2px);position:relative;z-index:2;}
-.c-wax{width:16px;height:95px;background:linear-gradient(135deg,#f0dfb3 0%,#fffbe8 40%,#b59255 100%);border-radius:4px;box-shadow:0 0 20px rgba(255,190,40,0.45);}
+.c-wax{width:16px;height:95px;background:linear-gradient(135deg,#f0dfb3 0%,#fffbe8 40%,#b59255 100%);border-radius:4px;box-shadow:0 0 20px rgba(255,190,40,0.4);}
 .c-base{width:26px;height:10px;background:linear-gradient(90deg,#61440b,#FFD700,#61440b);border-radius:2px;}
 
 @keyframes flicker{
@@ -62,24 +62,24 @@ body {
 /* Asap Dupa */
 .smoke{
   position:fixed; border-radius:50%;
-  background:rgba(255,220,150,0.25);
+  background:rgba(255,220,150,0.2);
   animation:riseup 5s infinite ease-in;
   pointer-events:none; z-index:19;
 }
 @keyframes riseup{
   0%{transform:translateY(0) scale(1);opacity:0.3;}
-  50%{transform:translateY(-120px) translateX(10px) scale(2.3);opacity:0.12;}
-  100%{transform:translateY(-260px) translateX(-5px) scale(0.7);opacity:0;}
+  50%{transform:translateY(-120px) translateX(10px) scale(2.2);opacity:0.1;}
+  100%{transform:translateY(-260px) translateX(-5px) scale(0.6);opacity:0;}
 }
 
 /* ── HEADER LAYAR ── */
 .header {
   position:fixed; top:0; left:0; right:0; z-index:20;
   padding:16px 15px;
-  background:linear-gradient(180deg, rgba(12,5,1,0.85) 0%, transparent 100%);
+  background:linear-gradient(180deg, rgba(12,5,1,0.8) 0%, transparent 100%);
   display:flex; align-items:center; justify-content:center; gap:10px;
 }
-.header .h-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,0.4),transparent);}
+.header .h-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,0.35),transparent);}
 .header .h-text{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:5px;color:#FFD700;text-shadow:0 0 10px rgba(255,215,0,0.4);white-space:nowrap;font-weight:700;}
 .header .h-flame{font-size:1.1rem;}
 
@@ -91,111 +91,81 @@ body {
   display:flex; flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  padding:75px 16px 80px;
+  padding:80px 16px 85px;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
 }
 
-/* CONTAINER UTAMA ALTAR */
+/* CONTAINER STRUKTUR ALTAR */
 .deity-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 400px;
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:0;
 }
 
-/* Label hari di atas pintu */
+/* Label hari di atas pintu gerbang */
 .day-label {
   font-family:'Cinzel',serif;
   font-size:0.75rem;
   letter-spacing:4px;
   color:#FFD700;
   text-align:center;
-  margin-bottom:10px;
-  text-shadow:0 0 12px rgba(255,215,0,0.6), 0 2px 4px rgba(0,0,0,0.9);
+  margin-bottom:20px;
+  text-shadow:0 0 12px rgba(255,215,0,0.5), 0 2px 4px rgba(0,0,0,0.9);
   font-weight:700;
 }
 
-/* ── AREA GAMBAR DEWA (PAS DI TENGAH PINTU GERBANG) ── */
+/* ── INFOBAR DI TENGAH KEDUA PINTU GERBANG (MEMANFAATKAN ELEMEN LAMA TANPA MERUSAK ID) ── */
 .deity-frame {
-  position:relative;
-  width: 72vw; /* Disesuaikan agar pas masuk di dalam lengkungan pintu altar belakang */
-  max-width: 290px;
-  aspect-ratio: 3 / 4.4;
-  margin-bottom: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px; /* Memberikan ruang vertikal pas di tengah gerbang */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-/* Pendaran Cahaya Suci Ilahi di Dalam Pintu */
-.deity-glow {
-  position:absolute;
-  inset:-20px;
-  background:radial-gradient(circle, rgba(255,195,50,0.4) 0%, transparent 70%);
-  border-radius:50%;
-  z-index:0;
-  animation:pulse-glow 2.5s infinite alternate ease-in-out;
-}
-@keyframes pulse-glow{
-  0%{transform:scale(0.95);opacity:0.5;}
-  100%{transform:scale(1.08);opacity:0.9;}
+/* Elemen img disembunyikan total agar tidak memunculkan kotak foto kosong */
+#altar-img {
+  display: none !important;
 }
 
-/* Wadah Gambar Dewa Tanpa Bingkai Foto / Seamless Integration */
-.deity-img-wrap {
-  position:relative; z-index:2;
-  width:100%; height:100%;
-  overflow:hidden;
-}
-.deity-img-wrap img {
-  width:100%; height:100%;
-  object-fit:contain; /* Menggunakan contain agar seluruh bentuk rupang dewa terlihat utuh */
-  display:block;
-  transition:opacity 0.6s ease;
-  /* Efek pencampuran blend-mode agar menyatu indah dengan kegelapan pintu kuil */
-  mix-blend-mode: lighten; 
-  filter: drop-shadow(0 0 15px rgba(255,215,0,0.5)) brightness(1.1);
-}
-/* Efek gradasi lembut di kaki dewa agar menyatu dengan lantai altar */
-.deity-img-wrap::after {
-  content:'';
-  position:absolute;
-  bottom:0; left:0; right:0; height:25%;
-  background:linear-gradient(to top, rgba(12,5,1,1) 0%, transparent 100%);
-  z-index:3; pointer-events:none;
-}
-
-/* ── TEKS INFO DAN DESKRIPSI DI AREA BAWAH PINTU ── */
+/* ── BLOK DATA DEWA DI AREA PINTU TENGAH ── */
 .deity-info {
   width:100%;
   text-align:center;
-  padding:5px 4px 0;
   position:relative; z-index:5;
 }
 
 .deity-name {
   font-family:'Cinzel',serif;
-  font-size: 1.35rem;
+  font-size: 1.5rem; /* Ukuran teks diperbesar agar agung menempati tengah gerbang */
   font-weight:900;
   color:#FFD700;
-  text-shadow:0 0 20px rgba(255,215,0,0.6), 0 2px 6px rgba(0,0,0,0.95);
-  letter-spacing:1.5px;
+  text-shadow:0 0 25px rgba(255,215,0,0.7), 0 2px 6px rgba(0,0,0,0.95);
+  letter-spacing:2px;
   line-height:1.2;
-  margin-bottom:4px;
+  margin-bottom:6px;
 }
 .deity-planet {
-  font-size:0.78rem;
+  font-size:0.82rem;
   letter-spacing:3px;
-  color:rgba(212,175,55,0.85);
-  margin-bottom:14px;
+  color:rgba(212,175,55,0.9);
+  margin-bottom:20px;
   font-weight:600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.9);
 }
 
-/* Kotak Teks Transparan Di Atas Lantai Kuil */
+/* Kotak Teks Transparan Di Atas Corak Lantai Kuil */
 .deity-desc-wrap {
   position:relative;
   padding:15px 18px;
-  background: rgba(12, 5, 1, 0.82); /* Tetap gelap agar mudah dibaca di atas corak lantai */
+  background: rgba(12, 5, 1, 0.82); 
   border: 1px solid rgba(212,175,55,0.35);
   border-radius:10px;
   backdrop-filter:blur(6px);
@@ -214,7 +184,7 @@ body {
 .deity-desc-wrap::after{right:8px;}
 
 .deity-desc {
-  font-size:0.9rem;
+  font-size:0.92rem;
   line-height:1.6;
   color:#f0e2c1;
   font-style:italic;
@@ -227,7 +197,7 @@ body {
   color:rgba(255,215,0,0.3);
   font-size:0.7rem;
   letter-spacing:12px;
-  padding:14px 0;
+  padding:15px 0;
   width:100%;
 }
 
@@ -318,18 +288,16 @@ body {
     <div class="day-label" id="altar-day-label">— HARI —</div>
 
     <div class="deity-frame">
-      <div class="deity-glow"></div>
-      <div class="deity-img-wrap">
-        <img id="altar-img" src="" alt="Murthi">
+      <div class="deity-info">
+        <div class="deity-name" id="altar-name">Memanggil Energi…</div>
+        <div class="deity-planet" id="altar-planet">— ✦ —</div>
       </div>
     </div>
+    
+    <img id="altar-img" src="" alt="Data Sync Only" style="display:none !important;">
 
-    <div class="deity-info">
-      <div class="deity-name" id="altar-name">Memanggil Energi…</div>
-      <div class="deity-planet" id="altar-planet">— ✦ —</div>
-      <div class="deity-desc-wrap">
-        <div class="deity-desc" id="altar-desc">Menghubungkan dengan energi kosmik alam semesta...</div>
-      </div>
+    <div class="deity-desc-wrap">
+      <div class="deity-desc" id="altar-desc">Menghubungkan dengan energi kosmik alam semesta...</div>
     </div>
 
     <div class="divider">⸻ ✦ ⸻</div>
@@ -350,7 +318,7 @@ body {
 <script src="images.js"></script>
 <script>
 // ═══════════════════════════════════
-// DATA SUCI ASLI — NAVAGRAHA TAMIL HINDU (Tetap Utuh)
+// DATA SUCI ASLI — NAVAGRAHA TAMIL HINDU (100% Tetap Utuh Tanpa Ubah)
 // ═══════════════════════════════════
 const weeklyDeities = [
   {
