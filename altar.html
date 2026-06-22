@@ -22,7 +22,7 @@ body {
   height:100%;
 }
 
-/* ── BACKGROUND KUIL TAMIL ── */
+/* ── BACKGROUND KUIL TAMIL (ALTAR UTAMA) ── */
 .bg-temple {
   position:fixed;
   inset:0;
@@ -31,25 +31,25 @@ body {
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
-  filter:brightness(0.45) saturate(1.1);
+  filter:brightness(0.5) saturate(1.1);
 }
-/* Overlay gradasi dramatis agar efek emas menyala */
+/* Overlay pencahayaan mistis */
 .bg-overlay {
   position:fixed;
   inset:0;
   z-index:1;
   background:
-    radial-gradient(circle 80% 60% at 50% 40%, rgba(0,0,0,0) 20%, rgba(12,5,1,0.75) 100%),
-    linear-gradient(180deg, rgba(8,3,0,0.6) 0%, transparent 30%, transparent 70%, rgba(12,5,1,0.9) 100%);
+    radial-gradient(circle 80% 60% at 50% 38%, rgba(0,0,0,0) 15%, rgba(12,5,1,0.7) 100%),
+    linear-gradient(180deg, rgba(8,3,0,0.5) 0%, transparent 25%, transparent 75%, rgba(12,5,1,0.95) 100%);
 }
 
-/* ── LILIN PREMIUM ── */
+/* ── LILIN PREMIUM DI SISI BAWAH ── */
 .candle-wrap {
   position:fixed; bottom:20px; z-index:20;
   display:flex; flex-direction:column; align-items:center;
 }
 .candle-wrap.cl{left:16px;} .candle-wrap.cr{right:16px;}
-.c-halo{width:40px;height:65px;background:radial-gradient(ellipse at 50% 90%,rgba(255,150,20,0.65) 0%,transparent 72%);margin-bottom:-15px;}
+.c-halo{width:40px;height:65px;background:radial-gradient(ellipse at 50% 90%,rgba(255,150,20,0.6) 0%,transparent 70%);margin-bottom:-15px;}
 .c-flame{width:13px;height:26px;background:radial-gradient(ellipse at 50% 70%,#fff 0%,#ffe566 35%,#ff7700 75%,transparent 100%);border-radius:50% 50% 35% 35%;animation:flicker 1s infinite alternate;filter:blur(.2px);position:relative;z-index:2;}
 .c-wax{width:16px;height:95px;background:linear-gradient(135deg,#f0dfb3 0%,#fffbe8 40%,#b59255 100%);border-radius:4px;box-shadow:0 0 20px rgba(255,190,40,0.45);}
 .c-base{width:26px;height:10px;background:linear-gradient(90deg,#61440b,#FFD700,#61440b);border-radius:2px;}
@@ -62,28 +62,28 @@ body {
 /* Asap Dupa */
 .smoke{
   position:fixed; border-radius:50%;
-  background:rgba(255,220,150,0.3);
+  background:rgba(255,220,150,0.25);
   animation:riseup 5s infinite ease-in;
   pointer-events:none; z-index:19;
 }
 @keyframes riseup{
-  0%{transform:translateY(0) scale(1);opacity:0.4;}
-  50%{transform:translateY(-120px) translateX(10px) scale(2.5);opacity:0.15;}
-  100%{transform:translateY(-260px) translateX(-5px) scale(0.8);opacity:0;}
+  0%{transform:translateY(0) scale(1);opacity:0.3;}
+  50%{transform:translateY(-120px) translateX(10px) scale(2.3);opacity:0.12;}
+  100%{transform:translateY(-260px) translateX(-5px) scale(0.7);opacity:0;}
 }
 
-/* ── HEADER ── */
+/* ── HEADER LAYAR ── */
 .header {
   position:fixed; top:0; left:0; right:0; z-index:20;
   padding:16px 15px;
-  background:linear-gradient(180deg, rgba(12,5,1,0.9) 0%, transparent 100%);
+  background:linear-gradient(180deg, rgba(12,5,1,0.85) 0%, transparent 100%);
   display:flex; align-items:center; justify-content:center; gap:10px;
 }
-.header .h-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,0.5),transparent);}
+.header .h-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,0.4),transparent);}
 .header .h-text{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:5px;color:#FFD700;text-shadow:0 0 10px rgba(255,215,0,0.4);white-space:nowrap;font-weight:700;}
 .header .h-flame{font-size:1.1rem;}
 
-/* ── WADAH UTAMA SCREEN (SCROLLABLE ELASTATIS) ── */
+/* ── KONTEN LAYAR (SCROLL CONTAINER) ── */
 .main {
   position:relative; z-index:10;
   height:100vh;
@@ -96,173 +96,161 @@ body {
   -webkit-overflow-scrolling:touch;
 }
 
-/* ── KARTU ALTAR UTAMA (DIPAKSA LEBAR & MEGAH) ── */
+/* CONTAINER UTAMA ALTAR */
 .deity-card {
-  width: 90vw; /* Menggunakan persentase viewport HP agar gambar otomatis melebar maksimal */
-  max-width: 420px; /* Batas atas untuk layar tablet/lebar */
+  width: 100%;
+  max-width: 420px;
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:0;
 }
 
-/* Label hari */
+/* Label hari di atas pintu */
 .day-label {
   font-family:'Cinzel',serif;
-  font-size:0.78rem;
+  font-size:0.75rem;
   letter-spacing:4px;
   color:#FFD700;
   text-align:center;
-  margin-bottom:15px;
+  margin-bottom:10px;
   text-shadow:0 0 12px rgba(255,215,0,0.6), 0 2px 4px rgba(0,0,0,0.9);
   font-weight:700;
 }
 
-/* ── FRAME GAMBER DEWA (UKURAN JAUH LEBIH BESAR) ── */
+/* ── AREA GAMBAR DEWA (PAS DI TENGAH PINTU GERBANG) ── */
 .deity-frame {
   position:relative;
-  width: 100%; /* Memaksa frame mengikuti lebar 90vw dari kartu pembungkus */
-  aspect-ratio: 3 / 4.2; /* Menjaga presisi rasio portrait */
-  margin-bottom: 15px;
+  width: 72vw; /* Disesuaikan agar pas masuk di dalam lengkungan pintu altar belakang */
+  max-width: 290px;
+  aspect-ratio: 3 / 4.4;
+  margin-bottom: 12px;
 }
 
-/* Efek lingkaran cahaya suci di balik foto */
+/* Pendaran Cahaya Suci Ilahi di Dalam Pintu */
 .deity-glow {
   position:absolute;
-  inset:-30px;
-  background:radial-gradient(circle, rgba(255,195,50,0.35) 0%, transparent 70%);
+  inset:-20px;
+  background:radial-gradient(circle, rgba(255,195,50,0.4) 0%, transparent 70%);
   border-radius:50%;
   z-index:0;
   animation:pulse-glow 2.5s infinite alternate ease-in-out;
 }
 @keyframes pulse-glow{
-  0%{transform:scale(0.95);opacity:0.6;}
-  100%{transform:scale(1.06);opacity:1;}
+  0%{transform:scale(0.95);opacity:0.5;}
+  100%{transform:scale(1.08);opacity:0.9;}
 }
 
-/* Bingkai Foto Dewa */
+/* Wadah Gambar Dewa Tanpa Bingkai Foto / Seamless Integration */
 .deity-img-wrap {
   position:relative; z-index:2;
   width:100%; height:100%;
-  border-radius:14px;
   overflow:hidden;
-  border: 2px solid #d4af37; /* Border emas tebal melingkar */
-  box-shadow:
-    0 0 25px rgba(212,175,55,0.4),
-    0 15px 45px rgba(0,0,0,0.95);
 }
 .deity-img-wrap img {
   width:100%; height:100%;
-  object-fit:cover;
+  object-fit:contain; /* Menggunakan contain agar seluruh bentuk rupang dewa terlihat utuh */
   display:block;
   transition:opacity 0.6s ease;
+  /* Efek pencampuran blend-mode agar menyatu indah dengan kegelapan pintu kuil */
+  mix-blend-mode: lighten; 
+  filter: drop-shadow(0 0 15px rgba(255,215,0,0.5)) brightness(1.1);
 }
-/* Efek bayangan gelap di area kaki/bawah foto */
+/* Efek gradasi lembut di kaki dewa agar menyatu dengan lantai altar */
 .deity-img-wrap::after {
   content:'';
   position:absolute;
-  bottom:0; left:0; right:0; height:35%;
+  bottom:0; left:0; right:0; height:25%;
   background:linear-gradient(to top, rgba(12,5,1,1) 0%, transparent 100%);
   z-index:3; pointer-events:none;
 }
 
-/* Ornamen Klasik di Sisi Sudut Frame */
-.fc { position:absolute; font-size:1.1rem; color:#FFD700; z-index:5; text-shadow:0 0 8px rgba(255,215,0,0.7); }
-.fc.tl{top:8px;left:10px;} .fc.tr{top:8px;right:10px;transform:scaleX(-1);}
-.fc.bl{bottom:8px;left:10px;transform:scaleY(-1);} .fc.br{bottom:8px;right:10px;transform:scale(-1);}
-
-/* Arch Lingkaran Emas Gajah di Atas */
-.arch-overlay {
-  position:absolute; top:-4px; left:-1px; right:-1px; z-index:6; pointer-events:none;
-}
-.arch-overlay svg { width:100%; display:block; }
-
-/* ── ZONE INFORMASI DAN NARASI ── */
+/* ── TEKS INFO DAN DESKRIPSI DI AREA BAWAH PINTU ── */
 .deity-info {
   width:100%;
   text-align:center;
-  padding:5px 0 0;
+  padding:5px 4px 0;
   position:relative; z-index:5;
 }
 
 .deity-name {
   font-family:'Cinzel',serif;
-  font-size: 1.4rem; /* Ukuran font nama dewa diperbesar signifikan */
+  font-size: 1.35rem;
   font-weight:900;
   color:#FFD700;
   text-shadow:0 0 20px rgba(255,215,0,0.6), 0 2px 6px rgba(0,0,0,0.95);
-  letter-spacing:2px;
+  letter-spacing:1.5px;
   line-height:1.2;
-  margin-bottom:6px;
+  margin-bottom:4px;
 }
 .deity-planet {
-  font-size:0.8rem;
+  font-size:0.78rem;
   letter-spacing:3px;
   color:rgba(212,175,55,0.85);
   margin-bottom:14px;
   font-weight:600;
 }
 
-/* Wadah Teks Deskripsi (Sangat Kontras dan Jelas) */
+/* Kotak Teks Transparan Di Atas Lantai Kuil */
 .deity-desc-wrap {
   position:relative;
   padding:15px 18px;
-  background: rgba(15, 6, 2, 0.88); /* Latar gelap pekat agar teks terbaca tajam */
-  border: 1px solid rgba(212,175,55,0.4);
+  background: rgba(12, 5, 1, 0.82); /* Tetap gelap agar mudah dibaca di atas corak lantai */
+  border: 1px solid rgba(212,175,55,0.35);
   border-radius:10px;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.75);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
 }
 .deity-desc-wrap::before, .deity-desc-wrap::after {
   content:'✦';
   position:absolute;
   top:50%; transform:translateY(-50%);
-  font-size:0.7rem;
+  font-size:0.65rem;
   color:#FFD700;
-  opacity:0.6;
+  opacity:0.5;
 }
 .deity-desc-wrap::before{left:8px;}
 .deity-desc-wrap::after{right:8px;}
 
 .deity-desc {
-  font-size:0.92rem;
+  font-size:0.9rem;
   line-height:1.6;
   color:#f0e2c1;
   font-style:italic;
-  text-align: justify; /* Rata kanan kiri agar terlihat rapi seperti kitab suci */
+  text-align: justify;
 }
 
-/* Garis Batas Pembatas */
+/* Pembatas */
 .divider {
   text-align:center;
-  color:rgba(255,215,0,0.35);
+  color:rgba(255,215,0,0.3);
   font-size:0.7rem;
   letter-spacing:12px;
-  padding:16px 0;
+  padding:14px 0;
   width:100%;
 }
 
-/* ── PRESET TOMBOL PREMIUM AUDIO ── */
+/* Tombol Genta & Mantra Premium */
 .audio-row {
   display:flex; gap:12px;
   width:100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .btn {
   flex:1;
   font-family:'Cinzel',serif;
-  font-size:0.78rem;
+  font-size:0.75rem;
   font-weight:700;
   letter-spacing:2px;
-  padding:15px 10px;
+  padding:14px 10px;
   border-radius:50px;
   border:1.5px solid #d4af37;
   background: linear-gradient(180deg, #241205 0%, #120701 100%);
   color:#FFD700;
   cursor:pointer;
   display:flex; align-items:center; justify-content:center; gap:8px;
-  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:all 0.3s ease;
   box-shadow:0 6px 20px rgba(0,0,0,0.6);
 }
 .btn:active{transform:scale(0.95);}
@@ -274,7 +262,7 @@ body {
   text-shadow: 0 0 5px rgba(0,255,153,0.5);
 }
 
-/* ── FOOTER ── */
+/* ── FOOTER LAYAR ── */
 .footer {
   position:fixed; bottom:0; left:0; right:0; z-index:20;
   padding:12px 15px;
@@ -287,7 +275,7 @@ body {
   font-weight:700;
 }
 
-/* Sembunyikan scrollbar bawaan browser sistem */
+/* Sembunyikan scrollbar */
 .main::-webkit-scrollbar{display:none;}
 .main{-ms-overflow-style:none;scrollbar-width:none;}
 </style>
@@ -332,29 +320,7 @@ body {
     <div class="deity-frame">
       <div class="deity-glow"></div>
       <div class="deity-img-wrap">
-        <span class="fc tl">❧</span>
-        <span class="fc tr">❧</span>
-        <span class="fc bl">❧</span>
-        <span class="fc br">❧</span>
         <img id="altar-img" src="" alt="Murthi">
-      </div>
-      <div class="arch-overlay">
-        <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ag" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0%" stop-color="#8B6914" stop-opacity=".4"/>
-              <stop offset="50%" stop-color="#FFD700" stop-opacity=".7"/>
-              <stop offset="100%" stop-color="#8B6914" stop-opacity=".4"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,50 L0,30 Q140,-10 280,30 L280,50 Z" fill="rgba(5,2,0,0)" stroke="url(#ag)" stroke-width="1.5"/>
-          <path d="M8,50 L8,33 Q140,0 272,33 L272,50" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
-          <circle cx="140" cy="3" r="4" fill="#FFD700" fill-opacity=".55"/>
-          <circle cx="140" cy="3" r="2" fill="#fff" fill-opacity=".4"/>
-          <circle cx="50" cy="40" r="2.5" fill="#FFD700" fill-opacity=".3"/>
-          <circle cx="230" cy="40" r="2.5" fill="#FFD700" fill-opacity=".3"/>
-          <text x="140" y="36" text-anchor="middle" font-size="13" fill="rgba(212,175,55,0.4)">🕉</text>
-        </svg>
       </div>
     </div>
 
@@ -384,7 +350,7 @@ body {
 <script src="images.js"></script>
 <script>
 // ═══════════════════════════════════
-// DATA SUCI ASLI — NAVAGRAHA TAMIL HINDU (Sama Sekali Tidak Diubah)
+// DATA SUCI ASLI — NAVAGRAHA TAMIL HINDU (Tetap Utuh)
 // ═══════════════════════════════════
 const weeklyDeities = [
   {
