@@ -21,14 +21,15 @@ body {
   height:100%;
 }
 
-/* ── BACKGROUND KUIL ── */
+/* ── BACKGROUND KUIL (DIPINDAHKAN PAS AGAR PINTU DI TENGAH LAYAR) ── */
 .bg-temple {
   position:fixed;
   inset:0;
   z-index:0;
   background-image: url('IMG_20260622_160050.png');
   background-size:cover;
-  background-position:center center;
+  /* Mengubah posisi background agar gambar kuil bergeser pas ke tengah-tengah vertikal */
+  background-position: center 40%; 
   background-repeat:no-repeat;
   filter:brightness(0.55) saturate(1.1);
 }
@@ -38,11 +39,11 @@ body {
   inset:0;
   z-index:1;
   background:
-    radial-gradient(ellipse 55% 65% at 50% 42%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%),
+    radial-gradient(ellipse 55% 65% at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%),
     linear-gradient(180deg, rgba(10,4,0,0.45) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.1) 60%, rgba(10,4,0,0.6) 100%);
 }
 
-/* ── LILIN ── */
+/* ── LILIN PREMIUM ── */
 .candle-wrap {
   position:fixed; bottom:28px; z-index:20;
   display:flex; flex-direction:column; align-items:center;
@@ -85,19 +86,19 @@ body {
 .header .h-text{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:6px;color:rgba(212,175,55,0.6);white-space:nowrap;}
 .header .h-flame{font-size:1.2rem;animation:flicker 1.8s infinite alternate;}
 
-/* ── KONTEN UTAMA (DIUBAH AGAR TURUN PAS KE TENGAH PINTU CORETAN MERAH) ── */
+/* ── KONTEN UTAMA (DIATUR SUPAYA PAS MENGIKUTI POSISI PINTU TENGAH KEDUA PILAR) ── */
 .main {
   position:relative; z-index:10;
   height:100vh;
   display:flex; flex-direction:column;
-  align-items:center; 
-  justify-content: flex-start; /* Mengubah dari center agar konten ditarik manual dari top */
-  padding: 135px 12px 65px; /* Ditambah padding atas agar konten turun tepat ke dalam lingkaran kuil */
+  align-items:center;
+  justify-content: flex-start;
+  padding: 135px 12px 65px; /* Menurunkan konten agar pas di tengah lubang pintu kuil */
   gap:0;
   overflow-y:auto;
 }
 
-/* ── KARTU DEWA (mengambang di tengah kuil) ── */
+/* Kartu Dewa utama */
 .deity-card {
   width:100%; max-width:320px;
   display:flex; flex-direction:column; align-items:center;
@@ -116,15 +117,15 @@ body {
   text-shadow:0 0 15px rgba(255,215,0,0.5), 0 1px 4px rgba(0,0,0,0.9);
 }
 
-/* Frame gambar dewa — tampil seperti berdiri di altar */
+/* Frame gambar dewa — Letak foto pas masuk di tengah pintu gerbang */
 .deity-frame {
   position:relative;
-  width:100%; max-width:215px; /* Dipersempit sedikit agar pas masuk di sela ruang kosong pintu kayu */
+  width:100%; max-width:215px; /* Lebar disesuaikan dengan proporsi pintu gerbang belakang */
   aspect-ratio:3/4.2;
   margin-bottom: 12px;
 }
 
-/* Glow di belakang gambar */
+/* Glow cahaya di belakang gambar dewa */
 .deity-glow {
   position:absolute;
   inset:-18px;
@@ -138,7 +139,7 @@ body {
   100%{opacity:1;transform:scale(1.05);}
 }
 
-/* Gambar dewa */
+/* Pembungkus gambar dewa */
 .deity-img-wrap {
   position:relative; z-index:2;
   width:100%; height:100%;
@@ -155,7 +156,7 @@ body {
   display:block;
   transition:opacity .7s ease;
 }
-/* Gradient bawah gambar */
+/* Efek bayangan gelap bagian bawah gambar */
 .deity-img-wrap::after {
   content:'';
   position:absolute;
@@ -164,18 +165,18 @@ body {
   z-index:3; pointer-events:none;
 }
 
-/* Ornamen sudut frame */
+/* Simbol ukiran sudut bingkai */
 .fc { position:absolute; font-size:.9rem; color:rgba(212,175,55,0.7); z-index:5; text-shadow:0 0 6px rgba(255,215,0,0.5); }
 .fc.tl{top:5px;left:7px;} .fc.tr{top:5px;right:7px;transform:scaleX(-1);}
 .fc.bl{bottom:5px;left:7px;transform:scaleY(-1);} .fc.br{bottom:5px;right:7px;transform:scale(-1);}
 
-/* Arch emas di atas gambar */
+/* Lengkungan atap kubah di atas bingkai foto */
 .arch-overlay {
   position:absolute; top:-1px; left:-1px; right:-1px; z-index:6; pointer-events:none;
 }
 .arch-overlay svg { width:100%; display:block; }
 
-/* ── INFO DEWA ── */
+/* ── AREA INFORMASI TEXT ── */
 .deity-info {
   width:100%; max-width:310px;
   text-align:center;
@@ -200,7 +201,7 @@ body {
   margin-bottom:10px;
 }
 
-/* Deskripsi — muncul elegan di bawah nama */
+/* Pembungkus narasi kitab suci */
 .deity-desc-wrap {
   position:relative;
   padding:12px 16px;
@@ -228,7 +229,7 @@ body {
   text-align:left;
 }
 
-/* Divider */
+/* Pembatas tengah */
 .divider {
   text-align:center;
   color:rgba(180,120,20,0.4);
@@ -238,7 +239,7 @@ body {
   width:100%; max-width:310px;
 }
 
-/* ── TOMBOL AUDIO ── */
+/* Tombol genta dan mantra */
 .audio-row {
   display:flex; gap:10px;
   width:100%; max-width:310px;
@@ -268,7 +269,7 @@ body {
   box-shadow:0 0 18px rgba(0,210,120,0.18);
 }
 
-/* ── FOOTER ── */
+/* ── FOOTER LAYAR ── */
 .footer {
   position:fixed; bottom:0; left:0; right:0; z-index:20;
   padding:8px 20px 10px;
@@ -280,7 +281,6 @@ body {
   color:rgba(180,120,20,0.4);
 }
 
-/* Scrollbar tersembunyi */
 .main::-webkit-scrollbar{display:none;}
 .main{-ms-overflow-style:none;scrollbar-width:none;}
 </style>
@@ -377,7 +377,7 @@ body {
 <script src="images.js"></script>
 <script>
 // ═══════════════════════════════════
-// DATA 7 HARI — NAVAGRAHA TAMIL HINDU
+// DATA 7 HARI — NAVAGRAHA TAMIL HINDU (100% UTUH)
 // ═══════════════════════════════════
 const weeklyDeities = [
   {
@@ -392,7 +392,7 @@ const weeklyDeities = [
     planet: "🌙 Chandra · Planet Bulan",
     name: "Lord Shiva Chandrashekhara",
     file: "ba3e9b1e1b1ee8053c1474c5fad805e8.jpg",
-    desc: "Senin adalah hari suci Chandra, bulan yang bersemayam agung di mahkota Siwa. Siwa sebagai Chandrashekhara adalah penguasa pikiran, perasaan, dan alam bawah sadar. Pemujaan pada hari Senin menenangkan pikiran yang bergejolak, menyembuhkan luka batin, memperkuat ikatan keluarga, dan mendatangkan kedamaian batin yang abadi."
+    desc: "Senin adalah hari suci Chandra, bulan yang bersemayam agung di mahkota Siwa. Siwa sebagai Chandrashekhara adalah penguasa pikiran, perasaan, and alam bawah sadar. Pemujaan pada hari Senin menenangkan pikiran yang bergejolak, menyembuhkan luka batin, memperkuat ikatan keluarga, dan mendatangkan kedamaian batin yang abadi."
   },
   {
     day: "SELASA — SEVVAI VAARAM",
@@ -445,7 +445,6 @@ function initAltar() {
   img.src = deity.file;
   img.onload  = function(){ img.style.opacity = "1"; };
   img.onerror = function(){
-    // Fallback ke cycling 33 murthi jika file tidak ditemukan
     if(typeof altarImages !== 'undefined'){
       const idx = (new Date().getDate() - 1) % altarImages.length;
       img.src = altarImages[idx].file;
