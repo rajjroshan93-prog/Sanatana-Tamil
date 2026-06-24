@@ -198,7 +198,7 @@ body {
 
 /* ── VIEW LEMBARAN KITAB SUCI LENGKAP HALAMAN BARU (FULLSCREEN) ── */
 #book-view {
-  position: relative; z-index: 20; max-width: 750px; margin: 0 auto; padding: 25px 15px 120px;
+  position: relative; z-index: 20; max-width: 800px; margin: 0 auto; padding: 25px 15px 120px;
   display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;
 }
 #book-view.active { display: block; opacity: 1; transform: translateY(0); }
@@ -207,7 +207,7 @@ body {
   background-color: #ebdcb9; color: #261a0b; border-radius: 6px;
   border-left: 14px solid #8B6914; border-right: 14px solid #8B6914;
   box-shadow: 0 30px 70px rgba(0,0,0,0.95), inset 0 0 50px rgba(139,105,20,0.4);
-  padding: 40px 30px; position: relative;
+  padding: 45px 35px; position: relative;
 }
 
 .book-header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
@@ -222,16 +222,16 @@ body {
 .book-divider { text-align: center; color: #8B6914; font-size: 0.75rem; margin-bottom: 30px; letter-spacing: 4px; }
 
 /* ISI TEKS KITAB PANJANG */
-.book-body { font-size: 1rem; line-height: 1.85; text-align: justify; }
+.book-body { font-size: 1.02rem; line-height: 1.9; text-align: justify; }
 .book-body h3 {
-  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; color: #52340d;
-  margin-top: 28px; margin-bottom: 8px; border-bottom: 1px solid rgba(139,105,20,0.3); padding-bottom: 4px;
+  font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: #52340d;
+  margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid rgba(139,105,20,0.35); padding-bottom: 6px;
   display: flex; align-items: center; gap: 8px;
 }
-.book-body p { margin-bottom: 16px; text-indent: 25px; }
+.book-body p { margin-bottom: 18px; text-indent: 30px; }
 .book-body blockquote {
-  font-style: italic; border-left: 4px solid #8B6914; padding-left: 15px;
-  margin: 22px 10px; color: #4f330b; font-weight: 600; background: rgba(139,105,20,0.05); padding-top: 8px; padding-bottom: 8px;
+  font-style: italic; border-left: 4px solid #8B6914; padding-left: 18px;
+  margin: 24px 10px; color: #4f330b; font-weight: 600; background: rgba(139,105,20,0.05); padding-top: 10px; padding-bottom: 10px;
 }
 
 /* FOOTER */
@@ -301,7 +301,7 @@ body {
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════
-// DATA PURANA LENGKAP - STRUKTUR 5 BAB DETAIL UNTUK SETIAP DEWA
+// DATA PURANA SANGAT LENGKAP - STRUKTUR 5 BAB DETAIL DAN PANJANG
 // ═══════════════════════════════════════════════════════════════════════
 const navagrahaPurana = [
   {
@@ -310,20 +310,20 @@ const navagrahaPurana = [
     snippet: "Surya Bhagavan lahir sebagai lambang jiwa alam semesta (Surya Atmakah). Menguasai tata cahaya spiritual and fisik.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Menurut lembaran suci <b>Markandeya Purana</b> dan <b>Vishnu Purana</b>, Surya Bhagavan adalah putra kandung dari Maha Resi Kasyapa dan Dewi Aditi. Beliau merupakan entitas pertama yang bermanifestasi saat alam kosmos dilanda kegelapan pekat tanpa batas. Ibu Aditi melakukan tapa brata ekstrem memohon anak yang bisa menyelamatkan semesta dari penindasan kaum Asura. Saat lahir, pancaran radiasi Surya Deva sedemikian dahsyatnya hingga ruang angkasa membara parah. Ayahandanya, Resi Kasyapa, terpaksa menggunakan kekuatan spiritual guna memotong sebagian energi luar luar surya tersebut menjadi 12 bagian yang setara (Dwadasa Aditya), agar planet-planet di sekitarnya tidak hangus menjadi abu.</p>
+      <p>Menurut catatan sakral dalam <b>Markandeya Purana</b>, <b>Brahma Purana</b>, dan <b>Vishnu Purana</b>, Surya Bhagavan bermanifestasi dari pancaran energi primordial kosmos sebagai putra dari Maha Resi Kasyapa dan Dewi Aditi. Ketika alam semesta belum berwujud dan masih diselimuti kegelapan pekat gulita (Andhatamisra), Dewi Aditi melakukan tapa brata yang sangat ekstrem di bawah bimbingan suci untuk memohon keturunan yang mampu mengusir kekuatan jahat kaum Asura yang menjajah surga. Ketika Surya dilahirkan, pancaran energi panas dan radiasi spiritual batin-Nya sedemikian hebatnya hingga seluruh jagat raya membara hebat. Takut semesta hangus terbakar menjadi abu kosmik, Resi Kasyapa menggunakan kekuatan mantra suci spiritualnya untuk membagi energi Surya menjadi dua belas bagian yang berbeda, yang kemudian dikenal sebagai <i>Dwadasa Aditya</i>. Bagian sisa dari pemotongan energi matahari tersebut jatuh ke bumi dan digunakan oleh Arsitek Surgawi, Vishwakarma, untuk menempa senjata-senjata sakral milik para dewa, seperti Trisula Dewa Siwa dan Sudarshana Cakra Dewa Vishnu.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Surya Deva digambarkan memiliki kulit merah keemasan bersinar, memiliki empat lengan suci yang memegang bunga teratai merekah (lambang kehidupan), roda cakra kosmik, and sangkala pelindung. Beliau mengarungi garis ekliptika menggunakan satu kereta kencana megah beroda tunggal dengan 12 jari-jari masif (melambangkan 12 bulan atau zodiak). Kereta tersebut ditarik secara perkasa oleh <b>tujuh ekor kuda putih suci</b> yang agung, melambangkan tujuh warna pelangi (spektrum cahaya matahari) sekaligus struktur 7 hari dalam sepekan. Kereta ini dikemudikan oleh Aruna, dewa fajar fajar kemerahan.</p>
-      <blockquote>"Om Ghrinih Surya Aditya Om" — Mantra penghormatan agung melebur kegelapan batiniah manusia.</blockquote>
+      <p>Dalam seni ikonografi Weda, Surya Deva digambarkan memiliki kulit merah keemasan menyala, lambang dari api pemurnian batin sejati. Beliau digambarkan memiliki empat lengan agung yang memegang dua bunga teratai merah mekar sempurna (simbol kesadaran spiritual yang terjaga), sebuah roda cakra penanda siklus waktu, dan memberikan mudra perlindungan (Abhaya Mudra). Surya mengendarai kereta perang megah beroda tunggal dengan 12 jari-jari masif yang merepresentasikan dua belas bulan dalam setahun. Kereta kencana ini ditarik secara perkasa oleh <b>tujuh ekor kuda putih suci</b> yang melambangkan spektrum tujuh warna cahaya pelangi (VIBGYOR) sekaligus tujuh hari dalam sepekan, dan dikemudikan oleh Aruna, saudara dewa burung Garuda yang bermanifestasi sebagai fajar kemerahan.</p>
+      <blockquote>"Om Ghrinih Surya Aditya Om — Kami memuja Sang Surya, pusat dari segala kehangatan, cahaya kebenaran, dan penghancur kegelapan batin."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Secara filosofis, Surya Deva dipuja sebagai <i>Surya Atmakah</i>, artinya jiwa atau roh dari alam semesta raya. Beliau mengajarkan konsistensi tanpa pamrih: terbit setiap hari secara adil tanpa membeda-bedakan mahluk suci maupun pendosa. Sinar Surya melambangkan hancurnya kebodohan spiritual (Avidya) oleh pencerahan akal budi sejati (Jnana).</p>
+      <p>Secara esoteris, Surya Deva dipuja sebagai <i>Surya Atmakah</i>, yang berarti "Jiwa atau Roh dari Alam Semesta Raya". Pelajaran filosofis terbesar dari Surya adalah dedikasi tanpa pamrih (Nishkama Karma). Beliau bersinar setiap hari secara konsisten, adil, tanpa pernah memilih kepada siapa cahaya-Nya diberikan—baik kepada mahluk suci, tumbuhan, maupun pendosa besar. Kehadiran Surya mengajarkan kesadaran manusia untuk membakar habis ego palsu (Ahamkara) dan kemalasan batin (*Tamas*), demi memunculkan pencerahan budi pekerti yang jernih laksana cahaya fajar pagi.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Dalam ilmu perbintangan Hindu (Jyotish), Surya adalah Raja Agung dari seluruh susunan Navagraha (Graha Raja). Sifat dasarnya adalah maskulin, agung, and murni. Surya mengendalikan kesehatan mata, kekuatan tulang, daya tahan tubuh, rasa percaya diri, kehormatan, otoritas kepemimpinan, and hubungan batin dengan ayah kandung seseorang di dunia fisik.</p>
+      <p>Dalam sistem astrologi perbintangan Hindu kuno (Jyotish), Surya memegang tahta tertinggi sebagai <i>Graha Raja</i> (Raja dari Segala Planet). Energi Surya bersifat maskulin, murni, dan penuh wibawa, menguasai tanda zodiak Leo (Simha Rashi). Dalam peta kelahiran manusia, posisi Surya merupakan indikator utama dari kekuatan roh (*Atman*), kesehatan mata fisik, kekokohan struktur tulang, daya tahan tubuh terhadap penyakit, otoritas kepemimpinan, reputasi nama baik di masyarakat, serta hubungan emosional spiritual dengan ayah kandung di dunia nyata.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Pemujaan terbaik dilaksanakan pada hari <b>Minggu</b> tepat saat matahari terbit (Sandhyavandanam). Sadhaka menghadap ke arah Timur sembari mempersembahkan air suci dicampur bunga merah dalam wadah tembaga (Arghya). Disarankan mengenakan pakaian bernuansa kuning tua atau merah bata, serta melantunkan bait suci Gayatri Mantra atau Aditya Hridaya Stotram untuk memohon kesehatan and kejayaan abadi.</p>
+      <p>Pemujaan spiritual terbaik bagi Surya dilaksanakan pada hari <b>Minggu</b> tepat pada saat fajar menyingsing di pagi hari (Sandhyavandanam). Sadhaka berdiri tegap menghadap ke arah Timur di area terbuka, kemudian mempersembahkan air suci yang dicampur dengan kelopak bunga merah, bubuk cendana merah, dan biji beras di dalam wadah berbahan tembaga murni murni (Arghyam). Sembari menuangkan air secara perlahan, pelantunan bait suci Gayatri Mantra atau Aditya Hridaya Stotram (mantra kemenangan yang diajarkan Resi Agastya kepada Sri Rama) digemakan berulang kali untuk memohon kecerdasan pikiran, kesehatan fisik prima, dan kejayaan rohani.</p>
     `
   },
   {
@@ -332,20 +332,20 @@ const navagrahaPurana = [
     snippet: "Chandra adalah personifikasi pikiran, emosi, dan kesuburan dunia. Dilindungi langsung di atas rambut Mahadeva.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Kitab <b>Matsya Purana</b> dan <b>Srimad Bhagavatam</b> mencatat bahwa Chandra Deva lahir dari samudra susu kosmis sewaktu fenomena spiritual <i>Samudra Manthan</i> (pengadukan samudra kosmik oleh dewa-asura untuk mencari tirta amerta). Chandra terlahir dengan rupa yang sangat menawan, memancarkan kesejukan kedamaian. Beliau mengambil 27 putri dari Prajapati Daksha sebagai istri-istrinya, yang masing-masing melambangkan rasi bintang <b>Nakshatra</b>. Karena Chandra bertindak pilih kasih dan hanya menghabiskan waktu bersama istri kesayangannya, Rohini, ke-26 putri lainnya menangis melapor pada ayah mereka. Daksha murka besar lalu mengutuk Chandra dengan penyakit layu yang perlahan mengikis cahayanya hingga mati.</p>
+      <p>Lembaran suci <b>Matsya Purana</b> dan <b>Srimad Bhagavatam</b> mengisahkan secara rinci bahwa Chandra Deva (Bulan) lahir dari Samudra Susu Kosmik (Kshira Sagara) pada masa penciptaan ketika terjadi fenomena spiritual kolosal *Samudra Manthan*—pengadukan samudra kosmik oleh aliansi kaum Dewa dan Asura demi mencari nektar keabadian (Tirta Amerta). Karena rupanya yang sangat rupawan dan memancarkan kedamaian, Beliau dianugerahi posisi celestial di langit. Chandra kemudian mengawini 27 putri dari Prajapati Daksha, yang masing-masing merupakan personifikasi dari 27 rasi bintang kosmik (*Nakshatra*). Namun, Chandra bertindak tidak adil dengan hanya mencurahkan cinta and waktunya kepada istri kesayangannya, Rohini, dan menelantarkan 26 istri lainnya. Kecewa and terluka, ke-26 putri tersebut mengadu kepada ayah mereka. Prajapati Daksha yang murka luar biasa kemudian menjatuhkan kutukan mematikan kepada Chandra, berupa penyakit layu (Kshaya Roga) yang membuat cahaya indahnya terkikis habis secara perlahan hingga terancam lenyap selamanya dari angkasa raya.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Chandra Deva divisualisasikan berkulit putih bersih seputih salju, memegang bunga teratai putih and gada penyejuk, mengendarai kereta kencana tiga roda yang ditarik oleh sepuluh ekor antelop atau kuda putih suci secepat angin. Karena dikutuk Daksha, Beliau meminta perlindungan Dewa Siwa. Siwa kemudian menaruh Chandra di atas sanggul rambut-Nya (Chandrashekhara), mengubah kutukan mati menjadi siklus periodik: memudar 15 hari (Krishna Paksha) dan membesar 15 hari berikutnya (Shukla Paksha).</p>
-      <blockquote>"Om Som Somaya Namaha" — Salam suci bagi Sang Penguasa Malam pembawa keheningan batin.</blockquote>
+      <p>Chandra Deva divisualisasikan memiliki tubuh yang sangat bersih benderang seputih salju atau mutiara, mengenakan pakaian sutra perak kemilau, memegang bunga teratai putih di kedua tangannya, serta membawa gada penyejuk jiwa. Beliau mengendarai kereta kencana megah beroda tiga yang ditarik oleh sepuluh ekor antelop suci bertanduk indah atau sepuluh kuda seputih melati yang mampu berlari sekencang embusan angin malam. Guna menyelamatkan diri dari kutukan Daksha, Chandra bersujud memohon perlindungan kepada Dewa Siwa melalui tapa brata Mahamrityunjaya di Prabhas Patan (sekarang Somnath). Dewa Siwa yang welas asih tidak dapat menghapus kutukan Daksha sepenuhnya, namun Beliau menaruh Chandra di atas sanggul rambut suci-Nya (Chandrashekhara), mengubah kutukan mati menjadi siklus periodik yang stabil: memudar selama 15 hari (Krishna Paksha) dan membesar kembali selama 15 hari berikutnya (Shukla Paksha).</p>
+      <blockquote>"Om Som Somaya Namaha — Salam suci kami haturkan kepada Sang Penguasa Malam, pembawa ketenangan jiwa, air kehidupan, and kedamaian emosi."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Chandra adalah simbol fluktuasi kehidupan. Siklus pasang surut bulan mengajari kita bahwa duka and suka di dunia fana ini bersifat sementara. Keberadaan Chandra di mahkota Dewa Siwa menyampaikan pesan bahwa gejolak emosi manusia hanya dapat ditenangkan jika diletakkan di bawah kesadaran meditasi spritual yang tinggi.</p>
+      <p>Secara filosofis, Chandra adalah lambang dari dinamika pikiran manusia (*Manas*). Siklus pasang surut bentuk bulan mengajarkan manusia sebuah kebijaksanaan mendalam bahwa duka dan suka, kegagalan dan kesuksesan di dunia fana ini adalah hal yang fluktuatif and bersifat sementara. Keberadaan Chandra di atas mahkota rambut Dewa Siwa menyampaikan pesan esoteris bahwa gejolak emosi, depresi, and keliaran pikiran manusia hanya dapat ditenangkan secara total jika diletakkan di bawah payung kesadaran meditasi spritual spiritual yang tinggi and berserah diri kepada Tuhan.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Chandra berperan sebagai <i>Mana-Karaka</i>, yakni indikator utama pikiran, memori, emosional, naluri keibuan, kesuburan cairan, serta sistem peredaran darah. Posisi Bulan yang kokoh dalam bagan lahir seseorang menjamin kedamaian mental, empati tinggi, and intuisi psikologis yang sangat tajam.</p>
+      <p>Dalam ilmu perbintangan Jyotish, Chandra memegang peranan yang sangat vital sebagai <i>Mana-Karaka</i> (Indikator Utama Pikiran dan Emosional). Chandra menguasai rasi zodiak Cancer (Karka Rashi) and berkarakteristik feminin yang lembut. Jika posisi Bulan dalam bagan lahir seseorang kokoh, orang tersebut akan memiliki kedamaian mental yang luar biasa, empati yang tinggi, ingatan yang kuat, serta kasih sayang keibuan yang tulus. Sebaliknya, Bulan yang lemah atau terganggu oleh planet negatif dapat memicu ketidakstabilan mental, kecemasan berlebih, and gangguan pencernaan.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Sadhana Chandra jatuh pada hari <b>Senin</b>, sangat baik dipadukan dengan ritual memuja Dewa Siwa (Shiva Lingam Abhishekam) menggunakan susu murni atau air kelapa. Warna pakaian yang dianjurkan adalah putih bersih atau perak, menghadap ke Barat Laut, guna mengikis penyakit mental, stres, and depresi pikiran.</p>
+      <p>Sadhana harian untuk Chandra dipusatkan pada hari <b>Senin</b>, hari yang sangat sakral untuk melakukan pemujaan gabungan dengan <b>Shiva Lingam Abhishekam</b> (menuangkan susu murni, yogurt, atau air kelapa di atas simbol Siwa). Sadhaka dianjurkan mengenakan pakaian bernuansa putih bersih, perak, atau krem murni, menghadap ke arah Barat Laut, serta melakukan meditasi ketenangan batin pada malam hari di bawah pancaran sinar bulan murni untuk mengikis stres, menyembuhkan luka batin trauma masa lalu, and mendatangkan ketenteraman dalam keluarga.</p>
     `
   },
   {
@@ -354,19 +354,20 @@ const navagrahaPurana = [
     snippet: "Dilahirkan dari tetesan keringat suci Dewa Siwa yang menyentuh Ibu Pertiwi. Energi ksatria pelindung kebenaran Dharma.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Berdasarkan kronik suci <b>Shiva Purana</b>, Mangala (Mars) memiliki riwayat kelahiran yang sangat tidak biasa. Suatu ketika, Dewa Siwa tenggelam dalam meditasi asketis yang sangat mendalam dan memancarkan panas spiritual yang luar biasa di puncak Gunung Kailash. Akibat konsentrasi tersebut, setetes keringat suci jatuh dari dahi Siwa dan merembes masuk ke dalam rahim Ibu Pertiwi (Bhumidevi). Dari tanah rahim bumi tersebut, lahirlah seorang bayi laki-laki tampan berkulit merah membara. Bhumidevi merawat anak tersebut dengan penuh kasih sayang, sehingga anak itu dijuluki <i>Bhauma</i> (Putra Bumi). Setelah dewasa, ia melakukan tapa berat kepada Siwa dan dianugerahi posisi mulia di langit sebagai planet Mars.</p>
+      <p>Berdasarkan kronik epik suci yang tertulis di dalam <b>Shiva Purana</b> dan <b>Padma Purana</b>, Mangala (Mars) memiliki riwayat kelahiran yang sangat unik dan penuh daya spiritual dahsyat. Dikisahkan pada suatu zaman purba, Dewa Siwa tenggelam dalam meditasi asketis (*Tapascharya*) yang sangat mendalam di puncak suci Gunung Kailash. Konsentrasi spiritual tingkat tinggi tersebut memicu energi panas yang luar biasa dari tubuh-Nya hingga meneteskan sebutir keringat suci dari dahi Siwa. Tetesan keringat suci tersebut jatuh meluncur ke bawah dan diserap secara rahimiah oleh Ibu Pertiwi (Bhumidevi). Dari rahim tanah bumi tersebut, lahirlah seorang bayi laki-laki gaib berkulit merah membara laksana api. Bhumidevi merawat bayi tersebut dengan limpahan kasih sayang, sehingga anak itu tumbuh menjadi ksatria perkasa and dijuluki sebagai <i>Bhauma</i> (Putra Bumi). Setelah dewasa, Bhauma melakukan tapa berat selama ribuan tahun memuja ayahnya, Dewa Siwa, hingga akhirnya dianugerahi posisi mulia di angkasa raya sebagai planet Mars pelindung jagat.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Mangala bermanifestasi dengan tubuh kekar berwarna merah tua menyala, mengenakan pakaian serba merah, and memegang empat senjata tajam: trisula, gada, tombak sakti, and perisai. Wahana setianya adalah seekor domba jantan (ram) bertanduk kokoh, yang menyimbolkan kekuatan dorongan fisik, agresi perang, pertahanan, and keteguhan tekad ksatria sejati.</p>
+      <p>Mangala bermanifestasi sebagai sesosok panglima perang yang berwajah tegas, bertubuh tegap, berotot kekar dengan kulit berwarna merah menyala, mengenakan pakaian and untaian kalung bunga serba merah karmin. Di keempat tangan sucinya, Beliau menggenggam senjata-senjata perang berat yang mematikan: sebuah gada besi penghancur, tombak sakti (Sakti Ayudham), trisula pelindung, and perisai baja penahan serangan musuh. Wahana setia yang dikendarainya adalah seekor <b>domba jantan berkulit tebal</b> (Ram) dengan tanduk melingkar yang sangat kokoh, sebuah simbol dari dorongan energi fisik yang masif, agresi pertahanan, kecepatan bertindak, and keteguhan tekad yang tidak bisa digoyahkan oleh siapapun.</p>
+      <blockquote>"Om Kram Kreem Kroum Sah Bhaumaya Namaha — Salam kepada Mangala, putra bumi, ksatria agung surgawi, pembawa keberanian and energi kemenangan."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Mangala mengajari kita esensi dari perlindungan (Raksana). Kekuatan fisik and energi membara tidak boleh dipakai untuk menindas kaum lemah, melainkan harus dikonversi menjadi energi ksatria pelindung kebenaran (Dharma) serta kekuatan mental untuk menaklukkan musuh-musuh internal dalam diri sendiri seperti nafsu berlebih dan amarah bergejolak.</p>
+      <p>Secara filosofis, Mangala mengajarkan esensi sejati dari kekuatan pertahanan (*Raksana*) dan pemanfaatan energi vitalitas. Kekuatan otot fisik, kekuasaan, and amarah yang membara di dalam dada manusia tidak boleh disalahgunakan untuk menindas mahluk lemah atau berbuat lalim. Sebaliknya, energi agresif tersebut harus dikonversi, dikendalikan, and dialihkan menjadi energi ksatria pelindung kebenaran (*Dharma*) serta menjadi modal kekuatan mental untuk menundukkan enam musuh internal di dalam diri manusia sendiri (*Arishadvarga*), seperti amarah yang meluap-luap and nafsu keserakahan.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Mangala menguasai energi maskulin, keberanian, ambisi, properti tanah, otot, and sumsum tulang. Dalam astrologi, jika penempatan Mars tidak seimbang, dapat menimbulkan kondisi <i>Manglik Dosha</i> yang memicu sifat tempramental atau hambatan pernikahan. Sebaliknya, Mars yang baik melahirkan jiwa pemimpin and tentara yang loyal.</p>
+      <p>Dalam ilmu astrologi Jyotish, Mangala adalah <i>Kuja</i> atau penguasa planet Mars yang mengendalikan zodiak Aries (Mesha) dan Scorpio (Vrishchika). Sifat alaminya adalah berapi-api (*Agni Tattva*), maskulin, and penuh dorongan aksi. Mars menjadi indikator utama keberanian batin, kekuatan fisik otot, kepemilikan aset tanah atau properti, darah, sumsum tulang, and kemampuan teknis rekayasa. Apabila posisi Mars tidak seimbang atau salah penempatan dalam bagan horoskop (seperti fenomena *Manglik Dosha*), hal itu dapat memicu sifat tempramental, konflik fisik, atau hambatan dalam hubungan pernikahan.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Ritual dilakukan pada hari <b>Selasa</b> dengan memuja manifestasi <b>Lord Murugan (Kartikeya)</b> atau Hanuman Swamy. Sadhaka mengenakan baju merah menyala, menghadap Selatan, melantunkan Mangala Stotram, and mempersembahkan bunga-bunga berwarna merah atau dhal merah guna melenyapkan rintangan hutang material and konflik fisik.</p>
+      <p>Ritual pemujaan harian bagi Mangala dilaksanakan secara khusyuk pada hari <b>Selasa</b>. Sadhaka disarankan memuja manifestasi dari <b>Lord Murugan (Kartikeya)</b> sang panglima dewa atau dewa kera Hanuman Swamy. Selama ritual, sadhaka mengenakan pakaian berwarna merah menyala, duduk menghadap ke arah Selatan, melantunkan bait suci Mangala Stotram atau Hanuman Chalisa, serta mempersembahkan bunga-bunga merah segar and kacang lentil merah (Masoor Dal) guna menetralisir energi negatif, melenyapkan lilitan hutang material, and memberikan keselamatan dari kecelakaan fisik fisik.</p>
     `
   },
   {
@@ -375,20 +376,20 @@ const navagrahaPurana = [
     snippet: "Dewa penguasa logika, ilmu matematika, komunikasi, dan perdagangan dunia. Selaras dengan berkah pembongkar rintangan Ganesha.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Kitab kuno <b>Brahmanda Purana</b> mengisahkan bahwa Budha Deva (penguasa planet Merkurius) adalah putra dari Chandra (Bulan) dan Dewi Tara. Dikisahkan sejak menit pertama dilahirkan, bayi ini sudah memancarkan aura intelektual yang sangat menakjubkan. Para dewa terperangah melihat bayi tersebut sanggup memahami esensi ilmu pengetahuan suci tanpa perlu diajari. Dewa Brahma yang takjub kemudian menamainya <i>Budha</i>, yang dalam bahasa Sanskerta kuno bermakna 'Kecerdasan Mutlak', 'Akal Budi Luhur', atau 'Sang Terpelajar'. Beliau kemudian ditunjuk memimpin Merkurius.</p>
+      <p>Kitab suci kuno <b>Brahmanda Purana</b>, <b>Harivamsa</b>, dan <b>Bhagavata Purana</b> mencatat sebuah kisah asal-usul yang sarat akan intrik kosmik mengenai Budha Deva (penguasa planet Merkurius). Dikisahkan bahwa Budha lahir dari hubungan spiritual rahasia antara Chandra (Bulan) dan Dewi Tara, yang merupakan istri dari Dewa Brihaspati (Jupiter). Sejak detik pertama dilahirkan ke alam semesta, bayi laki-laki ini telah memancarkan aura intelektual dan cahaya kecerdasan spiritual yang sangat menakjubkan mata memandang. Ketakjuban melanda para dewa saat melihat bayi mungil ini sanggup memahami seluruh kitab suci and esensi ilmu pengetahuan kosmik tanpa perlu diajari oleh siapapun. Dewa Brahma yang terpukau melihat kejeniusan mutlak anak ini kemudian menamainya sebagai <i>Budha</i>, sebuah kosakata Sanskerta kuno yang bermakna "Akal Budi Luhur", "Kecerdasan Murni", atau "Sang Terpelajar". Atas berkah kecakapannya, Brahma melantiknya menjadi salah satu dari Navagraha pemimpin Merkurius.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Budha Deva digambarkan memiliki paras yang elok bernuansa kehijauan laksana zamrud muda, mengenakan jubah hijau menawan. Tangan-tangannya memegang perisai besi, gada perang, and kitab lontar kuno simbol pengetahuan. Wahana kendaraannya adalah singa agung berbulu lebat yang memiliki sayap besar, atau mengendarai kereta kencana yang ditarik delapan ekor kuda selincah hembusan angin malam.</p>
-      <blockquote>"Om Budhaya Namaha" — Sembah suci kami haturkan kepada penuntun akal pikiran yang luhur.</blockquote>
+      <p>Budha Deva divisualisasikan memiliki wajah yang sangat tenang, elok menawan dengan rona kulit berwarna hijau zamrud muda yang menyejukkan pandangan, lambang dari pertumbuhan dan komunikasi. Beliau selalu tampak mengenakan jubah hijau berbahan sutra indah. Di tangan-tangan sucinya, Beliau memegang sebuah perisai baja pelindung, sebuah gada perang simbol otoritas hukum logika, and sebuah kitab lontar kuno bertuliskan ilmu pengetahuan universal. Wahana kendaraan spiritualnya digambarkan berupa seekor singa agung berbulu lebat yang memiliki sepasang sayap besar bersinar, atau mengendarai kereta kencana emas yang ditarik oleh delapan ekor kuda yang sanggup melesat secepat kilat halilintar angkasa.</p>
+      <blockquote>"Om Budhaya Namaha — Sujud takzim kami ke hadapan Budha Deva, penguasa kecerdasan jernih, penuntun tutur kata, and pemberi kejernihan logika berpikir."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Filosofi Budha Deva menekankan pentingnya elemen <i>Buddhi</i> (akal budi jernih). Pengetahuan atau kepintaran intelektual manusia bisa berbalik menjadi senjata pemusnah masal berbahaya jika tidak dilandasi oleh moralitas spiritual yang matang. Budha mengajarkan manusia untuk menimbang segala keputusan hidup lewat logika yang jernih, adil, and bebas dari ego buta.</p>
+      <p>Pesan filosofis terdalam dari Budha Deva menekankan pentingnya mengasah elemen <i>Buddhi</i> (daya analisis akal budi yang tercerahkan). Kepintaran akademis, kejeniusan otak, and kemahiran retorika manusia dapat bertransformasi menjadi ego destruktif yang sangat berbahaya bagi lingkungan jika tidak dilandasi oleh moralitas hati nurani yang suci. Budha mendidik umat manusia agar selalu menimbang and menyaring segala tindakan hidup lewat logika yang tajam, objektif, adil, and bebas dari kabut kebodohan ego sektarian.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Budha bertahta sebagai <i>Budhi-Karaka</i>, penguasa daya analisis, komunikasi lisan/tulisan, matematika, perdagangan, bisnis, humor, and kecakapan bahasa diplomasi. Posisi Merkurius yang prima melahirkan jurnalis hebat, pedagang sukses, akuntan akurat, serta cendekiawan yang berwibawa.</p>
+      <p>Dalam ranah astrologi perbintangan Jyotish, Budha bertindak sebagai <i>Budhi-Karaka</i> (Indikator Utama Intelektual, Analisis, dan Logika). Beliau memimpin zodiak Gemini (Mithuna) dan Virgo (Kanya). Energi Merkurius mengendalikan cara manusia berkomunikasi baik lisan maupun tulisan, kemampuan matematika, kesuksesan dunia bisnis, dunia perdagangan, selera humor, kecerdasan bahasa asing, and sistem saraf tubuh manusia. Posisi Merkurius yang prima melahirkan sosok-sosok jurnalis hebat, diplomat ulung, akuntan presisi, and ilmuwan cendekiawan terkemuka.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Pemujaan dilaksanakan pada hari <b>Rabu</b>, hari yang sangat agung untuk bersujud memohon berkah kepada <b>Lord Ganesha</b> (Sang Pembongkar Rintangan). Disarankan memakai baju hijau, menghadap ke arah Utara, mempersembahkan daun Durva hijau segar, demi kelancaran ujian pendidikan, kesuksesan usaha dagang, and ketajaman memori.</p>
+      <p>Sadhana spiritual harian bagi Budha dilaksanakan pada hari <b>Rabu</b>. Hari ini dinilai sangat mujarab apabila dipadukan dengan ritual suci bersujud memohon berkah ke hadapan <b>Lord Ganesha</b> (Dewa Penghancur Rintangan). Sadhaka dianjurkan memakai pakaian bernuansa hijau tua atau hijau daun, duduk menghadap ke arah Utara, serta mempersembahkan daun Durva hijau segar, kacang hijau (Moong Dal), and buah-buahan hijau. Sadhana ini berguna mempertajam daya ingat menjelang ujian sekolah, melancarkan bisnis perdagangan, and menyembuhkan gangguan saraf gagap bicara.</p>
     `
   },
   {
@@ -397,20 +398,20 @@ const navagrahaPurana = [
     snippet: "Planet paling dermawan pemberi berkah spiritual, ilmu kebajikan moral, kemakmuran, and bimbingan rohani sejati.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Berdasarkan epos suci <b>Rig Veda</b> dan <b>Skanda Purana</b>, Guru Brihaspati adalah putra kandung dari Resi Agung Angiras (salah satu dari Sapta Resi pembentuk dunia). Sejak usia muda, Brihaspati melakukan pertapaan yang sangat ekstrem, berdiri dengan satu kaki selama ribuan tahun seraya memuja Dewa Siwa. Terkesan oleh ketabahan batin and kesucian jiwanya, Mahadeva menampakkan diri lalu mengangkat Brihaspati menjadi <i>Deva Guru</i>, yaitu penasihat agung spiritual, guru penuntun ritual ritual suci, and pembimbing moral bagi seluruh dewa di kahyangan, serta menempatkannya sebagai planet Jupiter.</p>
+      <p>Menurut epos kuno terkaya <b>Rig Veda</b>, <b>Skanda Purana</b>, dan <b>Shiva Purana</b>, Guru Brihaspati adalah putra kandung dari Resi Agung Angiras (salah satu dari Sapta Resi pembentuk pilar alam semesta). Sejak usia belia, Brihaspati menolak kemewahan duniawi and memilih menenggelamkan diri dalam pertapaan yoga yang sangat ekstrem di hutan sunyi. Beliau melakukan meditasi berdiri dengan satu kaki selama ribuan tahun tanpa bergerak sedikit pun, mengarahkan seluruh kesadaran jiwanya hanya untuk memuja Dewa Siwa. Terkesan oleh ketabahan iman yang mutlak and kesucian jiwa tanpa cela tersebut, Mahadeva bermanifestasi di hadapannya. Siwa kemudian melantik Brihaspati menjadi <i>Deva Guru</i>—Guru Spiritual Agung tunggal, penasihat utama taktik perang, and pembimbing hukum moral bagi seluruh klan Dewa di kahyangan Indra, sekaligus menempatkannya di angkasa sebagai planet Jupiter penguasa langit tertinggi.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Guru Brihaspati divisualisasikan bertubuh besar berwibawa berwarna kuning keemasan murni, memegang japa mala (tasbih suci), tongkat komando emas, and kitab suci empat Weda di tangan-tangannya. Beliau mengendarai kereta megah ditarik oleh delapan ekor kuda kuning emas, atau duduk di atas singa perkasa melambangkan otoritas ilmu pengetahuan spiritual yang mutlak dan tak terkalahkan.</p>
-      <blockquote>"Om Guruve Namaha" — Hormat kami kepada Sang Penuntun dari kegelapan kebodohan menuju cahaya Ilahi.</blockquote>
+      <p>Guru Brihaspati divisualisasikan memiliki postur tubuh yang tinggi besar, anggun berwibawa dengan kulit memancarkan rona kuning emas murni laksana logam mulia yang dilebur. Di tangan-tangan sucinya, Beliau memegang seuntai japa mala (tasbih suci untuk berdzikir mantra), sebuah tongkat komando emas lambang penegakan keadilan hukum alam, and kitab suci empat Weda abadi. Beliau duduk dengan sikap lotus di atas punggung seekor singa emas yang gagah, menyimbolkan penaklukan total atas keliaran hawa nafsu hewaniah lewat ilmu pengetahuan spiritual, atau berkendara menggunakan kereta emas mewah yang ditarik oleh delapan ekor kuda kuning keemasan yang patuh.</p>
+      <blockquote>"Om Gram Greem Groum Sah Gurave Namaha — Hormat agung kami haturkan kepada Guru Brihaspati, Sang Penghancur Kegelapan, pemberi cahaya kebijaksanaan, and penuntun jiwa menuju moksha."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Kata <i>Guru</i> memiliki arti 'Penghancur Kegelapan'. Brihaspati mengajarkan bahwa harta paling berharga dalam hidup manusia bukanlah emas materi, melainkan kebijaksanaan rohani (Jnana). Beliau menuntun jiwa-jiwa agar selalu tunduk pada hukum moral alam semesta (Satya and Dharma) demi mencapai kemerdekaan batin.</p>
+      <p>Secara bahasa etimologi Sanskerta, kata <i>Guru</i> terbentuk dari suku kata 'Gu' (Kegelapan) dan 'Ru' (Penghancur atau Penghalau). Filosofi esensial dari Guru Brihaspati mengajarkan umat manusia bahwa kekayaan sejati and harta abadi yang wajib dikumpulkan selama hidup di bumi bukanlah tumpukan emas materi, melainkan perluasan kebijaksanaan rohani (*Jnana*). Beliau mendidik jiwa-jiwa agar senantiasa berjalan di koridor hukum kebenaran (*Satya*) and moralitas alam (*Dharma*), sebab hanya lewat bimbingan Guru sejati, belenggu kebodohan dapat dihancurkan demi mencapai kemerdekaan spiritual sejati.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Jupiter adalah planet spiritual paling dermawan (Subha Graha) nomor satu dalam Jyotish. Beliau mengendalikan faktor nasib baik, keberuntungan hidup, hukum agama, pernikahan bagi wanita, kelahiran anak, and kesucian spiritual. Pengaruh positif Guru mampu menetralkan jutaan dampak buruk planet lain.</p>
+      <p>Dalam sains astrologi Jyotish, Jupiter dipuja sebagai <i>Guru</i> atau <i>Jiwa</i>, planet pemberi berkah kebajikan (*Subha Graha*) nomor satu yang paling murah hati. Beliau menguasai zodiak Sagitarius (Dhanu) dan Pisces (Meena). Energi Jupiter memegang kendali penuh atas faktor nasib baik, keberuntungan hidup yang tidak terduga, kedalaman pemahaman agama, kesucian hukum perkawinan bagi kaum wanita, anugerah kelahiran anak keturunan yang saleh, serta tingkat kedermawanan sosial. Tatapan atau aspek positif dari planet Guru diyakini sanggup menetralisir and menghapus ribuan efek buruk yang ditimbulkan oleh planet-planet jahat lainnya.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Sadhana dipusatkan pada hari <b>Kamis</b>, hari yang sangat sakral untuk memuja manifestasi <b>Lord Dakshinamurthy</b> (Wujud Siwa mengajar dalam keheningan). Sadhaka memakai pakaian kuning terang, menghadap Timur Laut, mempersembahkan manisan kuning, guna memohon kelancaran rezeki rohani and keharmonisan rumah tangga.</p>
+      <p>Praktek pemujaan sadhana harian untuk Guru dilaksanakan secara khusyuk pada hari <b>Kamis</b>. Hari ini adalah waktu yang sangat sakral untuk bersujud memuja manifestasi <b>Lord Dakshinamurthy</b> (Wujud Dewa Siwa sebagai Guru Semesta yang mengajar ilmu tertinggi melalui meditasi keheningan sunyi). Sadhaka diwajibkan mengenakan pakaian berwarna kuning terang atau kuning kunyit, menghadap ke arah Timur Laut (Ishanya), mempersembahkan manisan laddoo kuning, bunga cempaka kuning, and kacang arab kuning (Chana Dal) demi memohon kelancaran rezeki rohani, kecerdasan anak, and keharmonisan rumah tangga yang damai.</p>
     `
   },
   {
@@ -419,19 +420,20 @@ const navagrahaPurana = [
     snippet: "Shukra menguasai keindahan seni, asmara, and kenyamanan duniawi. Selaras dengan curahan cinta kasih ibu semesta Mahalakshmi.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Dalam teks epik <b>Bhagavata Purana</b> dan <b>Devi Bhagavata Purana</b>, Shukracharya adalah putra dari Resi Agung Bhrigu. Beliau merupakan resi genius yang memilih menjadi guru spiritual kaum Asura demi menegakkan keseimbangan kosmis. Shukra melakukan pertapaan luar biasa berat kepada Dewa Siwa, mengisap asap daun kering selama ratusan tahun. Berkat keteguhan iman ini, Siwa menganugerahinya mantra legendaris bernama <b>Sanjivani Vidya</b>, sebuah ilmu spiritual rahasia tertinggi yang mampu menghidupkan kembali mahluk hidup yang telah mati. Beliau kemudian ditempatkan di langit sebagai planet Venus yang gemerlap.</p>
+      <p>Di dalam teks epik kolosal <b>Bhagavata Purana</b>, <b>Devi Bhagavata Purana</b>, dan <b>Mahabharata</b>, dikisahkan secara agung bahwa Shukracharya bermanifestasi sebagai putra kandung dari Resi Agung Bhrigu yang super jenius. Beliau merupakan seorang resi dengan intelektual and kesaktian spiritual tanpa tanding yang memilih jalan hidup anti-mainstream dengan menjadi Mahaguru spiritual bagi kaum Asura (raksasa) demi menjaga hukum keseimbangan kosmis agar kaum dewa tidak bertindak sewenang-wenang. Shukracharya melakukan tapa brata ekstrem yang tidak masuk akal kepada Dewa Siwa: Beliau bergelantung terbalik di dahan pohon selama ratusan tahun seraya mengisap asap dari pembakaran daun-daun kering. Terpukau oleh keteguhan batin spiritualnya, Dewa Siwa menganugerahinya sebuah mantra rahasia tingkat tertinggi yang dicari oleh seluruh mahluk semesta, yaitu <b>Sanjivani Vidya</b>—ilmu gaib suci yang mampu menghidupkan kembali prajurit atau mahluk hidup yang telah mati di medan perang. Beliau kemudian diangkat ke langit sebagai planet Venus yang berkilau paling terang.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Shukradeva digambarkan berwajah sangat tampan bercahaya putih, memegang tongkat sakti, japa mala, and kendi berisi air suci. Beliau berkendara di atas kereta kencana yang ditarik oleh delapan ekor kuda putih seputih mutiara atau menunggangi burung unta putih, melambangkan kehalusan rasa seni, kemakmuran materi, and kemurnian cinta kasih duniawi.</p>
+      <p>Shukradeva digambarkan memiliki paras wajah yang sangat tampan rupawan, memancarkan karisma daya pikat magnitudo tinggi dengan warna kulit putih kemilau laksana berlian murni. Beliau mengenakan jubah putih sutra bersulam benang perak. Di tangan-tangannya, Beliau memegang sebuah tongkat sakti simbol kendali rahasia Sanjivani, seuntai japa mala, and sebungkus kendi berisi air suci (*Kamandalu*). Beliau berkendara di atas kereta kencana perak mewah yang ditarik oleh delapan ekor kuda putih seputih mutiara samudra atau menunggangi burung unta putih yang anggun, melambangkan kehalusan rasa seni, kemakmuran materi finansial, and kemurnian cinta kasih duniawi.</p>
+      <blockquote>"Om Rajadhipajaya Vidmahe Mani-rupayai Dheemahi Tanno Shukrah Prachodayat — Kami bermeditasi pada Sang Penguasa Kemilau, Putra Bhrigu. Semoga Shukra Deva menerangi rasa seni and kelimpahan hidup kami."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Shukra mengajarkan manusia arti dari apresiasi keindahan (Estetika). Seni, musik, and kenyamanan dunia ini diciptakan Tuhan bukan untuk menjerumuskan manusia ke dalam dosa syahwat, melainkan sebagai media ekspresi spiritual untuk mengagumi keindahan agung ciptaan Sang Maha Pencipta Semesta.</p>
+      <p>Filosofi luhur dari Shukra Deva mengajarkan umat manusia esensi sejati dari apresiasi keindahan keharmonisan (*Estetika*). Seni musik, tarian, keindahan arsitektur, pakaian indah, and segala kenyamanan materi di dunia fana ini diciptakan oleh Tuhan bukan untuk menjerumuskan manusia ke dalam jurang dosa syahwat keserakahan, melainkan sebagai instrumen media ekspresi spiritual untuk mengagumi keindahan agung maha karya Sang Pencipta Semesta. Shukra mengajarkan bahwa kemewahan luar harus diselaraskan dengan kemurnian cinta kasih di dalam batin.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Shukra bertahta sebagai penguasa planet Venus yang mengatur urusan asmara, keharmonisan hubungan suami-istri, bakat seni (musik, akting, melukis), kemewahan kendaraan, and kekayaan materi finansial. Venus yang kuat memberikan daya tarik karismatik and kehidupan duniawi yang serba berkecukupan.</p>
+      <p>Dalam ranah perbintangan Jyotish, Shukra memimpin planet Venus yang menguasai tanda zodiak Taurus (Vrishabha) dan Libra (Tula). Beliau bertindak sebagai <i>Kalatra-Karaka</i> (Indikator Utama Asmara, Pernikahan, dan Pasangan Hidup). Shukra mengatur segala bakat kreativitas seni (dunia musik, akting, melukis, fashion), kemewahan kendaraan, harta benda finansial, and daya tarik seksual. Penempatan Venus yang kuat and bersih dalam bagan lahir seseorang menjamin kehidupan duniawi yang serba berkecukupan, karisma yang memikat masyarakat luas, and pernikahan yang penuh kebahagiaan.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Pemujaan dirayakan pada hari <b>Jumat</b>, dikhususkan untuk memuja ibunda agung <b>Goddess Mahalakshmi</b>. Pengikut mengenakan baju putih sutra atau merah muda, menghadap ke arah Timur, mempersembahkan bunga melati putih and manisan susu murni untuk memohon keharmonisan cinta and kelimpahan rezeki finansial yang halal.</p>
+      <p>Praktek pemujaan sadhana harian bagi Shukra dilaksanakan pada hari <b>Jumat</b>. Hari ini dinilai sangat agung jika dikhususkan untuk memuja ibunda agung alam semesta, <b>Goddess Mahalakshmi</b> (Dewi Kemakmuran dan Keberuntungan). Sadhaka dianjurkan mengenakan pakaian bernuansa putih sutra, perak, atau merah muda cerah, menghadap ke arah Timur, serta mempersembahkan bunga melati putih yang harum, beras putih, and manisan khair murni demi memohon kelimpahan rezeki finansial yang berkah, keharmonisan cinta kasih, and kebahagiaan rumah tangga.</p>
     `
   },
   {
@@ -440,20 +442,20 @@ const navagrahaPurana = [
     snippet: "Dewa penegak hukum sebab-akibat (Karma Phala) tanpa pandang bulu. Mengajari jiwa manusia arti kerendahan hati and kesabaran.",
     fullStory: `
       <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
-      <p>Kitab suci <b>Kurma Purana</b> dan <b>Padma Purana</b> meriwayatkan bahwa Shani Deva adalah putra dari Surya Deva (Matahari) dan Dewi Chhaya (Dewi Bayangan). Karena lahir dari rahim bayangan, Shani memiliki kulit hitam legam and raut wajah yang sangat dingin and berwibawa. Begitu lahir dan membuka kelopak matanya, energi tatapan keadilan kosmik Shani sedemikian kuatnya hingga membuat kereta matahari ayahnya mogok seketika. Menyadari potensi keadilan agung dalam diri Shani, Dewa Siwa memberikan berkat tertinggi and melantik Shani menjadi <i>Karma Phala Data</i> — Hakim Agung Tunggal penegak hukum sebab-akibat di alam semesta raya.</p>
+      <p>Kronik suci yang tertulis di dalam <b>Kurma Purana</b>, <b>Padma Purana</b>, dan <b>Shani Mahatmya</b> meriwayatkan secara epik kisah kelahiran Shani Deva (Saturnus) yang penuh misteri. Shani adalah putra kandung dari Surya Deva (Matahari) dan Dewi Chhaya (Dewi Bayangan yang tercipta dari bayangan fisik Dewi Sanjna). Karena dikandung and lahir dari rahim bayangan yang gelap, Shani terlahir dengan warna kulit hitam legam, berambut panjang, and memiliki raut wajah yang sangat dingin, kaku, and penuh wibawa kesunyian. Dikisahkan sewaktu Shani pertama kali lahir dan membuka kelopak matanya, energi tatapan keadilan kosmik-Nya sedemikian dahsyatnya hingga memicu gerhana total and membuat kereta emas matahari ayahnya macet mogok seketika. Menyadari potensi keadilan absolut yang tertanam dalam diri Shani, Dewa Siwa memberikan berkat tertinggi-Nya and melantik Shani secara resmi menjadi <i>Karma Phala Data</i>—Hakim Agung Tunggal penegak hukum sebab-akibat (Karma) yang paling adil and objektif di seluruh alam semesta raya tanpa pandang bulu.</p>
       
       <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
-      <p>Shani Deva divisualisasikan dengan tubuh tinggi tegap berkulit gelap kehitaman, memegang busur panah, pedang, and gada besi pembawa koreksi disiplin. Beliau berkendara dengan gagah di atas punggung seekor <b>burung gagak hitam</b> yang terbang membelah keheningan malam, menyimbolkan ketelitian tingkat tinggi, waktu yang terus berjalan lambat (Sanaischaram), and kesunyian batin.</p>
-      <blockquote>"Om Sham Shanaishcharaya Namaha" — Salam takzim kami kepada Sang Hakim Agung penguasa keadilan karma.</blockquote>
+      <p>Shani Deva divisualisasikan sebagai sesosok dewa berpostur tinggi tegap berkulit hitam legam atau biru tua pekat, mengenakan pakaian serba hitam, and memegang busur panah besi, pedang keadilan, serta sebuah gada besi hitam simbol koreksi kedisiplinan hidup. Beliau berjalan dengan sedikit pincang (akibat sengketa masa kecil dengan saudaranya Yama), yang melambangkan bahwa waktu and pergerakan Saturnus berjalan sangat lambat (*Sanaischaram*). Shani berkendara dengan gagah menunggangi seekor <b>burung gagak hitam besar</b> yang terbang membelah keheningan langit malam, sebuah simbol dari ketelitian tingkat tinggi, kesunyian batiniah, and kemampuan melihat rahasia di dalam kegelapan.</p>
+      <blockquote>"Om Sham Shanaishcharaya Namaha — Salam takzim kami haturkan ke hadapan Sang Hakim Karma Agung, pemurni jiwa dari segala kesombongan ego palsu."</blockquote>
       
       <h3>3. Pesan Filosofi & Makna Spiritual</h3>
-      <p>Shani Deva adalah guru spiritual sejati yang paling disalahpahami manusia. Beliau tidak pernah menghukum orang tanpa alasan. Shani bertindak seperti cermin objektif: membalas kebaikan dengan kejayaan mutlak, and mencuci dosa keburukan manusia lewat penempaan cobaan hidup berat. Shani menghancurkan kesombongan ego manusia agar jiwa kembali suci and rendah hati.</p>
+      <p>Shani Deva adalah guru spiritual sejati di alam semesta yang paling sering disalahpahami oleh umat manusia karena ditakuti. Beliau tidak pernah menghukum manusia tanpa dasar objektif. Shani bertindak laksana cermin datar kosmik yang sangat jujur: Beliau membalas amal kebajikan manusia dengan kejayaan spiritual yang mutlak, and mencuci bersih noda dosa masa lalu manusia lewat penempaan ujian and cobaan hidup yang berat. Shani menghancurkan kesombongan materi, takhta kekuasaan, and ego palsu manusia agar sang jiwa (*Atman*) tersadar dari ilusi duniawi (*Maya*) lalu kembali ke jalan kesucian, kerendahan hati, and kesabaran yang tanpa batas.</p>
       
       <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
-      <p>Shani menguasai planet Saturnus, mengendalikan elemen waktu, umur panjang, penundaan, kerja keras, kedewasaan jiwa, and asketisme sunyi. Ketika seseorang memasuki periode astrologi <i>Sadhe Sati</i> (7,5 tahun penempaan Saturnus), Shani sebenarnya sedang memurnikan batin orang tersebut dari sisa noda dosa masa lalu.</p>
+      <p>Dalam sains astrologi perbintangan Jyotish, Shani memimpin planet Saturnus yang menguasai zodiak Capricorn (Makara) dan Aquarius (Kumbha). Sifat alaminya adalah dingin, lambat, and penuh disiplin ketat. Shani bertindak sebagai indikator utama dari elemen batasan waktu, usia umur panjang manusia, kerja keras tanpa mengeluh, kedewasaan mental spiritual, penundaan rezeki, and asketisme sunyi. Ketika seseorang memasuki fase astrologi <i>Sadhe Sati</i> (periode penempaan 7,5 tahun Saturnus), Shani sebenarnya tidak sedang menghancurkan orang tersebut, melainkan sedang memurnikan emas di dalam batinnya dari kotoran noda karma buruk masa lampau.</p>
       
       <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
-      <p>Sadhana suci jatuh pada hari <b>Sabtu</b>. Sadhaka dianjurkan bersembahyang menyalakan lampu minyak wijen hitam (Til Deepam) di depan murthi Shani Deva atau memuja Dewa Siwa / Hanuman. Memakai pakaian hitam atau biru tua, menghadap Barat, guna memohon perlindungan dari marabahaya and ketabahan mental menjalani sisa karma hidup.</p>
+      <p>Sadhana suci pembersihan diri bagi Shani Deva dilaksanakan secara khusyuk pada hari <b>Sabtu</b> (Shanivar). Langkah ritual terbaik adalah dengan pergi ke kuil lalu menyalakan lampu minyak yang menggunakan bahan bakar minyak wijen hitam (*Til Deepam*) di hadapan murthi Shani Deva atau pohon banyan. Sadhaka dianjurkan mengenakan pakaian bernuansa hitam atau biru tua pekat, duduk bermeditasi menghadap ke arah Barat, melantunkan Shani Gayatri Mantra, serta gemar memberi sedekah makanan kepada orang miskin, pekerja buruh kasar, and memberi makan burung gagak hitam atau anjing liar hitam demi memohon perlindungan dari mara bahaya, ketabahan mental, and kelonggaran sisa utang karma hidup.</p>
     `
   }
 ];
@@ -493,7 +495,6 @@ function filterStories(planetName) {
   const buttons = document.querySelectorAll(".filter-btn");
   buttons.forEach(btn => btn.classList.remove("active"));
   
-  // Mencari tombol yang diklik secara aman
   if(event && event.target) {
     event.target.classList.add("active");
   }
