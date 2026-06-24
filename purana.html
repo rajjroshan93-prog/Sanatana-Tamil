@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitab Purana Kosmik Navagraha</title>
+<title>Kitab Agung Purana Navagraha</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 
 html, body {
   height:100%;
-  background-color: #050200;
+  background-color: #040100;
   color: #e8d5a3;
   font-family: 'Crimson Text', Georgia, serif;
 }
@@ -21,372 +21,225 @@ body {
   overflow-x: hidden;
 }
 
-/* ── LATAR BELAKANG KOSMIK EMAS MEWAH DAN MEGAH (CSS MURNI, TANPA FOTO) ── */
+/* ── LATAR BELAKANG KOSMIK EMAS MEWAH DAN MEGAH (CSS MURNI) ── */
 .bg-cosmic {
   position: fixed;
   inset: 0;
   z-index: 0;
   background: 
-    radial-gradient(circle at 50% -20%, rgba(218,165,32,0.18) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(139,105,20,0.12) 0%, transparent 60%),
-    radial-gradient(circle at 10% 90%, rgba(212,175,55,0.06) 0%, transparent 40%),
-    radial-gradient(circle at 90% 10%, rgba(255,215,0,0.05) 0%, transparent 40%),
-    #070301;
+    radial-gradient(circle at 50% -20%, rgba(218,165,32,0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139,105,20,0.15) 0%, transparent 65%),
+    radial-gradient(circle at 10% 90%, rgba(212,175,55,0.08) 0%, transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(255,215,0,0.06) 0%, transparent 45%),
+    #060301;
 }
 
-/* Sorotan Pilar Cahaya Suci dari Langit di Tengah Altar */
 .bg-pillar {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   height: 100%;
   z-index: 1;
-  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.04) 30%, rgba(255,215,0,0.04) 70%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.03) 25%, rgba(255,215,0,0.03) 75%, transparent);
   pointer-events: none;
 }
 
-/* Efek Taburan Bintang Kosmik Berkedip */
 .bg-stars {
   position: fixed;
   inset: 0;
   z-index: 2;
   background-image: 
-    radial-gradient(1px 1px at 15% 20%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 40% 65%, rgba(255,215,0,0.8), transparent),
-    radial-gradient(1px 1px at 70% 35%, #fff, transparent),
-    radial-gradient(2px 2px at 85% 75%, rgba(255,215,0,0.6), transparent),
-    radial-gradient(1px 1px at 25% 80%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 60% 15%, rgba(255,215,0,0.9), transparent);
-  background-size: 300px 300px;
-  opacity: 0.45;
-  animation: starsTwinkle 6s infinite linear;
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 35% 60%, rgba(255,215,0,0.85), transparent),
+    radial-gradient(1px 1px at 75% 30%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 80%, rgba(255,215,0,0.65), transparent),
+    radial-gradient(1px 1px at 20% 75%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 65% 20%, rgba(255,215,0,0.9), transparent);
+  background-size: 320px 320px;
+  opacity: 0.5;
+  animation: starsTwinkle 7s infinite linear;
 }
 
 @keyframes starsTwinkle {
-  0% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.02); }
-  100% { opacity: 0.3; transform: scale(1); }
+  0% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.03); }
+  100% { opacity: 0.35; transform: scale(1); }
 }
 
-/* ── HEADER HALAMAN MEGAH ── */
-.header {
+/* ── CONTAINER HALAMAN UTAMA KARTU ── */
+#main-view {
   position: relative;
   z-index: 10;
-  padding: 45px 20px 25px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+#main-view.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+/* HEADER */
+.header {
+  padding: 45px 20px 20px;
   text-align: center;
 }
 .header h1 {
   font-family: 'Cinzel', serif;
-  font-size: 1.65rem;
+  font-size: 1.7rem;
   font-weight: 900;
   color: #FFD700;
   letter-spacing: 5px;
-  text-shadow: 0 0 20px rgba(255,215,0,0.4), 0 2px 4px rgba(0,0,0,0.9);
-  margin-bottom: 10px;
+  text-shadow: 0 0 25px rgba(255,215,0,0.45), 0 2px 5px rgba(0,0,0,0.9);
+  margin-bottom: 12px;
 }
 .header p {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: #c9a96e;
   font-style: italic;
   letter-spacing: 1px;
-  max-width: 500px;
+  max-width: 550px;
   margin: 0 auto;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 .h-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 .h-divider .line {
-  width: 70px;
+  width: 80px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);
 }
-.h-divider .symbol {
+.h-divider .symbol { color: #FFD700; font-size: 0.9rem; text-shadow: 0 0 8px rgba(255,215,0,0.5); }
+
+/* NAVIGASI UTAMA */
+.nav-actions { text-align: center; margin-bottom: 22px; }
+.btn-back-altar {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  padding: 10px 22px;
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255,215,0,0.6);
   color: #FFD700;
-  font-size: 0.85rem;
-  text-shadow: 0 0 8px rgba(255,215,0,0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.btn-back-altar:hover {
+  background: #FFD700;
+  color: #060301;
+  box-shadow: 0 0 15px rgba(255,215,0,0.4);
 }
 
-/* ── FILTER NAVIGATION TAB ── */
 .filter-container {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  padding: 10px 20px;
-  margin-bottom: 25px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  display: flex; justify-content: flex-start; gap: 10px;
+  padding: 10px 20px; margin-bottom: 25px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
 }
 .filter-container::-webkit-scrollbar { display: none; }
 .filter-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(212,175,55,0.25);
-  background: rgba(15, 7, 2, 0.75);
-  color: #c9a96e;
-  cursor: pointer;
-  white-space: nowrap;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
+  font-family: 'Cinzel', serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;
+  padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.25);
+  background: rgba(15, 7, 2, 0.8); color: #c9a96e; cursor: pointer; white-space: nowrap;
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); transition: all 0.3s ease;
 }
 .filter-btn.active, .filter-btn:hover {
   background: linear-gradient(180deg, #44300a 0%, #170903 100%);
-  border-color: #FFD700;
-  color: #FFD700;
-  box-shadow: 0 0 12px rgba(255,215,0,0.25);
+  border-color: #FFD700; color: #FFD700; box-shadow: 0 0 12px rgba(255,215,0,0.3);
 }
 
-/* ── GRID GRUP KARTU REKOR ── */
+/* GRID SEJARAH */
 .main-content {
-  position: relative;
-  z-index: 10;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-  gap: 22px;
-  padding: 0 20px 100px;
-  max-width: 1100px;
-  margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px;
+  padding: 0 20px 100px; max-width: 1200px; margin: 0 auto;
 }
 
-/* KARTU EMAS MEWAH */
 .story-card {
-  background: linear-gradient(135deg, rgba(20, 10, 3, 0.88) 0%, rgba(10, 4, 1, 0.95) 100%);
-  border: 1px solid rgba(212,175,55,0.22);
-  border-radius: 8px;
-  padding: 22px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 
-    0 10px 30px rgba(0,0,0,0.65), 
-    inset 0 1px 0 rgba(255,215,0,0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: linear-gradient(135deg, rgba(22, 11, 3, 0.9) 0%, rgba(12, 5, 1, 0.96) 100%);
+  border: 1px solid rgba(212,175,55,0.25); border-radius: 8px; padding: 24px;
+  position: relative; display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,215,0,0.05);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .story-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255,215,0,0.5);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 15px rgba(255,215,0,0.1);
+  transform: translateY(-5px); border-color: rgba(255,215,0,0.55);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.85), 0 0 15px rgba(255,215,0,0.12);
 }
 
-/* Ornamen Sudut Kartu */
-.sc-fc { position: absolute; font-size: 0.75rem; color: rgba(212,175,55,0.35); text-shadow: 0 0 4px rgba(255,215,0,0.2); }
+.sc-fc { position: absolute; font-size: 0.8rem; color: rgba(212,175,55,0.35); }
 .sc-fc.tl { top: 6px; left: 8px; }
 .sc-fc.tr { top: 6px; right: 8px; transform: scaleX(-1); }
 .sc-fc.bl { bottom: 6px; left: 8px; transform: scaleY(-1); }
 .sc-fc.br { bottom: 6px; right: 8px; transform: scale(-1); }
 
-.card-top {
-  margin-bottom: 15px;
-}
-.card-planet {
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  color: #FFD700;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  font-weight: 700;
-}
-.card-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.15rem;
-  color: #fff;
-  margin-bottom: 12px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-.card-snippet {
-  font-size: 0.88rem;
-  line-height: 1.55;
-  color: #c9a96e;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+.card-top { margin-bottom: 15px; }
+.card-planet { font-size: 0.7rem; letter-spacing: 2px; color: #FFD700; text-transform: uppercase; margin-bottom: 5px; font-weight: 700; }
+.card-title { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #fff; margin-bottom: 12px; font-weight: 700; line-height: 1.35; }
+.card-snippet { font-size: 0.88rem; line-height: 1.6; color: #c9a96e; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
 
 .card-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  background: transparent;
-  border: none;
-  color: #FFD700;
-  cursor: pointer;
-  align-self: flex-start;
-  margin-top: 15px;
-  padding: 4px 0;
-  border-bottom: 1px dashed rgba(255,215,0,0.35);
-  transition: all 0.2s ease;
+  font-family: 'Cinzel', serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
+  background: transparent; border: none; color: #FFD700; cursor: pointer; align-self: flex-start;
+  margin-top: 18px; padding: 4px 0; border-bottom: 1px dashed rgba(255,215,0,0.4); transition: all 0.2s ease;
 }
-.card-btn:hover {
-  color: #fff;
-  border-bottom-color: #fff;
+.card-btn:hover { color: #fff; border-bottom-color: #fff; }
+
+
+/* ── VIEW LEMBARAN KITAB SUCI LENGKAP HALAMAN BARU (FULLSCREEN) ── */
+#book-view {
+  position: relative; z-index: 20; max-width: 750px; margin: 0 auto; padding: 25px 15px 120px;
+  display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;
+}
+#book-view.active { display: block; opacity: 1; transform: translateY(0); }
+
+.scroll-parchment-full {
+  background-color: #ebdcb9; color: #261a0b; border-radius: 6px;
+  border-left: 14px solid #8B6914; border-right: 14px solid #8B6914;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.95), inset 0 0 50px rgba(139,105,20,0.4);
+  padding: 40px 30px; position: relative;
 }
 
-/* KEMBALI BUTTON */
-.back-btn-container {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  margin-bottom: 20px;
+.book-header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.btn-close-book {
+  font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
+  padding: 6px 16px; background: #8B6914; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s;
 }
-.back-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-  padding: 8px 20px;
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.btn-close-book:hover { background: #5c3e10; }
+
+.book-planet { font-size: 0.78rem; letter-spacing: 4px; color: #73530c; font-weight: 700; text-transform: uppercase; text-align: center; margin-bottom: 6px; }
+.book-title { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 900; color: #3b250a; text-align: center; line-height: 1.3; margin-bottom: 12px; text-shadow: 0 1px 1px rgba(255,255,255,0.5); }
+.book-divider { text-align: center; color: #8B6914; font-size: 0.75rem; margin-bottom: 30px; letter-spacing: 4px; }
+
+/* ISI TEKS KITAB PANJANG */
+.book-body { font-size: 1rem; line-height: 1.85; text-align: justify; }
+.book-body h3 {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; color: #52340d;
+  margin-top: 28px; margin-bottom: 8px; border-bottom: 1px solid rgba(139,105,20,0.3); padding-bottom: 4px;
+  display: flex; align-items: center; gap: 8px;
 }
-.back-btn:hover {
-  background: #FFD700;
-  color: #050200;
-  box-shadow: 0 0 15px rgba(255,215,0,0.4);
+.book-body p { margin-bottom: 16px; text-indent: 25px; }
+.book-body blockquote {
+  font-style: italic; border-left: 4px solid #8B6914; padding-left: 15px;
+  margin: 22px 10px; color: #4f330b; font-weight: 600; background: rgba(139,105,20,0.05); padding-top: 8px; padding-bottom: 8px;
 }
 
-/* ── MODAL POP-UP GULUNGAN KITAB PARCHMENT KUNO ── */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(4, 2, 0, 0.92);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  transition: opacity 0.4s ease;
-}
-.modal-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Wadah Kertas Perkamen Kuno Tradisional */
-.scroll-parchment {
-  background-color: #ebdcb9; 
-  color: #2b1d0c; 
-  width: 100%;
-  max-width: 520px;
-  max-height: 85vh;
-  border-radius: 4px;
-  border-left: 12px solid #8B6914;
-  border-right: 12px solid #8B6914;
-  box-shadow: 0 25px 55px rgba(0,0,0,0.95), inset 0 0 40px rgba(139,105,20,0.35);
-  padding: 35px 25px;
-  overflow-y: auto;
-  position: relative;
-  transform: scale(0.9);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
-}
-.modal-overlay.open .scroll-parchment {
-  transform: scale(1);
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 12px;
-  right: 15px;
-  background: transparent;
-  border: none;
-  font-size: 1.25rem;
-  color: #5c3e10;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.modal-planet {
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: #8B6914;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  text-align: center;
-}
-.modal-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.35rem;
-  font-weight: 900;
-  color: #4a320f;
-  text-align: center;
-  margin-bottom: 15px;
-  line-height: 1.25;
-}
-.modal-divider {
-  text-align: center;
-  color: #8B6914;
-  font-size: 0.65rem;
-  margin-bottom: 22px;
-}
-.modal-body {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  text-align: justify;
-}
-.modal-body h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  color: #5c3e10;
-  margin-top: 18px;
-  margin-bottom: 6px;
-  border-bottom: 1px dashed rgba(139,105,20,0.4);
-  padding-bottom: 2px;
-}
-.modal-body p {
-  margin-bottom: 14px;
-}
-.modal-body blockquote {
-  font-style: italic;
-  border-left: 3px solid #8B6914;
-  padding-left: 12px;
-  margin: 16px 0;
-  color: #5c3e10;
-  font-weight: 600;
-}
-
-/* ── FOOTER HALAMAN ── */
+/* FOOTER */
 .footer {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
-  padding: 14px;
-  background: linear-gradient(0deg, rgba(7,3,1,0.98) 0%, transparent 100%);
-  text-align: center;
-  font-family: 'Cinzel', serif;
-  font-size: .58rem;
-  letter-spacing: 3px;
-  color: rgba(212,175,55,0.4);
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
+  padding: 14px; background: linear-gradient(0deg, rgba(4,1,0,1) 0%, transparent 100%);
+  text-align: center; font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: 3px; color: rgba(212,175,55,0.4);
 }
-
-/* Kastumisasi Scrollbar Kitab */
-.scroll-parchment::-webkit-scrollbar { width: 5px; }
-.scroll-parchment::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
-.scroll-parchment::-webkit-scrollbar-thumb { background: #8B6914; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -395,150 +248,219 @@ body {
 <div class="bg-pillar"></div>
 <div class="bg-stars"></div>
 
-<div class="header">
-  <h1>PURANA KOSMIK NAVAGRAHA</h1>
-  <p>Menelusuri sejarah, mitologi suci, dan filosofi agung kesembilan entitas surgawi langit kosmis Hindu.</p>
-  <div class="h-divider">
-    <div class="line"></div>
-    <div class="symbol">🔱</div>
-    <div class="line"></div>
+<div id="main-view">
+  <div class="header">
+    <h1>KITAB AGUNG PURANA NAVAGRAHA</h1>
+    <p>Ensiklopedia rahasia kosmis, kronik mitologi suci, teologi Weda, dan bimbingan filosofis kesembilan rasi surgawi Hindu.</p>
+    <div class="h-divider">
+      <div class="line"></div>
+      <div class="symbol">🔱</div>
+      <div class="line"></div>
+    </div>
   </div>
+
+  <div class="nav-actions">
+    <button class="btn-back-altar" onclick="location.href='altar.html'">◀ KEMBALI KE ALTAR HARIAN</button>
+  </div>
+
+  <div class="filter-container">
+    <button class="filter-btn active" onclick="filterStories('ALL')">SEMUA PURANA</button>
+    <button class="filter-btn" onclick="filterStories('☀️ MATAHARI')">SURYA</button>
+    <button class="filter-btn" onclick="filterStories('🌙 BULAN')">CHANDRA</button>
+    <button class="filter-btn" onclick="filterStories('🔴 MARS')">MANGALA</button>
+    <button class="filter-btn" onclick="filterStories('💚 MERKURIUS')">BUDHA</button>
+    <button class="filter-btn" onclick="filterStories('🌟 JUPITER')">GURU</button>
+    <button class="filter-btn" onclick="filterStories('💎 VENUS')">SHUKRA</button>
+    <button class="filter-btn" onclick="filterStories('⚫ SATURNUS')">SHANI</button>
+  </div>
+
+  <div class="main-content" id="stories-grid"></div>
 </div>
 
-<div class="back-btn-container">
-  <button class="back-btn" onclick="location.href='altar.html'">◀ KEMBALI KE ALTAR SUCI</button>
-</div>
 
-<div class="filter-container">
-  <button class="filter-btn active" onclick="filterStories('ALL')">SEMUA PURANA</button>
-  <button class="filter-btn" onclick="filterStories('☀️ MATAHARI')">SURYA</button>
-  <button class="filter-btn" onclick="filterStories('🌙 BULAN')">CHANDRA</button>
-  <button class="filter-btn" onclick="filterStories('🔴 MARS')">MANGALA</button>
-  <button class="filter-btn" onclick="filterStories('💚 MERKURIUS')">BUDHA</button>
-  <button class="filter-btn" onclick="filterStories('🌟 JUPITER')">GURU</button>
-  <button class="filter-btn" onclick="filterStories('💎 VENUS')">SHUKRA</button>
-  <button class="filter-btn" onclick="filterStories('⚫ SATURNUS')">SHANI</button>
-</div>
-
-<div class="main-content" id="stories-grid"></div>
-
-<div class="modal-overlay" id="story-modal" onclick="closeModal()">
-  <div class="scroll-parchment" onclick="event.stopPropagation()">
-    <button class="modal-close-btn" onclick="closeModal()">✕</button>
-    <div class="modal-planet" id="m-planet">PLANET</div>
-    <div class="modal-title" id="m-title">JUDUL DEWA</div>
-    <div class="modal-divider">✦ 🔱 ✦</div>
-    <div class="modal-body" id="m-body"></div>
+<div id="book-view">
+  <div class="scroll-parchment-full">
+    <div class="book-header-actions">
+      <button class="btn-close-book" onclick="closeBookView()">◀ TUTUP KITAB</button>
+      <span style="font-size:1.1rem; color:#8B6914;">📜</span>
+    </div>
+    
+    <div class="book-planet" id="b-planet">PLANET</div>
+    <div class="book-title" id="b-title">JUDUL PURANA DEWA</div>
+    <div class="book-divider">✦ 🔱 🕉 🔱 ✦</div>
+    
+    <div class="book-body" id="b-body">
+      </div>
+    
+    <div style="text-align:center; margin-top:40px; color:#8B6914; font-size:0.8rem;">🕉 Shanti Shanti Shanti 🕉</div>
   </div>
 </div>
 
 <div class="footer">PURANA NAVAGRAHA KOSMIK &nbsp;✦&nbsp; ENSIKLOPEDIA FILOSOFI SUCI HINDU</div>
 
+
 <script>
-// ═══════════════════════════════════
-// DATA ENSIKLOPEDIA PURANA NAVAGRAHA SUPER LENGKAP & DETAIL
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════
+// DATA PURANA LENGKAP - STRUKTUR 5 BAB DETAIL UNTUK SETIAP DEWA
+// ═══════════════════════════════════════════════════════════════════════
 const navagrahaPurana = [
   {
     planet: "☀️ MATAHARI",
-    title: "Kisah Surya Deva & Kereta Tujuh Warna",
-    snippet: "Surya Bhagavan lahir sebagai lambang jiwa alam semesta (Surya Atmakah). Pancaran cahayanya menghidupkan seluruh makhluk hidup.",
+    title: "Kisah Surya Deva & Kereta Tujuh Kuda Surgawi",
+    snippet: "Surya Bhagavan lahir sebagai lambang jiwa alam semesta (Surya Atmakah). Menguasai tata cahaya spiritual and fisik.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Menurut teks suci <b>Markandeya Purana</b> dan <b>Vishnu Purana</b>, Surya Bhagavan adalah putra dari Resi Agung Kasyapa dan Dewi Aditi, sehingga Beliau juga dikenal dengan nama <i>Aditya</i>. Ketika mengandung-Nya, Aditi melakukan tapa brata yang sangat keras demi melahirkan putra yang mampu mengusir kegelapan kosmis yang dibuat oleh kaum Asura. Begitu lahir, energi energetik cahaya Surya Deva sedemikian dahsyatnya hingga membakar ruang angkasa, memaksa ayahnya memotong sebagian energinya agar jagat raya tidak hangus terbakar.</p>
-      <blockquote>"Om Ghrinih Surya Aditya Om" — Hormat kami kepada Sang Jiwa Agung Penguasa Langit.</blockquote>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Surya Deva berkendara melintasi garis khatulistiwa angkasa menggunakan kereta kencana perkasa beroda satu dengan 12 jari-jari (melambangkan 12 bulan dalam setahun). Kereta ini ditarik oleh <b>tujuh ekor kuda suci putih</b> berkilauan, yang merupakan lambang dari tujuh warna pelangi (spektrum cahaya matahari) sekaligus manifestasi dari 7 hari dalam seminggu. Pengemudi setianya adalah Aruna, personifikasi fajar merah keemasan yang bertugas menghalau sinar tajam langsung agar ramah bagi mahluk bumi.</p>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Dalam sistem Astrologi Weda (Jyotish), Surya dianggap sebagai 'Raja' dari seluruh planet (Graha Raja). Beliau melambangkan ego batiniah, kepercayaan diri, kekuasaan, kepemimpinan, dan kesehatan tulang/mata. Memuja Surya pada hari Minggu membantu melebur sifat malas, menumbuhkan integritas moral, serta membuka jalur kesuksesan lahir dan batin.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Menurut lembaran suci <b>Markandeya Purana</b> dan <b>Vishnu Purana</b>, Surya Bhagavan adalah putra kandung dari Maha Resi Kasyapa dan Dewi Aditi. Beliau merupakan entitas pertama yang bermanifestasi saat alam kosmos dilanda kegelapan pekat tanpa batas. Ibu Aditi melakukan tapa brata ekstrem memohon anak yang bisa menyelamatkan semesta dari penindasan kaum Asura. Saat lahir, pancaran radiasi Surya Deva sedemikian dahsyatnya hingga ruang angkasa membara parah. Ayahandanya, Resi Kasyapa, terpaksa menggunakan kekuatan spiritual guna memotong sebagian energi luar luar surya tersebut menjadi 12 bagian yang setara (Dwadasa Aditya), agar planet-planet di sekitarnya tidak hangus menjadi abu.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Surya Deva digambarkan memiliki kulit merah keemasan bersinar, memiliki empat lengan suci yang memegang bunga teratai merekah (lambang kehidupan), roda cakra kosmik, and sangkala pelindung. Beliau mengarungi garis ekliptika menggunakan satu kereta kencana megah beroda tunggal dengan 12 jari-jari masif (melambangkan 12 bulan atau zodiak). Kereta tersebut ditarik secara perkasa oleh <b>tujuh ekor kuda putih suci</b> yang agung, melambangkan tujuh warna pelangi (spektrum cahaya matahari) sekaligus struktur 7 hari dalam sepekan. Kereta ini dikemudikan oleh Aruna, dewa fajar fajar kemerahan.</p>
+      <blockquote>"Om Ghrinih Surya Aditya Om" — Mantra penghormatan agung melebur kegelapan batiniah manusia.</blockquote>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Secara filosofis, Surya Deva dipuja sebagai <i>Surya Atmakah</i>, artinya jiwa atau roh dari alam semesta raya. Beliau mengajarkan konsistensi tanpa pamrih: terbit setiap hari secara adil tanpa membeda-bedakan mahluk suci maupun pendosa. Sinar Surya melambangkan hancurnya kebodohan spiritual (Avidya) oleh pencerahan akal budi sejati (Jnana).</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Dalam ilmu perbintangan Hindu (Jyotish), Surya adalah Raja Agung dari seluruh susunan Navagraha (Graha Raja). Sifat dasarnya adalah maskulin, agung, and murni. Surya mengendalikan kesehatan mata, kekuatan tulang, daya tahan tubuh, rasa percaya diri, kehormatan, otoritas kepemimpinan, and hubungan batin dengan ayah kandung seseorang di dunia fisik.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Pemujaan terbaik dilaksanakan pada hari <b>Minggu</b> tepat saat matahari terbit (Sandhyavandanam). Sadhaka menghadap ke arah Timur sembari mempersembahkan air suci dicampur bunga merah dalam wadah tembaga (Arghya). Disarankan mengenakan pakaian bernuansa kuning tua atau merah bata, serta melantunkan bait suci Gayatri Mantra atau Aditya Hridaya Stotram untuk memohon kesehatan and kejayaan abadi.</p>
     `
   },
   {
     planet: "🌙 BULAN",
-    title: "Chandra Bhagavan & Rahasia Fase 27 Istri",
-    snippet: "Chandra adalah penguasa pikiran (Mana-Karaka) dan cairan dunia. Keindahannya dilingkupi kutukan dan pengampunan Siwa.",
+    title: "Chandra Bhagavan & Rahasia Penguasa 27 Nakshatra",
+    snippet: "Chandra adalah personifikasi pikiran, emosi, dan kesuburan dunia. Dilindungi langsung di atas rambut Mahadeva.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Dalam <b>Matsya Purana</b>, diceritakan bahwa Chandra Bhagavan lahir dari samudra susu murni saat peristiwa kosmis <i>Samudra Manthan</i> (pengadukan samudra raya oleh para dewa dan asura). Wajahnya sangat menawan dan teduh. Chandra Deva menikahi 27 putri dari Prajapati Daksha, yang semuanya merupakan perwujudan dari rasi bintang <b>Nakshatra</b> dalam ilmu falak Hindu. Namun, karena Chandra hanya mencintai Rohini (salah satu istrinya) secara berlebih dan mengabaikan 26 istri lainnya, Daksha murka dan mengutuk Chandra agar terkena penyakit layu yang membuatnya memudar dan lenyap.</p>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Untuk menyelamatkan diri dari kepunahan total, Chandra melakukan penyesalan mendalam dan memohon perlindungan kepada Dewa Siwa. Karena kutukan Prajapati tidak bisa dibatalkan penuh, Siwa menaruh Chandra di mahkota rambut-Nya. Efeknya, Chandra akan memudar selama 15 hari (Krishna Paksha) dan tumbuh kembali selama 15 hari berikutnya (Shukla Paksha), menciptakan siklus bulan purnama dan bulan mati.</p>
-      <blockquote>Chandra di atas kepala Mahadeva melambangkan emosi yang terkendali sempurna di bawah kesadaran spiritual tertinggi.</blockquote>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Chandra melambangkan pikiran (Mana), ibu, kedamaian mental, intuisi, and kesuburan tanah. Jika pikiran seseorang sering cemas dan gelisah, itu tanda energi Chandra sedang goyah. Memuja-Nya di hari Senin melalui meditasi menstabilkan gejolak psikologis dan menghadirkan kebahagiaan batin.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Kitab <b>Matsya Purana</b> dan <b>Srimad Bhagavatam</b> mencatat bahwa Chandra Deva lahir dari samudra susu kosmis sewaktu fenomena spiritual <i>Samudra Manthan</i> (pengadukan samudra kosmik oleh dewa-asura untuk mencari tirta amerta). Chandra terlahir dengan rupa yang sangat menawan, memancarkan kesejukan kedamaian. Beliau mengambil 27 putri dari Prajapati Daksha sebagai istri-istrinya, yang masing-masing melambangkan rasi bintang <b>Nakshatra</b>. Karena Chandra bertindak pilih kasih dan hanya menghabiskan waktu bersama istri kesayangannya, Rohini, ke-26 putri lainnya menangis melapor pada ayah mereka. Daksha murka besar lalu mengutuk Chandra dengan penyakit layu yang perlahan mengikis cahayanya hingga mati.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Chandra Deva divisualisasikan berkulit putih bersih seputih salju, memegang bunga teratai putih and gada penyejuk, mengendarai kereta kencana tiga roda yang ditarik oleh sepuluh ekor antelop atau kuda putih suci secepat angin. Karena dikutuk Daksha, Beliau meminta perlindungan Dewa Siwa. Siwa kemudian menaruh Chandra di atas sanggul rambut-Nya (Chandrashekhara), mengubah kutukan mati menjadi siklus periodik: memudar 15 hari (Krishna Paksha) dan membesar 15 hari berikutnya (Shukla Paksha).</p>
+      <blockquote>"Om Som Somaya Namaha" — Salam suci bagi Sang Penguasa Malam pembawa keheningan batin.</blockquote>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Chandra adalah simbol fluktuasi kehidupan. Siklus pasang surut bulan mengajari kita bahwa duka and suka di dunia fana ini bersifat sementara. Keberadaan Chandra di mahkota Dewa Siwa menyampaikan pesan bahwa gejolak emosi manusia hanya dapat ditenangkan jika diletakkan di bawah kesadaran meditasi spritual yang tinggi.</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Chandra berperan sebagai <i>Mana-Karaka</i>, yakni indikator utama pikiran, memori, emosional, naluri keibuan, kesuburan cairan, serta sistem peredaran darah. Posisi Bulan yang kokoh dalam bagan lahir seseorang menjamin kedamaian mental, empati tinggi, and intuisi psikologis yang sangat tajam.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Sadhana Chandra jatuh pada hari <b>Senin</b>, sangat baik dipadukan dengan ritual memuja Dewa Siwa (Shiva Lingam Abhishekam) menggunakan susu murni atau air kelapa. Warna pakaian yang dianjurkan adalah putih bersih atau perak, menghadap ke Barat Laut, guna mengikis penyakit mental, stres, and depresi pikiran.</p>
     `
   },
   {
     planet: "🔴 MARS",
-    title: "Keberanian Mangala & Jiwa Ksatria Kartikeya",
-    snippet: "Dilahirkan dari peluh keringat pertapaan Siwa yang jatuh ke Ibu Pertiwi. Mewakili keberanian tak tergoyahkan dan tekad baja.",
+    title: "Keberanian Kuat Mangala & Lahirnya Sang Bhauma",
+    snippet: "Dilahirkan dari tetesan keringat suci Dewa Siwa yang menyentuh Ibu Pertiwi. Energi ksatria pelindung kebenaran Dharma.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Berdasarkan kitab <b>Shiva Purana</b>, Mangala (Mars) memiliki proses kelahiran yang magis. Suatu ketika Dewa Siwa melakukan meditasi yang sangat mendalam dan panas di gunung Kailash. Dari dahi-Nya, jatuh setetes keringat suci murni yang meresap ke dalam perut Bumi (Bhumidevi). Sang Ibu Pertiwi kemudian melahirkan seorang bayi laki-laki berkulit merah menyala yang dirawat langsung olehnya. Anak tersebut dinamai <i>Bhauma</i> atau Mangala, yang kemudian diangkat ke langit menjadi planet Mars atas restu Siwa karena pengabdiannya yang luar biasa.</p>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Energi pelindung dari Mangala sangat selaras dengan kepemimpinan <b>Lord Murugan Kartikeya</b>, sang panglima perang tertinggi para dewa yang memegang senjata tombak suci (Vel). Mangala digambarkan memegang gada and tombak, berkendara di atas seekor domba jantan berkekuatan besar, melambangkan agresi yang terarah, kedisiplinan militer, dan perlindungan Dharma.</p>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Dalam astrologi Jyotish, Mangala mengendalikan energi fisik, gairah, keberanian, darah, and tanah material. Energi Mars yang seimbang memberikan dorongan untuk memerangi kejahatan batiniah (seperti kemarahan and ketakutan), sedangkan energi yang buruk memicu perselisihan. Hari Selasa adalah hari terbaik untuk memohon kekuatan mental dan menghalau utang kehidupan.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Berdasarkan kronik suci <b>Shiva Purana</b>, Mangala (Mars) memiliki riwayat kelahiran yang sangat tidak biasa. Suatu ketika, Dewa Siwa tenggelam dalam meditasi asketis yang sangat mendalam dan memancarkan panas spiritual yang luar biasa di puncak Gunung Kailash. Akibat konsentrasi tersebut, setetes keringat suci jatuh dari dahi Siwa dan merembes masuk ke dalam rahim Ibu Pertiwi (Bhumidevi). Dari tanah rahim bumi tersebut, lahirlah seorang bayi laki-laki tampan berkulit merah membara. Bhumidevi merawat anak tersebut dengan penuh kasih sayang, sehingga anak itu dijuluki <i>Bhauma</i> (Putra Bumi). Setelah dewasa, ia melakukan tapa berat kepada Siwa dan dianugerahi posisi mulia di langit sebagai planet Mars.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Mangala bermanifestasi dengan tubuh kekar berwarna merah tua menyala, mengenakan pakaian serba merah, and memegang empat senjata tajam: trisula, gada, tombak sakti, and perisai. Wahana setianya adalah seekor domba jantan (ram) bertanduk kokoh, yang menyimbolkan kekuatan dorongan fisik, agresi perang, pertahanan, and keteguhan tekad ksatria sejati.</p>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Mangala mengajari kita esensi dari perlindungan (Raksana). Kekuatan fisik and energi membara tidak boleh dipakai untuk menindas kaum lemah, melainkan harus dikonversi menjadi energi ksatria pelindung kebenaran (Dharma) serta kekuatan mental untuk menaklukkan musuh-musuh internal dalam diri sendiri seperti nafsu berlebih dan amarah bergejolak.</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Mangala menguasai energi maskulin, keberanian, ambisi, properti tanah, otot, and sumsum tulang. Dalam astrologi, jika penempatan Mars tidak seimbang, dapat menimbulkan kondisi <i>Manglik Dosha</i> yang memicu sifat tempramental atau hambatan pernikahan. Sebaliknya, Mars yang baik melahirkan jiwa pemimpin and tentara yang loyal.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Ritual dilakukan pada hari <b>Selasa</b> dengan memuja manifestasi <b>Lord Murugan (Kartikeya)</b> atau Hanuman Swamy. Sadhaka mengenakan baju merah menyala, menghadap Selatan, melantunkan Mangala Stotram, and mempersembahkan bunga-bunga berwarna merah atau dhal merah guna melenyapkan rintangan hutang material and konflik fisik.</p>
     `
   },
   {
     planet: "💚 MERKURIUS",
-    title: "Kecerdasan Budha Deva & Berkah Ganesha Vinayaka",
-    snippet: "Budha adalah penguasa akal budi, logika, dan perdagangan. Selaras dengan berkah Lord Ganesha sang pembongkar rintangan.",
+    title: "Kecerdasan Budha Deva & Ketajaman Akal Kebijaksanaan",
+    snippet: "Dewa penguasa logika, ilmu matematika, komunikasi, dan perdagangan dunia. Selaras dengan berkah pembongkar rintangan Ganesha.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Kitab <b>Brahmanda Purana</b> mengisahkan bahwa Budha Deva (penguasa Merkurius, berbeda dengan Buddha Gautama) lahir dari hubungan asmara antara Chandra (Bulan) dan Tara (istri Guru Brihaspati). Sejak lahir, anak ini diberkati dengan ketajaman mental yang luar biasa melampaui dewa-dewa sebayanya, sehingga dinamai 'Budha' yang berarti intelektualitas atau akal budi yang tercerahkan.</p>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Budha Deva digambarkan mengendarai singa bersayap atau kereta yang ditarik oleh kuda-kuda selincah angin. Tubuhnya bernuansa kehijauan lambang pertumbuhan dan komunikasi. Hari Rabu yang dikuasainya dihubungkan erat dengan pemujaan <b>Lord Ganesha Vinayaka</b>, dewa berkepala gajah pelindung ilmu pengetahuan yang bertugas memotong rintangan pikiran logis manusia.</p>
-      <blockquote>"Buddhi" adalah jembatan manusia menuju kebijaksanaan spiritual. Tanpa kecerdasan yang benar, manusia tersesat dalam kebodohan.</blockquote>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Budha mengatur kecerdasan, daya analisis, kemampuan berbicara, bisnis, akuntansi, dan memori. Membaca purana and memuja energi Rabu merangsang fokus belajar bagi pelajar, memperlancar negosiasi bisnis, serta membersihkan ucapan dari dusta yang merusak karma.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Kitab kuno <b>Brahmanda Purana</b> mengisahkan bahwa Budha Deva (penguasa planet Merkurius) adalah putra dari Chandra (Bulan) dan Dewi Tara. Dikisahkan sejak menit pertama dilahirkan, bayi ini sudah memancarkan aura intelektual yang sangat menakjubkan. Para dewa terperangah melihat bayi tersebut sanggup memahami esensi ilmu pengetahuan suci tanpa perlu diajari. Dewa Brahma yang takjub kemudian menamainya <i>Budha</i>, yang dalam bahasa Sanskerta kuno bermakna 'Kecerdasan Mutlak', 'Akal Budi Luhur', atau 'Sang Terpelajar'. Beliau kemudian ditunjuk memimpin Merkurius.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Budha Deva digambarkan memiliki paras yang elok bernuansa kehijauan laksana zamrud muda, mengenakan jubah hijau menawan. Tangan-tangannya memegang perisai besi, gada perang, and kitab lontar kuno simbol pengetahuan. Wahana kendaraannya adalah singa agung berbulu lebat yang memiliki sayap besar, atau mengendarai kereta kencana yang ditarik delapan ekor kuda selincah hembusan angin malam.</p>
+      <blockquote>"Om Budhaya Namaha" — Sembah suci kami haturkan kepada penuntun akal pikiran yang luhur.</blockquote>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Filosofi Budha Deva menekankan pentingnya elemen <i>Buddhi</i> (akal budi jernih). Pengetahuan atau kepintaran intelektual manusia bisa berbalik menjadi senjata pemusnah masal berbahaya jika tidak dilandasi oleh moralitas spiritual yang matang. Budha mengajarkan manusia untuk menimbang segala keputusan hidup lewat logika yang jernih, adil, and bebas dari ego buta.</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Budha bertahta sebagai <i>Budhi-Karaka</i>, penguasa daya analisis, komunikasi lisan/tulisan, matematika, perdagangan, bisnis, humor, and kecakapan bahasa diplomasi. Posisi Merkurius yang prima melahirkan jurnalis hebat, pedagang sukses, akuntan akurat, serta cendekiawan yang berwibawa.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Pemujaan dilaksanakan pada hari <b>Rabu</b>, hari yang sangat agung untuk bersujud memohon berkah kepada <b>Lord Ganesha</b> (Sang Pembongkar Rintangan). Disarankan memakai baju hijau, menghadap ke arah Utara, mempersembahkan daun Durva hijau segar, demi kelancaran ujian pendidikan, kesuksesan usaha dagang, and ketajaman memori.</p>
     `
   },
   {
     planet: "🌟 JUPITER",
-    title: "Guru Brihaspati & Rahasia Filsafat Dakshinamurthy",
-    snippet: "Guru Brihaspati adalah penasihat agung para dewa, membimbing jalannya ilmu spiritual dan kebajikan moral tertinggi.",
+    title: "Guru Brihaspati & Spiritualitas Suci Penasihat Dewata",
+    snippet: "Planet paling dermawan pemberi berkah spiritual, ilmu kebajikan moral, kemakmuran, and bimbingan rohani sejati.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Menurut <b>Rig Veda</b> dan <b>Skanda Purana</b>, Brihaspati adalah putra dari Resi Agung Angiras. Beliau melakukan tapa penyesalan yang amat parah kepada Dewa Siwa selama ribuan tahun demi kemaslahatan moral semesta. Terkesan oleh devosinya, Siwa menunjuknya sebagai <i>Guru</i> (pembimbing spiritual) para Deva di kahyangan, sekaligus menempatkannya sebagai planet Jupiter yang penuh keberuntungan.</p>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Beliau memegang kitab suci Weda, japa mala, and tongkat emas. Di bumi, energi Guru termanifestasi indah dalam wujud <b>Lord Dakshinamurthy</b>, yaitu manifestasi Dewa Siwa sebagai Guru Agung yang duduk diam di bawah pohon beringin suci menghadap ke selatan, mengajarkan rahasia Advaita Vedanta kepada para resi sepuh hanya melalui transmisi keheningan mutlak (Mauna Vyakhya).</p>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Jupiter adalah planet yang paling dermawan (Guru/Subha Graha). Beliau melambangkan hukum moral, kebajikan, pernikahan wanita, keturunan, dan spiritualitas universal. Memuja Guru di hari Kamis membuka pintu rezeki spiritual, memperluas wawasan keagamaan, dan membersihkan diri dari kegelapan ego keakuan.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Berdasarkan epos suci <b>Rig Veda</b> dan <b>Skanda Purana</b>, Guru Brihaspati adalah putra kandung dari Resi Agung Angiras (salah satu dari Sapta Resi pembentuk dunia). Sejak usia muda, Brihaspati melakukan pertapaan yang sangat ekstrem, berdiri dengan satu kaki selama ribuan tahun seraya memuja Dewa Siwa. Terkesan oleh ketabahan batin and kesucian jiwanya, Mahadeva menampakkan diri lalu mengangkat Brihaspati menjadi <i>Deva Guru</i>, yaitu penasihat agung spiritual, guru penuntun ritual ritual suci, and pembimbing moral bagi seluruh dewa di kahyangan, serta menempatkannya sebagai planet Jupiter.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Guru Brihaspati divisualisasikan bertubuh besar berwibawa berwarna kuning keemasan murni, memegang japa mala (tasbih suci), tongkat komando emas, and kitab suci empat Weda di tangan-tangannya. Beliau mengendarai kereta megah ditarik oleh delapan ekor kuda kuning emas, atau duduk di atas singa perkasa melambangkan otoritas ilmu pengetahuan spiritual yang mutlak dan tak terkalahkan.</p>
+      <blockquote>"Om Guruve Namaha" — Hormat kami kepada Sang Penuntun dari kegelapan kebodohan menuju cahaya Ilahi.</blockquote>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Kata <i>Guru</i> memiliki arti 'Penghancur Kegelapan'. Brihaspati mengajarkan bahwa harta paling berharga dalam hidup manusia bukanlah emas materi, melainkan kebijaksanaan rohani (Jnana). Beliau menuntun jiwa-jiwa agar selalu tunduk pada hukum moral alam semesta (Satya and Dharma) demi mencapai kemerdekaan batin.</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Jupiter adalah planet spiritual paling dermawan (Subha Graha) nomor satu dalam Jyotish. Beliau mengendalikan faktor nasib baik, keberuntungan hidup, hukum agama, pernikahan bagi wanita, kelahiran anak, and kesucian spiritual. Pengaruh positif Guru mampu menetralkan jutaan dampak buruk planet lain.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Sadhana dipusatkan pada hari <b>Kamis</b>, hari yang sangat sakral untuk memuja manifestasi <b>Lord Dakshinamurthy</b> (Wujud Siwa mengajar dalam keheningan). Sadhaka memakai pakaian kuning terang, menghadap Timur Laut, mempersembahkan manisan kuning, guna memohon kelancaran rezeki rohani and keharmonisan rumah tangga.</p>
     `
   },
   {
     planet: "💎 VENUS",
-    title: "Resi Shukracharya & Kasih Agung Mahalakshmi",
-    snippet: "Shukra adalah penguasa kemakmuran, seni estetika, dan kecantikan. Selaras dengan berlimpahnya kasih Dewi Mahalakshmi.",
+    title: "Resi Shukracharya & Berkah Kelimpahan Dewi Mahalakshmi",
+    snippet: "Shukra menguasai keindahan seni, asmara, and kenyamanan duniawi. Selaras dengan curahan cinta kasih ibu semesta Mahalakshmi.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Dalam teks <b>Bhagavata Purana</b>, Shukracharya adalah resi sakti putra dari Resi Bhrigu. Beliau merupakan penasihat spiritual kaum Asura. Melalui tapa brata yang sangat ekstrem kepada Dewa Siwa, beliau dianugerahi ilmu legendaris bernama <b>Sanjivani Vidya</b>, sebuah mantra sakral yang sanggup menghidupkan kembali makhluk yang sudah mati di medan perang. Karena kebijaksanaan dan kekuatannya, beliau diangkat menjadi planet Venus (Shukra) yang bersinar paling terang di langit subuh.</p>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Shukra melambangkan keindahan visual, kenyamanan hidup, dan seni estetika tinggi. Hari Jumat yang dipimpinnya didedikasikan sepenuhnya untuk bersujud kepada <b>Dewi Mahalakshmi</b>, Ibu Kemakmuran Semesta yang membawa delapan berkah kelimpahan hidup (Ashta Lakshmi) mulai dari pangan, keturunan, keberanian, hingga kebebasan jiwa (Moksha).</p>
-      <blockquote>Kekayaan tanpa spiritualitas seperti cangkang mutiara tanpa isi. Shukra mengajarkan manusia menikmati seni duniawi sebagai cerminan keindahan Ilahi.</blockquote>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Shukra menguasai keharmonisan rumah tangga, hubungan romantis, bakat seni, and kekayaan materi. Jika Venus seseorang bagus, hidupnya dipenuhi kedamaian kasih sayang. Memuja energi hari Jumat menjauhkan rumah tangga dari keretakan dan mengalirkan keberuntungan finansial yang berkah.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Dalam teks epik <b>Bhagavata Purana</b> dan <b>Devi Bhagavata Purana</b>, Shukracharya adalah putra dari Resi Agung Bhrigu. Beliau merupakan resi genius yang memilih menjadi guru spiritual kaum Asura demi menegakkan keseimbangan kosmis. Shukra melakukan pertapaan luar biasa berat kepada Dewa Siwa, mengisap asap daun kering selama ratusan tahun. Berkat keteguhan iman ini, Siwa menganugerahinya mantra legendaris bernama <b>Sanjivani Vidya</b>, sebuah ilmu spiritual rahasia tertinggi yang mampu menghidupkan kembali mahluk hidup yang telah mati. Beliau kemudian ditempatkan di langit sebagai planet Venus yang gemerlap.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Shukradeva digambarkan berwajah sangat tampan bercahaya putih, memegang tongkat sakti, japa mala, and kendi berisi air suci. Beliau berkendara di atas kereta kencana yang ditarik oleh delapan ekor kuda putih seputih mutiara atau menunggangi burung unta putih, melambangkan kehalusan rasa seni, kemakmuran materi, and kemurnian cinta kasih duniawi.</p>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Shukra mengajarkan manusia arti dari apresiasi keindahan (Estetika). Seni, musik, and kenyamanan dunia ini diciptakan Tuhan bukan untuk menjerumuskan manusia ke dalam dosa syahwat, melainkan sebagai media ekspresi spiritual untuk mengagumi keindahan agung ciptaan Sang Maha Pencipta Semesta.</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Shukra bertahta sebagai penguasa planet Venus yang mengatur urusan asmara, keharmonisan hubungan suami-istri, bakat seni (musik, akting, melukis), kemewahan kendaraan, and kekayaan materi finansial. Venus yang kuat memberikan daya tarik karismatik and kehidupan duniawi yang serba berkecukupan.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Pemujaan dirayakan pada hari <b>Jumat</b>, dikhususkan untuk memuja ibunda agung <b>Goddess Mahalakshmi</b>. Pengikut mengenakan baju putih sutra atau merah muda, menghadap ke arah Timur, mempersembahkan bunga melati putih and manisan susu murni untuk memohon keharmonisan cinta and kelimpahan rezeki finansial yang halal.</p>
     `
   },
   {
     planet: "⚫ SATURNUS",
-    title: "Keadilan Shani Deva sang Hakim Agung Karma",
-    snippet: "Shani Bhagavan menegakkan hukum sebab-akibat (karma) tanpa pandang bulu, menuntun manusia pada kerendahan hati.",
+    title: "Keadilan Shani Deva & Hukum Ketat Hakim Karma Kosmis",
+    snippet: "Dewa penegak hukum sebab-akibat (Karma Phala) tanpa pandang bulu. Mengajari jiwa manusia arti kerendahan hati and kesabaran.",
     fullStory: `
-      <h3>Asal-usul Mitologi</h3>
-      <p>Kitab <b>Kurma Purana</b> mencatat bahwa Shani Deva adalah putra dari Surya Deva (Matahari) dan Dewi Chhaya (Bayangan). Akibat lahir dari rahim bayangan, Shani memiliki kulit gelap legam and pembawaan yang sangat tenang, dingin, and disiplin. Begitu lahir, tatapan matanya yang bermuatan energi keadilan kosmis sempat membuat kereta surya ayahnya mogok tak bergerak. Melihat potensi agung ini, Dewa Siwa memberikan Shani tugas termulia sekaligus paling berat di alam semesta: menjadi Hakim Agung Penguasa Karma (Karma-Phala Data).</p>
-      <h3>Simbolisme & Atribut</h3>
-      <p>Shani Deva berkendara di atas seekor burung gagak hitam, memegang busur panah and gada besi, melambangkan ketelitian, waktu yang terus berputar, dan kesunyian malam. Beliau bertugas mengadili perbuatan manusia secara adil tanpa pandang bulu—baik raja maupun pertapa akan mendapatkan balasan setimpal atas perbuatannya.</p>
-      <h3>Dampak Spiritual & Astrologi</h3>
-      <p>Dalam ilmu astrologi, Shani sering ditakuti padahal Beliau adalah guru spiritual terbaik. Shani melambangkan penuaan, kesabaran, penundaan, and asketisme. Ketika seseorang mengalami cobaan hidup berat (seperti masa Sadhe Sati), Shani sebenarnya sedang memurnikan jiwa orang tersebut dari noda dosa masa lalu agar menjadi pribadi yang rendah hati. Memuja Shani di hari Sabtu melatih kepasrahan total pada kehendak kosmis.</p>
+      <h3>1. Asal-Usul Mitologi Purana Kuno</h3>
+      <p>Kitab suci <b>Kurma Purana</b> dan <b>Padma Purana</b> meriwayatkan bahwa Shani Deva adalah putra dari Surya Deva (Matahari) dan Dewi Chhaya (Dewi Bayangan). Karena lahir dari rahim bayangan, Shani memiliki kulit hitam legam and raut wajah yang sangat dingin and berwibawa. Begitu lahir dan membuka kelopak matanya, energi tatapan keadilan kosmik Shani sedemikian kuatnya hingga membuat kereta matahari ayahnya mogok seketika. Menyadari potensi keadilan agung dalam diri Shani, Dewa Siwa memberikan berkat tertinggi and melantik Shani menjadi <i>Karma Phala Data</i> — Hakim Agung Tunggal penegak hukum sebab-akibat di alam semesta raya.</p>
+      
+      <h3>2. Karakteristik Fisik & Penggambaran Visual</h3>
+      <p>Shani Deva divisualisasikan dengan tubuh tinggi tegap berkulit gelap kehitaman, memegang busur panah, pedang, and gada besi pembawa koreksi disiplin. Beliau berkendara dengan gagah di atas punggung seekor <b>burung gagak hitam</b> yang terbang membelah keheningan malam, menyimbolkan ketelitian tingkat tinggi, waktu yang terus berjalan lambat (Sanaischaram), and kesunyian batin.</p>
+      <blockquote>"Om Sham Shanaishcharaya Namaha" — Salam takzim kami kepada Sang Hakim Agung penguasa keadilan karma.</blockquote>
+      
+      <h3>3. Pesan Filosofi & Makna Spiritual</h3>
+      <p>Shani Deva adalah guru spiritual sejati yang paling disalahpahami manusia. Beliau tidak pernah menghukum orang tanpa alasan. Shani bertindak seperti cermin objektif: membalas kebaikan dengan kejayaan mutlak, and mencuci dosa keburukan manusia lewat penempaan cobaan hidup berat. Shani menghancurkan kesombongan ego manusia agar jiwa kembali suci and rendah hati.</p>
+      
+      <h3>4. Pengaruh Astrologi Weda (Jyotish)</h3>
+      <p>Shani menguasai planet Saturnus, mengendalikan elemen waktu, umur panjang, penundaan, kerja keras, kedewasaan jiwa, and asketisme sunyi. Ketika seseorang memasuki periode astrologi <i>Sadhe Sati</i> (7,5 tahun penempaan Saturnus), Shani sebenarnya sedang memurnikan batin orang tersebut dari sisa noda dosa masa lalu.</p>
+      
+      <h3>5. Tata Cara Pemujaan (Sadhana) Harian</h3>
+      <p>Sadhana suci jatuh pada hari <b>Sabtu</b>. Sadhaka dianjurkan bersembahyang menyalakan lampu minyak wijen hitam (Til Deepam) di depan murthi Shani Deva atau memuja Dewa Siwa / Hanuman. Memakai pakaian hitam atau biru tua, menghadap Barat, guna memohon perlindungan dari marabahaya and ketabahan mental menjalani sisa karma hidup.</p>
     `
   }
 ];
 
-// ═══════════════════════════════════
-// LOGIKA UTUH FUNGSI RENDER DAN FILTER KARTU
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════
+// LOGIKA UTUH JS - PERPINDAHAN VIEW HALAMAN & FILTER
+// ═══════════════════════════════════════════════════════════════════════
 
 function renderStories(filterPlanet) {
   const grid = document.getElementById("stories-grid");
@@ -561,7 +483,7 @@ function renderStories(filterPlanet) {
         <div class="card-title">${item.title}</div>
         <div class="card-snippet">${item.snippet}</div>
       </div>
-      <button class="card-btn" onclick="openModal(${index})">BUKA KITAB SUCI 📜</button>
+      <button class="card-btn" onclick="openBookView(${index})">BUKA KITAB SUCI 📜</button>
     `;
     grid.appendChild(card);
   });
@@ -571,21 +493,43 @@ function filterStories(planetName) {
   const buttons = document.querySelectorAll(".filter-btn");
   buttons.forEach(btn => btn.classList.remove("active"));
   
-  event.target.classList.add("active");
+  // Mencari tombol yang diklik secara aman
+  if(event && event.target) {
+    event.target.classList.add("active");
+  }
   renderStories(planetName);
 }
 
-function openModal(index) {
+// FUNGSI UTAMA: MEMBUKA HALAMAN BARU FULLSCREEN GULUNGAN KITAB SUCI
+function openBookView(index) {
   const data = navagrahaPurana[index];
-  document.getElementById("m-planet").innerText = data.planet;
-  document.getElementById("m-title").innerText = data.title;
-  document.getElementById("m-body").innerHTML = data.fullStory;
   
-  document.getElementById("story-modal").classList.add("open");
+  document.getElementById("b-planet").innerText = data.planet;
+  document.getElementById("b-title").innerText  = data.title;
+  document.getElementById("b-body").innerHTML   = data.fullStory;
+  
+  // Sembunyikan Halaman Utama Kartu
+  document.getElementById("main-view").classList.add("hidden");
+  
+  // Tampilkan Halaman Baru Kitab Suci Fullscreen
+  const bookView = document.getElementById("book-view");
+  bookView.style.display = "block";
+  setTimeout(() => {
+    bookView.classList.add("active");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 50);
 }
 
-function closeModal() {
-  document.getElementById("story-modal").classList.remove("open");
+// FUNGSI UTAMA: MENUTUP DAN KEMBALI KE VIEW KARTU
+function closeBookView() {
+  const bookView = document.getElementById("book-view");
+  bookView.classList.remove("active");
+  
+  setTimeout(() => {
+    bookView.style.display = "none";
+    // Munculkan kembali halaman kartu utama
+    document.getElementById("main-view").classList.remove("hidden");
+  }, 400);
 }
 
 window.onload = function() {
