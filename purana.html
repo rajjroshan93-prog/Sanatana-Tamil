@@ -26,7 +26,6 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
-  /* Kombinasi pendaran nebula emas spiritual yang megah */
   background: 
     radial-gradient(circle at 50% -20%, rgba(218,165,32,0.18) 0%, transparent 45%),
     radial-gradient(circle at 50% 50%, rgba(139,105,20,0.12) 0%, transparent 60%),
@@ -163,7 +162,7 @@ body {
   margin: 0 auto;
 }
 
-/* KARTU EMAS EMAS MEWAH */
+/* KARTU EMAS MEWAH */
 .story-card {
   background: linear-gradient(135deg, rgba(20, 10, 3, 0.88) 0%, rgba(10, 4, 1, 0.95) 100%);
   border: 1px solid rgba(212,175,55,0.22);
@@ -243,6 +242,31 @@ body {
   border-bottom-color: #fff;
 }
 
+/* KEMBALI BUTTON */
+.back-btn-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.back-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  padding: 8px 20px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.back-btn:hover {
+  background: #FFD700;
+  color: #050200;
+  box-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+
 /* ── MODAL POP-UP GULUNGAN KITAB PARCHMENT KUNO ── */
 .modal-overlay {
   position: fixed;
@@ -269,8 +293,8 @@ body {
   background-color: #ebdcb9; 
   color: #2b1d0c; 
   width: 100%;
-  max-width: 500px;
-  max-height: 82vh;
+  max-width: 520px;
+  max-height: 85vh;
   border-radius: 4px;
   border-left: 12px solid #8B6914;
   border-right: 12px solid #8B6914;
@@ -308,7 +332,7 @@ body {
 }
 .modal-title {
   font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 900;
   color: #4a320f;
   text-align: center;
@@ -325,6 +349,15 @@ body {
   font-size: 0.95rem;
   line-height: 1.75;
   text-align: justify;
+}
+.modal-body h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #5c3e10;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed rgba(139,105,20,0.4);
+  padding-bottom: 2px;
 }
 .modal-body p {
   margin-bottom: 14px;
@@ -372,6 +405,10 @@ body {
   </div>
 </div>
 
+<div class="back-btn-container">
+  <button class="back-btn" onclick="location.href='altar.html'">◀ KEMBALI KE ALTAR SUCI</button>
+</div>
+
 <div class="filter-container">
   <button class="filter-btn active" onclick="filterStories('ALL')">SEMUA PURANA</button>
   <button class="filter-btn" onclick="filterStories('☀️ MATAHARI')">SURYA</button>
@@ -383,8 +420,7 @@ body {
   <button class="filter-btn" onclick="filterStories('⚫ SATURNUS')">SHANI</button>
 </div>
 
-<div class="main-content" id="stories-grid">
-  </div>
+<div class="main-content" id="stories-grid"></div>
 
 <div class="modal-overlay" id="story-modal" onclick="closeModal()">
   <div class="scroll-parchment" onclick="event.stopPropagation()">
@@ -392,8 +428,7 @@ body {
     <div class="modal-planet" id="m-planet">PLANET</div>
     <div class="modal-title" id="m-title">JUDUL DEWA</div>
     <div class="modal-divider">✦ 🔱 ✦</div>
-    <div class="modal-body" id="m-body">
-      </div>
+    <div class="modal-body" id="m-body"></div>
   </div>
 </div>
 
@@ -401,39 +436,48 @@ body {
 
 <script>
 // ═══════════════════════════════════
-// DATA ENSIKLOPEDIA PURANA NAVAGRAHA LENGKAP
+// DATA ENSIKLOPEDIA PURANA NAVAGRAHA SUPER LENGKAP & DETAIL
 // ═══════════════════════════════════
 const navagrahaPurana = [
   {
     planet: "☀️ MATAHARI",
-    title: "Kisah Lahirnya Surya Deva & Kereta Kuda Tujuh Warna",
-    snippet: "Surya Bhagavan lahir dari pertapaan agung Resi Kasyapa dan Dewi Aditi. Pancaran cahayanya menguasai tata surya mahluk hidup.",
+    title: "Kisah Surya Deva & Kereta Tujuh Warna",
+    snippet: "Surya Bhagavan lahir sebagai lambang jiwa alam semesta (Surya Atmakah). Pancaran cahayanya menghidupkan seluruh makhluk hidup.",
     fullStory: `
-      <p>Menurut kitab suci <b>Vishnu Purana</b>, Surya Bhagavan adalah putra dari Resi Agung Kasyapa dan Dewi Aditi. Ketika lahir, energi energinya sangat dahsyat dan tak tertandingi hingga menerangi seluruh alam semesta yang sebelumnya diselimuti kegelapan pekat.</p>
-      <blockquote>"Om Ghrinih Surya Aditya Om" — Mantra penghormatan bagi Jiwa Jagat Raya.</blockquote>
-      <p>Surya Deva berkendara melintasi angkasa menggunakan kereta kencana megah beroda satu, yang ditarik oleh <b>tujuh ekor kuda putih suci</b>. Ketujuh kuda ini melambangkan tujuh warna pelangi kosmis serta tujuh hari dalam seminggu. Pengemudi setianya adalah Aruna, wujud fajar merah yang agung.</p>
-      <p>Filosofi memuja Surya bukan hanya memohon kesehatan fisik, melainkan memohon agar kegelapan kebodohan dalam pikiran kita dilebur oleh cahaya kebijaksanaan spiritual sejati.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Menurut teks suci <b>Markandeya Purana</b> dan <b>Vishnu Purana</b>, Surya Bhagavan adalah putra dari Resi Agung Kasyapa dan Dewi Aditi, sehingga Beliau juga dikenal dengan nama <i>Aditya</i>. Ketika mengandung-Nya, Aditi melakukan tapa brata yang sangat keras demi melahirkan putra yang mampu mengusir kegelapan kosmis yang dibuat oleh kaum Asura. Begitu lahir, energi energetik cahaya Surya Deva sedemikian dahsyatnya hingga membakar ruang angkasa, memaksa ayahnya memotong sebagian energinya agar jagat raya tidak hangus terbakar.</p>
+      <blockquote>"Om Ghrinih Surya Aditya Om" — Hormat kami kepada Sang Jiwa Agung Penguasa Langit.</blockquote>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Surya Deva berkendara melintasi garis khatulistiwa angkasa menggunakan kereta kencana perkasa beroda satu dengan 12 jari-jari (melambangkan 12 bulan dalam setahun). Kereta ini ditarik oleh <b>tujuh ekor kuda suci putih</b> berkilauan, yang merupakan lambang dari tujuh warna pelangi (spektrum cahaya matahari) sekaligus manifestasi dari 7 hari dalam seminggu. Pengemudi setianya adalah Aruna, personifikasi fajar merah keemasan yang bertugas menghalau sinar tajam langsung agar ramah bagi mahluk bumi.</p>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Dalam sistem Astrologi Weda (Jyotish), Surya dianggap sebagai 'Raja' dari seluruh planet (Graha Raja). Beliau melambangkan ego batiniah, kepercayaan diri, kekuasaan, kepemimpinan, dan kesehatan tulang/mata. Memuja Surya pada hari Minggu membantu melebur sifat malas, menumbuhkan integritas moral, serta membuka jalur kesuksesan lahir dan batin.</p>
     `
   },
   {
     planet: "🌙 BULAN",
-    title: "Kisah Chandra Bhagavan & Rahasia 27 Fase Perubahan Bulan",
-    snippet: "Chandra adalah penguasa pikiran dan cairan dunia. Ia dianugerahi 27 istri yang melambangkan rasi bintang nakshatra.",
+    title: "Chandra Bhagavan & Rahasia Fase 27 Istri",
+    snippet: "Chandra adalah penguasa pikiran (Mana-Karaka) dan cairan dunia. Keindahannya dilingkupi kutukan dan pengampunan Siwa.",
     fullStory: `
-      <p>Chandra Deva wujud dari personifikasi Bulan, lahir dari samudra susu saat peristiwa kosmis <b>Samudra Manthan</b> (pengadukan samudra kosmis). Chandra dikenal memiliki wajah yang luar biasa tampan, memancarkan kedamaian, dan ketenangan batin.</p>
-      <p>Beliau menikahi 27 putri dari Prajapati Daksha, yang masing-masing putri mewakili rasi bintang atau <i>Nakshatra</i> dalam ilmu astrologi Hindu Vedic. Ketidakadilan kasih sayang Chandra memicu kutukan Daksha yang membuatnya meredup, namun diselamatkan oleh pengampunan Lord Shiva.</p>
-      <blockquote>Chandra bersemayam di mahkota Siwa, mengajarkan bahwa keindahan batin yang tenang adalah penyejuk jiwa yang bergejolak.</blockquote>
-      <p>Dalam ilmu spiritual, memuja Chandra membersihkan sisi emosional, menstabilkan psikologis, and memperkuat intuisi intuisi spiritual batin mahluk hidup.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Dalam <b>Matsya Purana</b>, diceritakan bahwa Chandra Bhagavan lahir dari samudra susu murni saat peristiwa kosmis <i>Samudra Manthan</i> (pengadukan samudra raya oleh para dewa dan asura). Wajahnya sangat menawan dan teduh. Chandra Deva menikahi 27 putri dari Prajapati Daksha, yang semuanya merupakan perwujudan dari rasi bintang <b>Nakshatra</b> dalam ilmu falak Hindu. Namun, karena Chandra hanya mencintai Rohini (salah satu istrinya) secara berlebih dan mengabaikan 26 istri lainnya, Daksha murka dan mengutuk Chandra agar terkena penyakit layu yang membuatnya memudar dan lenyap.</p>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Untuk menyelamatkan diri dari kepunahan total, Chandra melakukan penyesalan mendalam dan memohon perlindungan kepada Dewa Siwa. Karena kutukan Prajapati tidak bisa dibatalkan penuh, Siwa menaruh Chandra di mahkota rambut-Nya. Efeknya, Chandra akan memudar selama 15 hari (Krishna Paksha) dan tumbuh kembali selama 15 hari berikutnya (Shukla Paksha), menciptakan siklus bulan purnama dan bulan mati.</p>
+      <blockquote>Chandra di atas kepala Mahadeva melambangkan emosi yang terkendali sempurna di bawah kesadaran spiritual tertinggi.</blockquote>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Chandra melambangkan pikiran (Mana), ibu, kedamaian mental, intuisi, and kesuburan tanah. Jika pikiran seseorang sering cemas dan gelisah, itu tanda energi Chandra sedang goyah. Memuja-Nya di hari Senin melalui meditasi menstabilkan gejolak psikologis dan menghadirkan kebahagiaan batin.</p>
     `
   },
   {
     planet: "🔴 MARS",
-    title: "Keberanian Mangala & Jiwa Ksatria Murugan Kartikeya",
-    snippet: "Mangala atau Mars dilahirkan dari peluh keringat pertapaan Siwa yang jatuh ke Ibu Pertiwi. Mewakili keberanian dan tekad baja.",
+    title: "Keberanian Mangala & Jiwa Ksatria Kartikeya",
+    snippet: "Dilahirkan dari peluh keringat pertapaan Siwa yang jatuh ke Ibu Pertiwi. Mewakili keberanian tak tergoyahkan dan tekad baja.",
     fullStory: `
-      <p>Dalam tradisi purana Hindu, Mangala (Mars) memiliki asal usul unik. Ia tercipta dari tetesan keringat suci Dewa Siwa saat melakukan meditasi mendalam yang jatuh mengenai sang Dewi Pertiwi (Bhumidevi). Maka dari itu, Mars juga sering dijuluki <i>Bhauma</i> atau Putra Bumi.</p>
-      <p>Energi Mars yang berani, teguh, dan berjiwa ksatria sangat selaras dengan dipujanya <b>Lord Murugan Kartikeya</b>, Panglima Perang Para Dewa, sebagai manifestasi tertinggi hari Selasa.</p>
-      <p>Membaca kisah suci ini mengingatkan kita bahwa keberanian sejati bukanlah untuk menindas orang lain, melainkan keberanian untuk memerangi hawa nafsu (musuh dalam diri) demi menegakkan panji Dharma.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Berdasarkan kitab <b>Shiva Purana</b>, Mangala (Mars) memiliki proses kelahiran yang magis. Suatu ketika Dewa Siwa melakukan meditasi yang sangat mendalam dan panas di gunung Kailash. Dari dahi-Nya, jatuh setetes keringat suci murni yang meresap ke dalam perut Bumi (Bhumidevi). Sang Ibu Pertiwi kemudian melahirkan seorang bayi laki-laki berkulit merah menyala yang dirawat langsung olehnya. Anak tersebut dinamai <i>Bhauma</i> atau Mangala, yang kemudian diangkat ke langit menjadi planet Mars atas restu Siwa karena pengabdiannya yang luar biasa.</p>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Energi pelindung dari Mangala sangat selaras dengan kepemimpinan <b>Lord Murugan Kartikeya</b>, sang panglima perang tertinggi para dewa yang memegang senjata tombak suci (Vel). Mangala digambarkan memegang gada and tombak, berkendara di atas seekor domba jantan berkekuatan besar, melambangkan agresi yang terarah, kedisiplinan militer, dan perlindungan Dharma.</p>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Dalam astrologi Jyotish, Mangala mengendalikan energi fisik, gairah, keberanian, darah, and tanah material. Energi Mars yang seimbang memberikan dorongan untuk memerangi kejahatan batiniah (seperti kemarahan and ketakutan), sedangkan energi yang buruk memicu perselisihan. Hari Selasa adalah hari terbaik untuk memohon kekuatan mental dan menghalau utang kehidupan.</p>
     `
   },
   {
@@ -441,41 +485,53 @@ const navagrahaPurana = [
     title: "Kecerdasan Budha Deva & Berkah Ganesha Vinayaka",
     snippet: "Budha adalah penguasa akal budi, logika, dan perdagangan. Selaras dengan berkah Lord Ganesha sang pembongkar rintangan.",
     fullStory: `
-      <p>Budha Bhagavan (jangan keliru dengan Buddha Gautama) adalah dewa yang menguasai planet Merkurius. Ia merupakan anak dari Chandra Deva yang mewarisi ketajaman logika, daya ingat luar biasa, serta kemampuan komunikasi diplomasi yang piawai.</p>
-      <p>Hari Rabu yang dinaunginya diselaraskan dengan pemujaan kepada <b>Lord Ganesha</b>. Ganesha sebagai penjelmaan kebijaksanaan mutlak membantu menuntun kecerdasan pikiran manusia agar selalu berada di jalan kebajikan.</p>
-      <blockquote>"Buddhi" berarti akal budi luhur. Tanpa akal budi, pengetahuan manusia menjadi kosong berbahaya.</blockquote>
-      <p>Melalui halaman ensiklopedia ini, kita diajarkan untuk selalu memulai segala pembelajaran, usaha dagang, maupun ujian dengan berserah pada energi Rabu demi kelancaran akal budi.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Kitab <b>Brahmanda Purana</b> mengisahkan bahwa Budha Deva (penguasa Merkurius, berbeda dengan Buddha Gautama) lahir dari hubungan asmara antara Chandra (Bulan) dan Tara (istri Guru Brihaspati). Sejak lahir, anak ini diberkati dengan ketajaman mental yang luar biasa melampaui dewa-dewa sebayanya, sehingga dinamai 'Budha' yang berarti intelektualitas atau akal budi yang tercerahkan.</p>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Budha Deva digambarkan mengendarai singa bersayap atau kereta yang ditarik oleh kuda-kuda selincah angin. Tubuhnya bernuansa kehijauan lambang pertumbuhan dan komunikasi. Hari Rabu yang dikuasainya dihubungkan erat dengan pemujaan <b>Lord Ganesha Vinayaka</b>, dewa berkepala gajah pelindung ilmu pengetahuan yang bertugas memotong rintangan pikiran logis manusia.</p>
+      <blockquote>"Buddhi" adalah jembatan manusia menuju kebijaksanaan spiritual. Tanpa kecerdasan yang benar, manusia tersesat dalam kebodohan.</blockquote>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Budha mengatur kecerdasan, daya analisis, kemampuan berbicara, bisnis, akuntansi, dan memori. Membaca purana and memuja energi Rabu merangsang fokus belajar bagi pelajar, memperlancar negosiasi bisnis, serta membersihkan ucapan dari dusta yang merusak karma.</p>
     `
   },
   {
     planet: "🌟 JUPITER",
-    title: "Guru Brihaspati & Wujud Dakshinamurthy sang Guru Semesta",
+    title: "Guru Brihaspati & Rahasia Filsafat Dakshinamurthy",
     snippet: "Guru Brihaspati adalah penasihat agung para dewa, membimbing jalannya ilmu spiritual dan kebajikan moral tertinggi.",
     fullStory: `
-      <p>Guru Brihaspati menguasai planet Jupiter, yang dikenal sebagai planet paling dermawan dan penuh berkah spiritual dalam susunan Navagraha. Beliau bertugas sebagai pembimbing moral, spiritual, serta hukum suci para dewa di kahyangan.</p>
-      <p>Di dunia spiritual, Guru termanifestasi indah sebagai <b>Lord Dakshinamurthy</b> — wujud Siwa yang duduk menghadap ke arah selatan di bawah pohon beringin suci, mengajarkan rahasia filsafat Vedanta tertinggi kepada para resi kuno hanya melalui bahasa <i>Mauna</i> (keheningan).</p>
-      <p>Pemujaan hari Kamis memberikan kedalaman hikmah spiritual, keluhuran budi, serta pemahaman mendalam tentang hakikat diri sejati kita.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Menurut <b>Rig Veda</b> dan <b>Skanda Purana</b>, Brihaspati adalah putra dari Resi Agung Angiras. Beliau melakukan tapa penyesalan yang amat parah kepada Dewa Siwa selama ribuan tahun demi kemaslahatan moral semesta. Terkesan oleh devosinya, Siwa menunjuknya sebagai <i>Guru</i> (pembimbing spiritual) para Deva di kahyangan, sekaligus menempatkannya sebagai planet Jupiter yang penuh keberuntungan.</p>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Beliau memegang kitab suci Weda, japa mala, and tongkat emas. Di bumi, energi Guru termanifestasi indah dalam wujud <b>Lord Dakshinamurthy</b>, yaitu manifestasi Dewa Siwa sebagai Guru Agung yang duduk diam di bawah pohon beringin suci menghadap ke selatan, mengajarkan rahasia Advaita Vedanta kepada para resi sepuh hanya melalui transmisi keheningan mutlak (Mauna Vyakhya).</p>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Jupiter adalah planet yang paling dermawan (Guru/Subha Graha). Beliau melambangkan hukum moral, kebajikan, pernikahan wanita, keturunan, dan spiritualitas universal. Memuja Guru di hari Kamis membuka pintu rezeki spiritual, memperluas wawasan keagamaan, dan membersihkan diri dari kegelapan ego keakuan.</p>
     `
   },
   {
     planet: "💎 VENUS",
-    title: "Shukracharya & Keberuntungan Abadi Dewi Mahalakshmi",
+    title: "Resi Shukracharya & Kasih Agung Mahalakshmi",
     snippet: "Shukra adalah penguasa kemakmuran, seni estetika, dan kecantikan. Selaras dengan berlimpahnya kasih Dewi Mahalakshmi.",
     fullStory: `
-      <p>Shukracharya adalah sosok resi sakti mandraguna penguasa planet Venus. Beliau memiliki keahlian luar biasa, termasuk ilmu rahasia <i>Sanjivani Vidya</i> yang mampu menghidupkan kembali mahluk yang telah mati.</p>
-      <p>Hari Jumat yang dikuasainya didedikasikan secara agung kepada <b>Dewi Mahalakshmi</b>, ibunda kemakmuran alam semesta. Lakshmi membawa delapan jenis keberuntungan (Ashta Lakshmi) meliputi makanan, keberanian, keturunan, materi, hingga pembebasan spiritual.</p>
-      <p>Kisah Shukra menginspirasi manusia bahwa keindahan and estetika hidup di dunia ini harus diimbangi rasa syukur yang mendalam kepada sang sumber energi kemakmuran.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Dalam teks <b>Bhagavata Purana</b>, Shukracharya adalah resi sakti putra dari Resi Bhrigu. Beliau merupakan penasihat spiritual kaum Asura. Melalui tapa brata yang sangat ekstrem kepada Dewa Siwa, beliau dianugerahi ilmu legendaris bernama <b>Sanjivani Vidya</b>, sebuah mantra sakral yang sanggup menghidupkan kembali makhluk yang sudah mati di medan perang. Karena kebijaksanaan dan kekuatannya, beliau diangkat menjadi planet Venus (Shukra) yang bersinar paling terang di langit subuh.</p>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Shukra melambangkan keindahan visual, kenyamanan hidup, dan seni estetika tinggi. Hari Jumat yang dipimpinnya didedikasikan sepenuhnya untuk bersujud kepada <b>Dewi Mahalakshmi</b>, Ibu Kemakmuran Semesta yang membawa delapan berkah kelimpahan hidup (Ashta Lakshmi) mulai dari pangan, keturunan, keberanian, hingga kebebasan jiwa (Moksha).</p>
+      <blockquote>Kekayaan tanpa spiritualitas seperti cangkang mutiara tanpa isi. Shukra mengajarkan manusia menikmati seni duniawi sebagai cerminan keindahan Ilahi.</blockquote>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Shukra menguasai keharmonisan rumah tangga, hubungan romantis, bakat seni, and kekayaan materi. Jika Venus seseorang bagus, hidupnya dipenuhi kedamaian kasih sayang. Memuja energi hari Jumat menjauhkan rumah tangga dari keretakan dan mengalirkan keberuntungan finansial yang berkah.</p>
     `
   },
   {
     planet: "⚫ SATURNUS",
-    title: "Keadilan Mutlak Shani Deva sang Hakim Agung Karma",
+    title: "Keadilan Shani Deva sang Hakim Agung Karma",
     snippet: "Shani Bhagavan menegakkan hukum sebab-akibat (karma) tanpa pandang bulu, menuntun manusia pada kerendahan hati.",
     fullStory: `
-      <p>Shani Deva adalah putra dari Surya Deva dan Dewi Chhaya (bayangan). Beliau dianugerahi tugas terberat and termulia oleh Dewa Siwa, yaitu menjadi Hakim Agung Penguasa Karma bagi seluruh mahluk hidup di alam semesta.</p>
-      <p>Tatapan matanya membawa koreksi disiplin ketat. Jika seseorang menanam kebaikan, Shani akan memberikan kejayaan tak terbatas. Namun jika seseorang menanam keburukan, Shani memberikan cobaan berat untuk membersihkan noda dosa tersebut.</p>
-      <blockquote>"Sani" mengajarkan kepasrahan, kesabaran, and kedewasaan jiwa melalui penempaan cobaan hidup.</blockquote>
-      <p>Memuja Shani di hari Sabtu bukan karena rasa takut, melainkan bentuk penghormatan tinggi kita pada keadilan kosmis agar dikuatkan batin dalam menjalani sisa karma kehidupan.</p>
+      <h3>Asal-usul Mitologi</h3>
+      <p>Kitab <b>Kurma Purana</b> mencatat bahwa Shani Deva adalah putra dari Surya Deva (Matahari) dan Dewi Chhaya (Bayangan). Akibat lahir dari rahim bayangan, Shani memiliki kulit gelap legam and pembawaan yang sangat tenang, dingin, and disiplin. Begitu lahir, tatapan matanya yang bermuatan energi keadilan kosmis sempat membuat kereta surya ayahnya mogok tak bergerak. Melihat potensi agung ini, Dewa Siwa memberikan Shani tugas termulia sekaligus paling berat di alam semesta: menjadi Hakim Agung Penguasa Karma (Karma-Phala Data).</p>
+      <h3>Simbolisme & Atribut</h3>
+      <p>Shani Deva berkendara di atas seekor burung gagak hitam, memegang busur panah and gada besi, melambangkan ketelitian, waktu yang terus berputar, dan kesunyian malam. Beliau bertugas mengadili perbuatan manusia secara adil tanpa pandang bulu—baik raja maupun pertapa akan mendapatkan balasan setimpal atas perbuatannya.</p>
+      <h3>Dampak Spiritual & Astrologi</h3>
+      <p>Dalam ilmu astrologi, Shani sering ditakuti padahal Beliau adalah guru spiritual terbaik. Shani melambangkan penuaan, kesabaran, penundaan, and asketisme. Ketika seseorang mengalami cobaan hidup berat (seperti masa Sadhe Sati), Shani sebenarnya sedang memurnikan jiwa orang tersebut dari noda dosa masa lalu agar menjadi pribadi yang rendah hati. Memuja Shani di hari Sabtu melatih kepasrahan total pada kehendak kosmis.</p>
     `
   }
 ];
