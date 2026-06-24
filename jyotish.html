@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruang Jyotish & Horoskop Navagraha</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background-color: #030100;
+  color: #e8d5a3;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+}
+
+/* ── BACKGROUND KOSMIK & NEBULA EMAW MEWAH ── */
+.bg-cosmic {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 50% 20%, rgba(218, 165, 32, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(139, 105, 20, 0.08) 0%, transparent 50%),
+    #050201;
+}
+
+.bg-stars {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image: 
+    radial-gradient(1px 1px at 15% 25%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 45% 70%, rgba(255, 215, 0, 0.8), transparent),
+    radial-gradient(1px 1px at 85% 40%, #fff, transparent);
+  background-size: 300px 300px;
+  opacity: 0.4;
+}
+
+/* CONTAINER UTAMA */
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* HEADER */
+.header { text-align: center; margin-bottom: 35px; }
+.header h1 {
+  font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: #FFD700;
+  letter-spacing: 3px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); margin-bottom: 10px;
+}
+.header p { font-size: 1rem; color: #c9a96e; font-style: italic; }
+
+/* TOMBOL NAVIGASI */
+.nav-actions { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 12px; }
+.btn-nav {
+  font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; padding: 10px 20px;
+  background: rgba(255, 215, 0, 0.05); border: 1px solid rgba(255, 215, 0, 0.4); color: #FFD700;
+  border-radius: 50px; cursor: pointer; transition: all 0.3s ease; text-decoration: none;
+}
+.btn-nav:hover { background: #FFD700; color: #050201; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+
+/* SELEKTOR ZODIAK KUNO */
+.zodiac-box {
+  background: rgba(20, 11, 4, 0.85); border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px; padding: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin-bottom: 25px;
+}
+.box-title {
+  font-family: 'Cinzel', serif; font-size: 1rem; color: #FFD700; text-align: center;
+  margin-bottom: 18px; letter-spacing: 2px;
+}
+.zodiac-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+.zodiac-btn {
+  background: rgba(10, 5, 2, 0.6); border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 14px 6px; border-radius: 6px; color: #e8d5a3; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; transition: all 0.2s;
+}
+.zodiac-btn .symbol { font-size: 1.3rem; color: #FFD700; }
+.zodiac-btn .name { font-size: 0.75rem; font-family: 'Cinzel', serif; letter-spacing: 1px; }
+.zodiac-btn:hover, .zodiac-btn.selected {
+  border-color: #FFD700; background: linear-gradient(180deg, #3d2907 0%, #120602 100%);
+  color: #fff; box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+/* PANEL HASIL RAMALAN (PARCHMENT STYLE) */
+.result-panel {
+  display: none; background: #ebdcb9; color: #261a0b; border-radius: 8px;
+  border-left: 10px solid #8B6914; border-right: 10px solid #8B6914;
+  padding: 35px 25px; box-shadow: 0 25px 55px rgba(0,0,0,0.9), inset 0 0 40px rgba(139,105,20,0.25);
+  animation: fadeInResult 0.5s ease forwards;
+}
+@keyframes fadeInResult { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+
+.result-header { text-align: center; margin-bottom: 25px; }
+.res-zodiac-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 900; color: #3b250a; }
+.res-planet-sub { font-size: 0.85rem; letter-spacing: 2px; color: #73530c; font-weight: 700; text-transform: uppercase; margin-top: 4px; }
+
+/* ALIGNMENT METER (ENERGY MATCH) */
+.meter-section { margin-bottom: 30px; background: rgba(139,105,20,0.08); padding: 15px; border-radius: 6px; border: 1px dashed rgba(139,105,20,0.3); }
+.meter-label { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; color: #3b250a; margin-bottom: 6px; }
+.meter-bg { width: 100%; height: 8px; background: rgba(0,0,0,0.15); border-radius: 10px; overflow: hidden; }
+.meter-fill { height: 100%; background: linear-gradient(90deg, #8B6914, #cc9614); width: 0%; transition: width 1s cubic-bezier(0.1, 0.8, 0.1, 1); }
+
+/* READING CONTAINER */
+.reading-section h4 { font-family: 'Cinzel', serif; font-size: 0.95rem; color: #52340d; border-bottom: 1px solid rgba(139,105,20,0.3); padding-bottom: 4px; margin-top: 20px; margin-bottom: 8px; letter-spacing: 1px; }
+.reading-section p { font-size: 1rem; line-height: 1.6; text-align: justify; text-indent: 20px; }
+
+/* FOOTER */
+.footer {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
+  padding: 14px; background: linear-gradient(0deg, rgba(3,1,0,1) 0%, transparent 100%);
+  text-align: center; font-family: 'Cinzel', serif; font-size: .65rem; letter-spacing: 3px; color: rgba(212,175,55,0.3);
+}
+
+@media(max-width: 500px) {
+  .zodiac-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-cosmic"></div>
+<div class="bg-stars"></div>
+
+<div class="container">
+  <div class="header">
+    <h1>KATA SAKRAL JYOTISH HOROSKOP</h1>
+    <p>Hitung resonansi getaran suksma dirimu dengan orbit lintasan kesembilan Graha hari ini.</p>
+  </div>
+
+  <div class="nav-actions">
+    <a href="altar.html" class="btn-nav">◀ KE ALTAR</a>
+    <a href="purana.html" class="btn-nav">📚 BACA PURANA</a>
+  </div>
+
+  <div class="zodiac-box">
+    <div class="box-title">✦ PILIH RASI BINTANG KUNO-MU ✦</div>
+    <div class="zodiac-grid">
+      <button class="zodiac-btn" onclick="calculateHoroscope('Aries', '🔴 MANGALA (MARS)', 0, this)">
+        <span class="symbol">♈</span><span class="name">Mesha</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Taurus', '💎 SHUKRA (VENUS)', 1, this)">
+        <span class="symbol">♉</span><span class="name">Vrishabha</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Gemini', '💚 BUDHA (MERKURIUS)', 2, this)">
+        <span class="symbol">♊</span><span class="name">Mithuna</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Cancer', '🌙 CHANDRA (BULAN)', 3, this)">
+        <span class="symbol">♋</span><span class="name">Karka</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Leo', '☀️ SURYA (MATAHARI)', 4, this)">
+        <span class="symbol">♌</span><span class="name">Simha</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Virgo', '💚 BUDHA (MERKURIUS)', 5, this)">
+        <span class="symbol">♍</span><span class="name">Kanya</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Libra', '💎 SHUKRA (VENUS)', 6, this)">
+        <span class="symbol">♎</span><span class="name">Tula</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Scorpio', '🔴 MANGALA (MARS)', 7, this)">
+        <span class="symbol">♏</span><span class="name">Vrishchika</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Sagittarius', '🌟 GURU (JUPITER)', 8, this)">
+        <span class="symbol">♐</span><span class="name">Dhanu</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Capricorn', '⚫ SHANI (SATURNUS)', 9, this)">
+        <span class="symbol">♑</span><span class="name">Makara</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Aquarius', '⚫ SHANI (SATURNUS)', 10, this)">
+        <span class="symbol">♒</span><span class="name">Kumbha</span>
+      </button>
+      <button class="zodiac-btn" onclick="calculateHoroscope('Pisces', '🌟 GURU (JUPITER)', 11, this)">
+        <span class="symbol">♓</span><span class="name">Meena</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="result-panel" id="horo-result">
+    <div class="result-header">
+      <div class="res-zodiac-title" id="out-zodiac">Aries (Mesha)</div>
+      <div class="res-planet-sub" id="out-planet">Dewa Penguasa: -</div>
+    </div>
+
+    <div class="meter-section">
+      <div class="meter-label">
+        <span>Resonansi Energi Rohani Hari Ini</span>
+        <span id="out-percent">0%</span>
+      </div>
+      <div class="meter-bg">
+        <div class="meter-fill" id="out-fill"></div>
+      </div>
+    </div>
+
+    <div class="reading-section">
+      <h4>📜 Petunjuk Dharma & Karir</h4>
+      <p id="txt-dharma">Memuat petunjuk kosmik...</p>
+
+      <h4>💖 Getaran Asmara & Hubungan</h4>
+      <p id="txt-love">Memuat getaran cinta...</p>
+
+      <h4>🧘 Kedamaian Jiwa & Meditasi</h4>
+      <p id="txt-spiritual">Memuat bimbingan rohani...</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">JYOTISH VEDA KOSMIK &nbsp;✦&nbsp; RUANG RAMALAN NAVAGRAHA</div>
+
+<script>
+// DATABASE TEKS RAMALAN DINAMIS BERDASARKAN INDEKS MODULO (AGAR UNIK TIAP HARI)
+const dharmaTexts = [
+  "Hari ini lintasan planet penguasamu meminta Anda menahan diri dari tindakan terburu-buru. Fokus pada menyelesaikan kewajiban lama sebelum memulai lompatan proyek besar.",
+  "Energi material sedang memuncak sangat bagus! Inovasi atau ide kreatif perdagangan yang Anda simpan lama akan mendapatkan sambutan hangat jika diutarakan hari ini.",
+  "Disiplin kerja keras adalah tameng utamamu saat ini. Ada sedikit riak gesekan dengan rekan kerja, namun kejernihan tutur kata diplomatis akan menyelamatkanmu.",
+  "Jangan biarkan keraguan merusak konsentrasi kerja. Dewa penuntun rasi bintangmu memancarkan kekuatan fokus penuh untuk mendobrak kebuntuan tugas berat."
+];
+
+const loveTexts = [
+  "Curahan kasih sayang sedang bersemi dengan sejuk. Bagi yang berpasangan, malam ini adalah waktu sempurna untuk berbicara jujur dari hati ke hati demi kedamaian.",
+  "Kurangi sifat terlalu menuntut atau curiga berlebihan. Percayalah bahwa jalinan takdir asmara akan mengalir indah jika ego internal berhasil diredam.",
+  "Energi daya pikatmu (*karisma*) memancar kuat hari ini. Pertemuan tidak terduga dengan seseorang di masa lalu berpotensi menyalakan kembali kebahagiaan.",
+  "Keharmonisan rumah tangga terlindungi dengan baik. Berikan perhatian kecil atau hadiah sederhana kepada pasangan hidup untuk melipatgandakan berkah."
+];
+
+const spiritualTexts = [
+  "Luangkan waktu minimal 10 menit di malam hari untuk bermeditasi atau sekadar mengheningkan cipta. Tarik napas dalam-dalam, lepaskan ilusi kekhawatiran duniawi.",
+  "Kondisi spiritual batinmu sedang membutuhkan pemurnian. Mengucapkan japa mantra suci berulang kali hari ini akan mempercepat ketenangan mental Anda.",
+  "Banyaklah melatih kesabaran dan kedermawanan sosial. Sedekah kecil kepada makhluk yang membutuhkan akan memotong sisa hutang karma buruk masa lampau.",
+  "Jiwa sejatimu tahu arah kebenaran. Jangan biarkan omongan negatif orang lain menggoyahkan ketabahan iman dan ketenteraman batin yang sudah Anda bangun."
+];
+
+function calculateHoroscope(zodiacName, planetDeva, index, btnElement) {
+  // Reset status tombol aktif terdahulu
+  const buttons = document.querySelectorAll(".zodiac-btn");
+  buttons.forEach(b => b.classList.remove("selected"));
+  
+  // Tambahkan kelas selected pada tombol yang baru saja diklik
+  btnElement.classList.add("selected");
+
+  // Perhitungan persentase dinamis yang konsisten sepanjang hari tersebut (berubah saat ganti tanggal)
+  const currentDay = new Date().getDate();
+  let percentage = ((index * 7) + (currentDay * 3)) % 31 + 70; // Menghasilkan angka stabil di kisaran 70% - 100%
+
+  // Penentuan indeks teks ramalan menggunakan kalkulasi modulo matematika tanggal
+  const dIndex = (index + currentDay) % dharmaTexts.length;
+  const lIndex = (index + currentDay + 2) % loveTexts.length;
+  const sIndex = (index + currentDay + 1) % spiritualTexts.length;
+
+  // Pasang data tekstual ke panel Parchment
+  document.getElementById("out-zodiac").innerText = zodiacName;
+  document.getElementById("out-planet").innerText = "Dewa Penguasa: " + planetDeva;
+  document.getElementById("out-percent").innerText = percentage + "%";
+  
+  document.getElementById("txt-dharma").innerText = dharmaTexts[dIndex];
+  document.getElementById("txt-love").innerText = loveTexts[lIndex];
+  document.getElementById("txt-spiritual").innerText = spiritualTexts[sIndex];
+
+  // Tampilkan kontainer panel hasil
+  const resultPanel = document.getElementById("horo-result");
+  resultPanel.style.display = "block";
+  
+  // Isi bar energi dengan sedikit delay agar animasi transisi CSS berjalan mulus
+  setTimeout(() => {
+    document.getElementById("out-fill").style.width = percentage + "%";
+  }, 100);
+
+  // Gulir halaman secara halus ke arah hasil agar terbaca penuh di mobile
+  resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
+
