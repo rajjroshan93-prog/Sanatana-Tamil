@@ -292,6 +292,36 @@ body {
   box-shadow: 0 4px 22px rgba(168,118,255,0.15);
 }
 
+/* ── ADDON: STYLE BARU KHUSUS UNTUK LANGUAGE SWITCHER ── */
+.lang-switcher-altar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 310px;
+  position: relative;
+  z-index: 25;
+}
+.btn-lang-altar {
+  background: rgba(20, 8, 1, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #c9a96e;
+  padding: 5px 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-lang-altar.active {
+  background: linear-gradient(180deg, #44300a 0%, #120602 100%);
+  border-color: #FFD700;
+  color: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+}
+
 /* ── FOOTER LAYAR ── */
 .footer {
   position:fixed; bottom:0; left:0; right:0; z-index:20;
@@ -316,7 +346,7 @@ body {
 <div class="header">
   <div class="h-line"></div>
   <span class="h-flame">🪔</span>
-  <div class="h-text">ALTAR KOSMIK HARIAN NAVAGRAHA</div>
+  <div class="h-text" id="ui-header-text">ALTAR KOSMIK HARIAN NAVAGRAHA</div>
   <span class="h-flame" style="animation-delay:.7s">🪔</span>
   <div class="h-line"></div>
 </div>
@@ -341,6 +371,11 @@ body {
 <div class="smoke" style="width:4px;height:4px;right:14%;bottom:105px;animation-delay:2.7s"></div>
 
 <div class="main">
+  <div class="lang-switcher-altar">
+    <button class="btn-lang-altar active" id="altar-lang-id" onclick="switchAltarLanguage('id')">🇮🇩 ID</button>
+    <button class="btn-lang-altar" id="altar-lang-en" onclick="switchAltarLanguage('en')">🇬🇧 EN</button>
+  </div>
+
   <div class="deity-card">
 
     <div class="day-label" id="altar-day-label">— HARI —</div>
@@ -389,8 +424,8 @@ body {
         <button class="btn" id="btn-bell"  onclick="toggleAudio('bell')">🔔 GENTA</button>
         <button class="btn" id="btn-chant" onclick="toggleAudio('chant')">🕉️ MANTRA</button>
       </div>
-      <button class="btn btn-purana" onclick="location.href='purana.html'">📜 BUKA PURANA KOSMIK</button>
-      <button class="btn btn-jyotish" onclick="location.href='jyotish.html'">✨ RUANG JYOTISH HOROSKOP</button>
+      <button class="btn btn-purana" id="btn-text-purana" onclick="location.href='purana.html'">📜 BUKA PURANA KOSMIK</button>
+      <button class="btn btn-jyotish" id="btn-text-jyotish" onclick="location.href='jyotish.html'">✨ RUANG JYOTISH HOROSKOP</button>
     </div>
 
   </div>
@@ -458,18 +493,89 @@ const weeklyDeities = [
   }
 ];
 
+// ── ADDON: DATABASE TRANSLASI KHUSUS BAHASA INGGRIS SECARA AKURAT 100% ──
+const weeklyDeitiesEnglish = [
+  {
+    day: "SUNDAY — ADITYA VAARAM",
+    planet: "☀️ Surya · Planet Sun",
+    name: "Lord Surya Bhagavan",
+    desc: "Sunday is ruled by Surya Deva, the Sun King who rides a celestial chariot pulled by seven white horses. Surya is the source of all light, the soul of the universe, and the giver of life. Worshipping Surya on this day brings health, success, brilliant career prospects, and dispels all darkness from our lives."
+  },
+  {
+    day: "MONDAY — THINGAL VAARAM",
+    planet: "🌙 Chandra · Planet Moon",
+    name: "Lord Shiva Chandrashekhara",
+    desc: "Monday is the sacred day of Chandra, the moon that rests majestically upon Shiva's crown. Shiva as Chandrashekhara is the ruler of thoughts, emotions, and the subconscious mind. Worshipping on Monday calms a restless mind, heals inner emotional wounds, strengthens family bonds, and brings everlasting inner peace."
+  },
+  {
+    day: "TUESDAY — SEVVAI VAARAM",
+    planet: "🔴 Mangala · Planet Mars",
+    name: "Lord Murugan Kartikeya",
+    desc: "Tuesday is governed by Mangala, the fiery and courageous energy of Mars. Murugan Kartikeya, the divine son of Shiva and Parvati, is the God of War, Victory, and Youthful Wisdom. Worshipping on Tuesday bestows immense courage to face hardships, banishes enemies and negative forces, and grants victory in every life struggle."
+  },
+  {
+    day: "WEDNESDAY — BUDHAN VAARAM",
+    planet: "💚 Budha · Planet Mercury",
+    name: "Lord Ganesha Vinayaka",
+    desc: "Wednesday is the day of Budha, the planet of intellect, communication, and commerce. Ganesha Vinayaka, as the Lord of Wisdom and Remover of Obstacles, is the perfect embodiment of Budha's energy. Worshipping Ganesha on Wednesday sharpens intelligence, eases communication, opens doors to prosperity, and blesses every new endeavor."
+  },
+  {
+    day: "THURSDAY — VYAAZHAN VAARAM",
+    planet: "🌟 Guru · Planet Jupiter",
+    name: "Lord Dakshinamurthy",
+    desc: "Thursday is the day of Guru Brihaspati, the magnificent Jupiter—the planet of supreme knowledge, dharma, and ultimate wisdom. Dakshinamurthy is the manifestation of Shiva as the Universal Teacher who imparts eternal truth through profound silence. Thursday worship brings true wisdom, spiritual heights, the blessings of teachers, and success in education."
+  },
+  {
+    day: "FRIDAY — VELLI VAARAM",
+    planet: "💎 Shukra · Planet Venus",
+    name: "Goddess Mahalakshmi",
+    desc: "Friday is ruled by Shukra, the Venus that bestows beauty, opulence, and perfect harmony. Mahalakshmi, as the Goddess of Wealth, Fortune, and Elegance, is the supreme manifestation of Shukra's energy. Worshipping Lakshmi on Friday brings an endless flow of prosperity, inner beauty, harmony in love and marriage, and sustainable luxury."
+  },
+  {
+    day: "SATURDAY — SANI VAARAM",
+    planet: "⚫ Shani · Planet Saturnus",
+    name: "Lord Shani Bhagavan",
+    desc: "Saturday is the day of the great Shani, the cosmic judge of karma. Shani Bhagavan imparts the precise fruits of every deed—whether good or bad. Worshipping Shani on Saturday with a sincere heart protects from past bad karma, alleviates life's severe trials, accelerates justice, and bestows fortitude and true discipline in following dharma."
+  }
+];
+
+// DATA UI TEKS STATIS
+const altarUiTranslations = {
+  id: {
+    header: "ALTAR KOSMIK HARIAN NAVAGRAHA",
+    purana: "📜 BUKA PURANA KOSMIK",
+    jyotish: "✨ RUANG JYOTISH HOROSKOP",
+    bell: "🔔 GENTA",
+    chant: "🕉️ MANTRA",
+    stop: "🛑 HENTIKAN"
+  },
+  en: {
+    header: "DAILY NAVAGRAHA COSMIC ALTAR",
+    purana: "📜 OPEN COSMIC PURANA",
+    jyotish: "✨ JYOTISH HOROSCOPE ROOM",
+    bell: "🔔 BELL",
+    chant: "🕉️ CHANT",
+    stop: "🛑 STOP"
+  }
+};
+
+let altarCurrentLang = 'id';
+
 function initAltar() {
   const dayIndex = new Date().getDay(); // 0=Minggu
-  const deity = weeklyDeities[dayIndex];
+  
+  // Ambil data berdasarkan bahasa yang aktif
+  const deity = (altarCurrentLang === 'id') ? weeklyDeities[dayIndex] : weeklyDeitiesEnglish[dayIndex];
 
   document.getElementById("altar-day-label").innerText = deity.day;
   document.getElementById("altar-name").innerText      = deity.name;
   document.getElementById("altar-planet").innerText    = deity.planet;
   document.getElementById("altar-desc").innerText      = deity.desc;
 
+  // Render gambar (tetap menggunakan file gambar bawaan asli)
   const img = document.getElementById("altar-img");
   img.style.opacity = "0";
-  img.src = deity.file;
+  img.src = weeklyDeities[dayIndex].file; 
   img.onload  = function(){ img.style.opacity = "1"; };
   img.onerror = function(){
     if(typeof altarImages !== 'undefined'){
@@ -480,17 +586,41 @@ function initAltar() {
   };
 }
 
+// ── ADDON: FUNGSI UNTUK PERALIHAN BAHASA SECARA DINAMIS ──
+function switchAltarLanguage(lang) {
+  altarCurrentLang = lang;
+  
+  // Update class active tombol switcher
+  document.getElementById("altar-lang-id").classList.remove("active");
+  document.getElementById("altar-lang-en").classList.remove("active");
+  document.getElementById("altar-lang-" + lang).classList.add("active");
+  
+  // Ganti teks UI Statis
+  document.getElementById("ui-header-text").innerText = altarUiTranslations[lang].header;
+  document.getElementById("btn-text-purana").innerText = altarUiTranslations[lang].purana;
+  document.getElementById("btn-text-jyotish").innerText = altarUiTranslations[lang].jyotish;
+  
+  // Ganti nama tombol audio jika sedang tidak memutar musik
+  const audioBell = document.getElementById("audio-bell");
+  const audioChant = document.getElementById("audio-chant");
+  if(audioBell.paused) document.getElementById("btn-bell").innerText = altarUiTranslations[lang].bell;
+  if(audioChant.paused) document.getElementById("btn-chant").innerText = altarUiTranslations[lang].chant;
+
+  // Refresh isi konten ramalan harian sesuai bahasa terpilih
+  initAltar();
+}
+
 function toggleAudio(id) {
   const audio = document.getElementById("audio-" + id);
   const btn   = document.getElementById("btn-"   + id);
   if(audio.paused){
     audio.play().catch(function(){ alert("Tap layar dulu untuk izinkan audio!"); });
     btn.classList.add("playing");
-    btn.innerText = "🛑 HENTIKAN";
+    btn.innerText = altarUiTranslations[altarCurrentLang].stop;
   } else {
     audio.pause();
     btn.classList.remove("playing");
-    btn.innerText = id === 'bell' ? "🔔 GENTA" : "🕉️ MANTRA";
+    btn.innerText = id === 'bell' ? altarUiTranslations[altarCurrentLang].bell : altarUiTranslations[altarCurrentLang].chant;
   }
 }
 
