@@ -239,10 +239,17 @@ body {
   width:100%; max-width:310px;
 }
 
-/* Tombol genta dan mantra */
+/* Area Tombol-Tombol Altar Interaktif */
 .audio-row {
-  display:flex; gap:10px;
+  display:flex; 
+  flex-direction:column; /* Diubah jadi kolom ke bawah agar muat ditambah tombol ketiga */
+  gap:10px;
   width:100%; max-width:310px;
+}
+.audio-buttons-sub {
+  display:flex;
+  gap:10px;
+  width:100%;
 }
 .btn {
   flex:1;
@@ -267,6 +274,14 @@ body {
   border-color:rgba(0,210,120,0.55);
   color:#00e68a;
   box-shadow:0 0 18px rgba(0,210,120,0.18);
+}
+/* Style tombol khusus ke Purana Kitab Suci */
+.btn-purana {
+  background: linear-gradient(180deg, #44300a 0%, rgba(20,8,1,0.9) 100%);
+  border-color: #FFD700;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255,215,0,0.6);
+  box-shadow: 0 4px 22px rgba(255,215,0,0.15);
 }
 
 /* ── FOOTER LAYAR ── */
@@ -362,8 +377,11 @@ body {
     <div class="divider">⸻ ✦ ⸻</div>
 
     <div class="audio-row">
-      <button class="btn" id="btn-bell"  onclick="toggleAudio('bell')">🔔 GENTA</button>
-      <button class="btn" id="btn-chant" onclick="toggleAudio('chant')">🕉️ MANTRA</button>
+      <div class="audio-buttons-sub">
+        <button class="btn" id="btn-bell"  onclick="toggleAudio('bell')">🔔 GENTA</button>
+        <button class="btn" id="btn-chant" onclick="toggleAudio('chant')">🕉️ MANTRA</button>
+      </div>
+      <button class="btn btn-purana" onclick="location.href='purana.html'">📜 BUKA PURANA KOSMIK</button>
     </div>
 
   </div>
