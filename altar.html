@@ -29,9 +29,9 @@ body {
   background-image: url('IMG_20260622_160050.png');
   background-size:cover;
   /* Mengubah posisi background agar gambar kuil bergeser pas ke tengah-tengah vertikal */
-  background-position: center 40%; 
+  background-position: center 28%; 
   background-repeat:no-repeat;
-  filter:brightness(0.55) saturate(1.1);
+  filter:brightness(0.62) saturate(1.05) contrast(0.95);
 }
 /* Overlay gelap halus supaya dewa menonjol */
 .bg-overlay {
@@ -39,7 +39,7 @@ body {
   inset:0;
   z-index:1;
   background:
-    radial-gradient(ellipse 55% 65% at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%),
+    radial-gradient(ellipse 45% 50% at 50% 38%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 100%),
     linear-gradient(180deg, rgba(10,4,0,0.45) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.1) 60%, rgba(10,4,0,0.6) 100%);
 }
 
@@ -93,7 +93,7 @@ body {
   display:flex; flex-direction:column;
   align-items:center;
   justify-content: flex-start;
-  padding: 135px 12px 65px; /* Menurunkan konten agar pas di tengah lubang pintu kuil */
+  padding: 155px 12px 65px; /* Menurunkan konten agar pas di tengah lubang pintu kuil */
   gap:0;
   overflow-y:auto;
 }
@@ -120,7 +120,7 @@ body {
 /* Frame gambar dewa — Letak foto pas masuk di tengah pintu gerbang */
 .deity-frame {
   position:relative;
-  width:100%; max-width:215px; /* Lebar disesuaikan dengan proporsi pintu gerbang belakang */
+  width:100%; max-width:185px; /* Lebar disesuaikan dengan proporsi pintu gerbang belakang */
   aspect-ratio:3/4.2;
   margin-bottom: 12px;
 }
@@ -628,7 +628,34 @@ function toggleAudio(id) {
   }
 }
 
-window.onload = initAltar;
+function positionDeityInArch() {
+  // Gambar kuil punya arch putih di sekitar 28%-62% dari atas dan lebar ~38% di tengah
+  // Kita sesuaikan gambar dewa supaya masuk pas ke area itu
+  const vh = window.innerHeight;
+  const vw = window.innerWidth;
+  
+  // Area arch putih perkiraan: mulai ~30% dari atas, tinggi ~38% layar
+  const archTop    = vh * 0.28;
+  const archHeight = vh * 0.40;
+  const archWidth  = Math.min(vw * 0.42, 190);
+  
+  const frame = document.querySelector('.deity-frame');
+  const main  = document.querySelector('.main');
+  
+  if(frame) {
+    frame.style.maxWidth = archWidth + 'px';
+  }
+  // Padding atas agar konten mulai dari posisi arch
+  if(main) {
+    main.style.paddingTop = (archTop - 30) + 'px';
+  }
+}
+
+window.onload = function() {
+  initAltar();
+  positionDeityInArch();
+};
+window.onresize = positionDeityInArch;
 </script>
 </body>
 </html>
