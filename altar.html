@@ -426,6 +426,7 @@ body {
       </div>
       <button class="btn btn-purana" id="btn-text-purana" onclick="location.href='purana.html'">📜 BUKA PURANA KOSMIK</button>
       <button class="btn btn-jyotish" id="btn-text-jyotish" onclick="location.href='jyotish.html'">✨ RUANG JYOTISH HOROSKOP</button>
+      <button class="btn" id="btn-text-kalender" style="background: linear-gradient(180deg, #191403 0%, rgba(10,6,1,0.95) 100%); border-color: #ffd700; color: #ffeebf;" onclick="location.href='kalender.html'">📅 TAMIL KOSMIK PANCHANGAM</button>
     </div>
 
   </div>
@@ -447,7 +448,7 @@ const weeklyDeities = [
     planet: "☀️ Surya · Planet Matahari",
     name: "Lord Surya Bhagavan",
     file: "af5bf4deb785d53689f28ef059ac321a.jpg",
-    desc: "Hari Minggu dinaungi Surya Deva, sang Raja Matahari yang menunggangi kereta api tujuh kuda putih. Surya adalah sumber segala cahaya, jiwa alam semesta, dan pemberi kehidupan. Memuja Surya pada hari ini mendatangkan kesehatan, kejayaan, kecemerlangan karier, dan mengusir kegelapan dari kehidupan kita."
+    desc: "Hari Minggu dinaungi Surya Deva, sang Raja Matahari yang menunggangi kereta api tujuh kuda putih. Surya adalah sumber segala cahaya, jiwa alam semesta, and pemberi kehidupan. Memuja Surya pada hari ini mendatangkan kesehatan, kejayaan, kecemerlangan karier, dan mengusir kegelapan dari kehidupan kita."
   },
   {
     day: "SENIN — THINGAL VAARAM",
@@ -545,6 +546,7 @@ const altarUiTranslations = {
     header: "ALTAR KOSMIK HARIAN NAVAGRAHA",
     purana: "📜 BUKA PURANA KOSMIK",
     jyotish: "✨ RUANG JYOTISH HOROSKOP",
+    kalender: "📅 TAMIL KOSMIK PANCHANGAM",
     bell: "🔔 GENTA",
     chant: "🕉️ MANTRA",
     stop: "🛑 HENTIKAN"
@@ -553,6 +555,7 @@ const altarUiTranslations = {
     header: "DAILY NAVAGRAHA COSMIC ALTAR",
     purana: "📜 OPEN COSMIC PURANA",
     jyotish: "✨ JYOTISH HOROSCOPE ROOM",
+    kalender: "📅 TAMIL COSMIC PANCHANGAM",
     bell: "🔔 BELL",
     chant: "🕉️ CHANT",
     stop: "🛑 STOP"
@@ -599,6 +602,7 @@ function switchAltarLanguage(lang) {
   document.getElementById("ui-header-text").innerText = altarUiTranslations[lang].header;
   document.getElementById("btn-text-purana").innerText = altarUiTranslations[lang].purana;
   document.getElementById("btn-text-jyotish").innerText = altarUiTranslations[lang].jyotish;
+  document.getElementById("btn-text-kalender").innerText = altarUiTranslations[lang].kalender;
   
   // Ganti nama tombol audio jika sedang tidak memutar musik
   const audioBell = document.getElementById("audio-bell");
