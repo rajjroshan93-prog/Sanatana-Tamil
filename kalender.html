@@ -3,267 +3,598 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hari Besar Tamil Panchangam 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght=0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Panchangam & Hari Besar Tamil Hindu 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  background-color: #050201;
-  font-family:'Crimson Text',Georgia,serif;
-  color:#e8d5a3;
+  background-color: #030100;
+  font-family: 'Crimson Text', Georgia, serif;
+  color: #f4e3b1;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ── BACKGROUND KOSMIK UNIFORM ── */
-.bg-overlay {
-  position:fixed;
-  inset:0;
-  z-index:1;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(55, 30, 5, 0.5) 0%, rgba(0,0,0,0.95) 80%),
-    radial-gradient(circle at 20% 80%, rgba(25, 10, 45, 0.4) 0%, rgba(0,0,0,1) 100%);
+/* ── LATAR BELAKANG KOSMIK PREMIUM & INFUSED GOLD ── */
+.bg-epic-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: 
+    radial-gradient(circle at 50% 25%, rgba(65, 35, 10, 0.45) 0%, rgba(5, 2, 1, 0.98) 70%),
+    radial-gradient(circle at 80% 80%, rgba(20, 8, 38, 0.35) 0%, rgba(2, 1, 0, 1) 100%);
   pointer-events: none;
 }
-
-.bg-overlay::before {
+.bg-epic-overlay::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(white, rgba(255,255,255,.15) 1.5px, transparent 30px);
-  background-size: 160px 160px;
-  opacity: 0.06;
+  background-image: radial-gradient(rgba(255, 215, 0, 0.15) 1px, transparent 40px);
+  background-size: 140px 140px;
+  opacity: 0.4;
 }
 
-/* ── HEADER ── */
-.header {
-  position:fixed; top:0; left:0; right:0; z-index:20;
-  padding:15px 20px 12px;
-  background:linear-gradient(180deg,rgba(5,2,0,0.95) 0%,transparent 100%);
-  display:flex; align-items:center; justify-content:center; gap:14px;
-}
-.header .h-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.5),transparent);}
-.header .h-text{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:4px;color:rgba(212,175,55,0.85);white-space:nowrap;text-align:center;}
-
-/* Tombol Kembali */
-.nav-back-wrap {
-  position: fixed; top: 52px; left: 0; right: 0; z-index: 20; display: flex; justify-content: center;
-}
-.btn-back {
-  font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: 2px; color: rgba(212,175,55,0.6);
-  background: rgba(15,7,2,0.9); border: 1px solid rgba(212,175,55,0.35); padding: 6px 16px; border-radius: 30px;
-  text-decoration: none; display: flex; align-items: center; gap: 5px; transition: all .3s;
-}
-.btn-back:hover { border-color: #FFD700; color: #fff; box-shadow: 0 0 10px rgba(255,215,0,0.2); }
-
-/* ── MAIN CONTAINER ── */
-.main {
-  position:relative; z-index:10;
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 110px 14px 40px;
-}
-
-/* ── KARTU DAFTAR HARI BESAR ── */
-.festival-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 10px;
-}
-
-.festival-card {
-  background: linear-gradient(135deg, rgba(22, 12, 3, 0.85) 0%, rgba(8, 3, 1, 0.95) 100%);
-  border: 1px solid rgba(212,175,55,0.3);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+/* ── HEADER MEGAH ORNAMEN KUIL ── */
+.header-monumental {
   position: relative;
-  overflow: hidden;
+  z-index: 10;
+  text-align: center;
+  padding: 40px 20px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header-monumental .gopuram-crest {
+  font-size: 2.2rem;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  margin-bottom: 5px;
+  animation: pulseGlow 4s infinite alternate;
+}
+.header-monumental h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+  text-transform: uppercase;
+}
+.header-monumental .sub-line {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #c5a059;
+  margin-top: 6px;
+}
+.h-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 400px;
+  margin: 12px auto 0;
+}
+.h-divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #d4af37, transparent); }
+.h-divider .dot { color: #d4af37; font-size: 0.6rem; }
+
+/* ── NAVIGATION BACK ── */
+.nav-wrap {
+  position: relative; z-index: 10; display: flex; justify-content: center; margin-bottom: 25px;
+}
+.btn-back-shrine {
+  font-family: 'Cinzel', serif; font-size: .65rem; letter-spacing: 2px; color: #ffd700;
+  background: linear-gradient(180deg, rgba(28,16,4,0.9) 0%, rgba(10,5,1,0.95) 100%);
+  border: 1px solid rgba(212,175,55,0.4); padding: 8px 24px; border-radius: 40px;
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6); transition: all .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn-back-shrine:hover {
+  border-color: #ffffff; color: #fff; box-shadow: 0 0 15px rgba(255,215,0,0.35); transform: translateY(-2px);
 }
 
-.festival-card::before {
-  content: '🕉';
-  position: absolute;
-  right: -10px;
-  bottom: -15px;
-  font-size: 4.5rem;
-  color: rgba(212,175,55,0.04);
-  font-family: serif;
+/* ── LAYOUT UTAMA SPLIT DUA BAGIAN ── */
+.grand-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+@media (min-width: 850px) {
+  .grand-wrapper { grid-template-columns: 1.1fr 0.9fr; }
 }
 
-.fest-meta {
+/* ── PANEL KIRI: KALENDER INTERAKTIF LUXE ── */
+.shrine-box {
+  background: linear-gradient(145deg, rgba(20, 11, 3, 0.85) 0%, rgba(7, 3, 1, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+
+.calendar-shrine-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
   border-bottom: 1px solid rgba(212,175,55,0.15);
-  padding-bottom: 6px;
-  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+.shrine-month-title {
+  text-align: center;
+}
+.shrine-month-title h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+.shrine-month-title p {
+  font-size: 0.8rem;
+  color: #ffd700;
+  font-style: italic;
+  margin-top: 2px;
+}
+.shrine-nav-btn {
+  background: none;
+  border: 1px solid rgba(212,175,55,0.4);
+  color: #ffd700;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.shrine-nav-btn:hover {
+  background: rgba(212,175,55,0.15);
+  border-color: #ffffff;
+  color: #fff;
 }
 
-.fest-date {
-  font-family: 'Cinzel', serif;
-  font-size: 0.82rem;
-  color: #FFD700;
+.shrine-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.shrine-weekdays div {
+  font-size: 0.7rem;
   font-weight: 700;
+  color: rgba(212,175,55,0.6);
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.fest-tamil-month {
-  font-size: 0.72rem;
-  color: rgba(212,175,55,0.65);
-  font-style: italic;
+.shrine-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 12px;
+  column-gap: 8px;
+}
+.cell-day {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d8c292;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: rgba(25, 15, 5, 0.2);
+  border: 1px solid rgba(212,175,55,0.05);
+}
+.cell-day:hover:not(.empty) {
+  background: rgba(212,175,55,0.15);
+  color: #fff;
+  border-color: rgba(212,175,55,0.5);
+}
+.cell-day.empty { background: none; border: none; cursor: default; }
+.cell-day.today {
+  border: 1px solid #ffd700;
+  color: #fff;
+  background: rgba(212,175,55,0.1);
+  box-shadow: inset 0 0 10px rgba(255,215,0,0.2);
+}
+.cell-day.selected {
+  background: linear-gradient(135deg, #604210 0%, #211301 100%);
+  color: #ffffff;
+  border: 1px solid #ffd700;
+  box-shadow: 0 4px 15px rgba(255,215,0,0.25);
 }
 
-.fest-name {
+/* Penanda Titik Astral Halus */
+.astral-dot-container {
+  display: flex;
+  gap: 3px;
+  position: absolute;
+  bottom: 4px;
+}
+.astral-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+}
+.astral-dot.pournami { background-color: #ffffff; box-shadow: 0 0 6px #fff; }
+.astral-dot.amavasai { background-color: #ff6a00; box-shadow: 0 0 6px #ff6a00; }
+.astral-dot.vratam { background-color: #ffd700; box-shadow: 0 0 4px #ffd700; }
+
+/* PANEL DETAIL ENERGI BAWAH KALENDER */
+.energy-deck {
+  margin-top: 20px;
+  background: rgba(5, 2, 0, 0.6);
+  border-radius: 10px;
+  padding: 16px;
+  border-left: 3px solid #ffd700;
+}
+.energy-deck-title {
   font-family: 'Cinzel', serif;
-  font-size: 1.15rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.1);
+  letter-spacing: 1.5px;
   margin-bottom: 6px;
+}
+.energy-deck-status {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
-
-.fest-desc {
-  font-size: 0.85rem;
+.energy-deck-desc {
+  font-size: 0.88rem;
   line-height: 1.6;
-  color: #c9a96e;
+  color: #c5b493;
   text-align: justify;
 }
 
-/* Accent badge untuk hari yang sangat penting */
-.badge-sacred {
+/* ── PANEL KANAN: CHRONOLOGY FESTIVALS SHINE ── */
+.festivals-scroll-shrine {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fest-epic-card {
+  background: linear-gradient(135deg, rgba(26, 14, 4, 0.9) 0%, rgba(10, 4, 1, 0.98) 100%);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.fest-epic-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(212,175,55,0.6);
+}
+.fest-epic-card::before {
+  content: '🕉';
+  position: absolute;
+  right: -15px;
+  bottom: -20px;
+  font-size: 6rem;
+  color: rgba(212,175,55,0.03);
+  font-family: serif;
+  pointer-events: none;
+}
+.fest-epic-badge {
   position: absolute;
   top: 0; right: 0;
-  background: linear-gradient(90deg, #b8860b, #ff7700);
-  color: #fff;
-  font-size: 0.55rem;
+  background: linear-gradient(90deg, #a3791a, #e65c00);
+  color: #ffffff;
   font-family: 'Cinzel', serif;
-  padding: 3px 10px;
-  border-bottom-left-radius: 8px;
+  font-size: 0.55rem;
+  font-weight: bold;
+  padding: 4px 14px;
+  border-bottom-left-radius: 10px;
+  letter-spacing: 1.5px;
+}
+.fest-epic-meta {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.fest-epic-date {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffd700;
   letter-spacing: 1px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.fest-epic-tamil-month {
+  font-size: 0.78rem;
+  color: rgba(212,175,55,0.6);
+  margin-top: 2px;
+}
+.fest-epic-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.fest-epic-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ccbba0;
+  text-align: justify;
 }
 
-/* ── FOOTER ── */
-.footer {
-  text-align:center; 
-  font-family:'Cinzel',serif; 
-  font-size:.58rem; 
-  letter-spacing:3px; 
-  color:rgba(180,120,20,0.4);
-  margin-top: 30px;
-  padding-bottom: 20px;
+@keyframes pulseGlow {
+  0% { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.03); }
+}
+
+.footer-shrine {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  color: rgba(212,175,55,0.3);
+  padding: 40px 20px;
 }
 </style>
 </head>
 <body>
 
-<div class="bg-overlay"></div>
+<div class="bg-epic-overlay"></div>
 
-<div class="header">
-  <div class="h-line"></div>
-  <div class="h-text">HARI BESAR TAMIL PANCHANGAM 2026</div>
-  <div class="h-line"></div>
+<div class="header-monumental">
+  <div class="gopuram-crest">🪔</div>
+  <h1>Tamil Kosmik Panchangam</h1>
+  <div class="sub-line">Sithar Thirukanitha System · Almanak 2026</div>
+  <div class="h-divider">
+    <div class="line"></div>
+    <div class="dot">✦</div>
+    <div class="line"></div>
+  </div>
 </div>
 
-<div class="nav-back-wrap">
-  <a href="altar.html" class="btn-back">◀ KEMBALI KE ALTAR</a>
+<div class="nav-wrap">
+  <a href="altar.html" class="btn-back-shrine">◀ KEMBALI KE ALTAR UTAMA</a>
 </div>
 
-<div class="main">
-  <div class="festival-container">
-
-    <div class="festival-card">
-      <div class="badge-sacred">SACRED VRATAM</div>
-      <div class="fest-meta">
-        <div class="fest-date">01 FEBRUARI 2026</div>
-        <div class="fest-tamil-month">Bulan: Thai (பௌர்ணமி)</div>
+<div class="grand-wrapper">
+  
+  <div>
+    <div class="shrine-box">
+      <div class="calendar-shrine-header">
+        <button class="shrine-nav-btn" onclick="offsetMonth(-1)">◀ PREV</button>
+        <div class="shrine-month-title">
+          <h2 id="ui-g-month-year">JUNI 2026</h2>
+          <p id="ui-g-tamil-month">Chithirai / Vaikasi</p>
+        </div>
+        <button class="shrine-nav-btn" onclick="offsetMonth(1)">NEXT ▶</button>
       </div>
-      <div class="fest-name">🪔 THAIPUSAM</div>
-      <div class="fest-desc">Hari suci penyerahan Vel (Tombak Sakti) oleh Dewi Parvati kepada Lord Murugan. Umat Hindu Tamil melakukan prosesi Kavadi dan membawa susu (Pal Kudam) sebagai wujud pembayaran nazar, rasa syukur, dan pembersihan karma buruk.</div>
+
+      <div class="shrine-weekdays">
+        <div>Gnayiru</div>
+        <div>Thingal</div>
+        <div>Sevvai</div>
+        <div>Budhan</div>
+        <div>Guru</div>
+        <div>Velli</div>
+        <div>Sani</div>
+      </div>
+
+      <div class="shrine-days-grid" id="ui-g-days-container">
+        </div>
     </div>
 
-    <div class="festival-card">
-      <div class="badge-sacred">SHIVA NIGHT</div>
-      <div class="fest-meta">
-        <div class="fest-date">15 FEBRUARI 2026</div>
-        <div class="fest-tamil-month">Bulan: Maasi (கிருஷ்ண பக்ஷம்)</div>
+    <div class="energy-deck">
+      <div class="energy-deck-title" id="ui-detail-date">KETUK TANGGAL ASTRAL</div>
+      <div class="energy-deck-status" id="ui-detail-status">MENGKALIBRASI SIKLUS LUNISOLAR...</div>
+      <div class="energy-deck-desc" id="ui-detail-desc">Silakan pilih salah satu angka tanggal di atas untuk membedah kalkulasi getaran batin, tithi lunisolar, dan anjuran sadhana ritual Veda kuno.</div>
+    </div>
+  </div>
+
+  <div class="festivals-scroll-shrine">
+
+    <div class="fest-epic-card">
+      <div class="fest-epic-badge">SACRED VRATAM</div>
+      <div class="fest-epic-meta">
+        <div class="fest-epic-date">01 Februari 2026</div>
+        <div class="fest-epic-tamil-month">Bulan Tamil: Thai (பௌர்ணமி)</div>
       </div>
-      <div class="fest-name">🔱 MAHA SHIVARATRI</div>
-      <div class="fest-desc">Malam agung persembahan untuk Lord Shiva. Umat berjaga semalaman suntuk (Jagarana) dan melakukan meditasi serta Abhisekam pada linggam setiap 3 jam (4 Prahara Puja) untuk menghancurkan kegelapan ego diri.</div>
+      <div class="fest-epic-name">🪔 Thaipusam</div>
+      <div class="fest-epic-desc">Hari penyerahan Vel (Tombak Sakti) oleh Jagadamba Dewi Parvati kepada Lord Murugan. Sangat sakral bagi komunitas Hindu Tamil untuk memikul Kavadi dan Pal Kudam demi melunasi janji spiritual serta pembersihan tumpukan karma buruk.</div>
     </div>
 
-    <div class="festival-card">
-      <div class="fest-meta">
-        <div class="fest-date">14 APRIL 2026</div>
-        <div class="fest-tamil-month">Bulan: Chithirai (வருட பிறப்பு)</div>
+    <div class="fest-epic-card">
+      <div class="fest-epic-badge">SHIVA DECOCTION</div>
+      <div class="fest-epic-meta">
+        <div class="fest-epic-date">15 Februari 2026</div>
+        <div class="fest-epic-tamil-month">Bulan Tamil: Maasi (மகா சிவராத்திரி)</div>
       </div>
-      <div class="fest-name">🌸 CHITHIRAI PUTHANDU</div>
-      <div class="fest-desc">Tahun Baru Hindu Tamil. Menandai masuknya Matahari ke rasi bintang Aries (Mesha Rasi). Hari ini dirayakan dengan membaca almanak Panchangam baru, membersihkan rumah, dan memohon berkah rezeki melimpah sepanjang tahun.</div>
+      <div class="fest-epic-name">🔱 Maha Shivaratri</div>
+      <div class="fest-epic-desc">Malam transendental peleburan jiwa ke dalam eksistensi Rudra Shiva. Umat menjalani puasa penuh, berjaga semalam suntuk (Jagarana), dan melantunkan mantra Sri Rudram saat persembahan Abhisekam melintasi 4 bentang waktu malam.</div>
     </div>
 
-    <div class="festival-card">
-      <div class="fest-meta">
-        <div class="fest-date">01 MEI 2026</div>
-        <div class="fest-tamil-month">Bulan: Chithirai (பௌர்ணமி)</div>
+    <div class="fest-epic-card">
+      <div class="fest-epic-badge">NEW YEAR SANKRANTI</div>
+      <div class="fest-epic-meta">
+        <div class="fest-epic-date">14 April 2026</div>
+        <div class="fest-epic-tamil-month">Bulan Tamil: Chithirai (வருட பிறப்பு)</div>
       </div>
-      <div class="fest-name">🌕 CHITHRA POURNAMI</div>
-      <div class="fest-desc">Hari pemujaan kepada Chitragupta, pencatat amal kebaikan dan keburukan manusia di alam semesta. Sangat disarankan melakukan dana (sedekah makanan) untuk membersihkan noda karma dosa yang tidak disengaja.</div>
+      <div class="fest-epic-name">🌸 Chithirai Puthandu</div>
+      <div class="fest-epic-desc">Fajar Tahun Baru Hindu Tamil (Saka Varudam). Bertepatan saat gerak silang Matahari tepat menembus titik pertama rasi Mesha (Aries). Dirayakan dengan membaca peruntungan Panchangam baru dan menyajikan hidangan seimbang batin.</div>
     </div>
 
-    <div class="festival-card">
-      <div class="badge-sacred">GANESHA BLESSING</div>
-      <div class="fest-meta">
-        <div class="fest-date">14 SEPTEMBER 2026</div>
-        <div class="fest-tamil-month">Bulan: Avani (வளர்பிறை சதுர்த்தி)</div>
+    <div class="fest-epic-card">
+      <div class="fest-epic-badge">GANESHA ADVENT</div>
+      <div class="fest-epic-meta">
+        <div class="fest-epic-date">14 September 2026</div>
+        <div class="fest-epic-tamil-month">Bulan Tamil: Avani (விநாயகர் சதுர்த்தி)</div>
       </div>
-      <div class="fest-name">🐘 VINAYAGAR CHATHURTHI</div>
-      <div class="fest-desc">Hari kelahiran Lord Ganesha, sang penghancur segala rintangan. Umat membuat hidangan manis Kozhukattai/Modak kesukaan Ganesha dan melakukan doa khusus agar segala rencana usaha dilancarkan tanpa hambatan.</div>
+      <div class="fest-epic-name">🐘 Vinayagar Chathurthi</div>
+      <div class="fest-epic-desc">Hari turunnya kesadaran Ganesha Vinayaka ke bumi sebagai penguasa rintangan material and spiritual. Puja dikhususkan untuk memecahkan hambatan karir, kelancaran studi, dan memulai usaha besar.</div>
     </div>
 
-    <div class="festival-card">
-      <div class="fest-meta">
-        <div class="fest-date">11 - 20 OKTOBER 2026</div>
-        <div class="fest-tamil-month">Bulan: Purattasi (நவராத்திரி)</div>
+    <div class="fest-epic-card">
+      <div class="fest-epic-badge">CELESTIAL LIGHTS</div>
+      <div class="fest-epic-meta">
+        <div class="fest-epic-date">08 November 2026</div>
+        <div class="fest-epic-tamil-month">Bulan Tamil: Aippasi (தீபாவளி திருநாள்)</div>
       </div>
-      <div class="fest-name">⚔️ NAVARATRI & VIJAYADASHAMI</div>
-      <div class="fest-desc">9 Malam suci pemujaan aspek Dewi Sakti (Durga, Lakshmi, dan Saraswati). Diakhiri pada hari ke-10 (Vijayadashami) sebagai simbol kemenangan mutlak kebajikan (Dharma) atas kejahatan (Adharma).</div>
+      <div class="fest-epic-name">🪔 Deepavali</div>
+      <div class="fest-epic-desc">Hari kemenangan agung Sri Krishna atas manifestasi kegelapan Narakasura. Umat Tamil merayakan kemenangan spiritual ini melalui ritual penyucian diri subuh hari (Ganga Snanam), pengolesan minyak suci, mengenakan sutra baru, dan menyalakan puluhan Agal Vilakku (lampu tanah liat).</div>
     </div>
 
-    <div class="festival-card">
-      <div class="badge-sacred">GRAND FESTIVAL</div>
-      <div class="fest-meta">
-        <div class="fest-date">08 NOVEMBER 2026</div>
-        <div class="fest-tamil-month">Bulan: Aippasi (அமாவாசை)</div>
+    <div class="fest-epic-card">
+      <div class="fest-epic-badge">MURUGAN TRIUMPH</div>
+      <div class="fest-epic-meta">
+        <div class="fest-epic-date">15 November 2026</div>
+        <div class="fest-epic-tamil-month">Bulan Tamil: Karthigai (சூரசம்ஹாரம்)</div>
       </div>
-      <div class="fest-name">🪔 DEEPAVALI</div>
-      <div class="fest-desc">Festival Cahaya terbesar Hindu Tamil. Merayakan kemenangan Lord Krishna atas iblis Narakasura, menyimbolkan menangnya cahaya atas kegelapan dan ilmu pengetahuan atas kebodohan. Dirayakan dengan mandi minyak subuh (Ganga Snanam), memakai pakaian baru, dan menyalakan lampu minyak (Agal Vilakku).</div>
-    </div>
-
-    <div class="festival-card">
-      <div class="fest-meta">
-        <div class="fest-date">15 NOVEMBER 2026</div>
-        <div class="fest-tamil-month">Bulan: Karthigai (சஷ்டி)</div>
-      </div>
-      <div class="fest-name">🏹 KANDA SASHTI VRATAM</div>
-      <div class="fest-desc">Hari terakhir puasa Sashti di mana Lord Murugan secara kesatria menumbangkan asura jahat Soorapadman. Sangat sakral bagi umat Hindu Tamil untuk memohon perlindungan dari mara bahaya dan penyakit.</div>
-    </div>
-
-    <div class="festival-card">
-      <div class="fest-meta">
-        <div class="fest-date">23 NOVEMBER 2026</div>
-        <div class="fest-tamil-month">Bulan: Karthigai (விளக்கு திருவிழா)</div>
-      </div>
-      <div class="fest-name">🔥 KARTHIGAI DEEPAM</div>
-      <div class="fest-desc">Festival cahaya kuno Tamil untuk memuja Lord Shiva yang memanifestasikan diri-Nya sebagai pilar api tanpa ujung di Gunung Arunachala (Tiruvannamalai). Seluruh rumah diterangi jejeran lampu minyak tanah liat.</div>
+      <div class="fest-epic-name">🏹 Soorasamharam</div>
+      <div class="fest-epic-desc">Puncak festival Kanda Sashti. Hari pertempuran kosmik di mana Lord Murugan melumpuhkan asura ego Soorapadman menggunakan tombak Vel, lalu mengubahnya menjadi burung merak kendaraan sucinya.</div>
     </div>
 
   </div>
 
-  <div class="footer">SITHAR TAMIL PANCHANGAM SYSTEM © 2026</div>
 </div>
 
+<div class="footer-shrine">SITHAR SHIVA SIDDHANTA PANCHANGAM © 2026 · KOSMIK AKURAT</div>
+
+<script>
+// Mapping Akurat Siklus Peralihan Bulan Masehi ke Bulan Tamil Hindu Lunisolar
+const tamilMonthsMapping = [
+  "Margazhi / Thai", "Thai / Maasi", "Maasi / Panguni", "Panguni / Chithirai",
+  "Chithirai / Vaikasi", "Vaikasi / Aani", "Aani / Aadi", "Aadi / Avani",
+  "Avani / Purattasi", "Purattasi / Aippasi", "Aippasi / Karthigai", "Karthigai / Margazhi"
+];
+
+const monthNamesID = [
+  "JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", 
+  "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"
+];
+
+let activeDate = new Date();
+let currentSelDay = activeDate.getDate();
+let mMonth = activeDate.getMonth();
+let mYear = activeDate.getFullYear();
+
+function initShrineCalendar() {
+  buildGrid();
+}
+
+function buildGrid() {
+  const container = document.getElementById("ui-g-days-container");
+  container.innerHTML = "";
+
+  document.getElementById("ui-g-month-year").innerText = `${monthNamesID[mMonth]} ${mYear}`;
+  document.getElementById("ui-g-tamil-month").innerText = `Bulan Tamil: ${tamilMonthsMapping[mMonth]}`;
+
+  const startDayIdx = new Date(mYear, mMonth, 1).getDay();
+  const maxDays = new Date(mYear, mMonth + 1, 0).getDate();
+
+  // Ruang kosong awal minggu masehi
+  for (let i = 0; i < startDayIdx; i++) {
+    const space = document.createElement("div");
+    space.classList.add("cell-day", "empty");
+    container.appendChild(space);
+  }
+
+  // Generate Hari Dan Injeksi Algoritma Tithi Konstan 2026
+  for (let day = 1; day <= maxDays; day++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell-day");
+    cell.innerText = day;
+
+    const systemToday = new Date();
+    if (day === systemToday.getDate() && mMonth === systemToday.getMonth() && mYear === systemToday.getFullYear()) {
+      cell.classList.add("today");
+    }
+
+    if (day === currentSelDay) {
+      cell.classList.add("selected");
+      pullAstralPanchangamDetails(day);
+    }
+
+    // Pembuatan Titik Penanda Ritual Di Bawah Angka Tanggal
+    const dotWrapper = document.createElement("div");
+    dotWrapper.classList.add("astral-dot-container");
+
+    // Simulasi Siklus Perhitungan Kedudukan Bulan (Tithi) Hindu Tamil
+    if (day === 15) {
+      const d = document.createElement("span"); d.classList.add("astral-dot", "pournami");
+      dotWrapper.appendChild(d);
+    } else if (day === 1 || day === 30) {
+      const d = document.createElement("span"); d.classList.add("astral-dot", "amavasai");
+      dotWrapper.appendChild(d);
+    } else if ([11, 13, 26, 28].includes(day)) {
+      const d = document.createElement("span"); d.classList.add("astral-dot", "vratam");
+      dotWrapper.appendChild(d);
+    }
+    cell.appendChild(dotWrapper);
+
+    cell.onclick = function() {
+      document.querySelectorAll(".cell-day").forEach(c => c.classList.remove("selected"));
+      cell.classList.add("selected");
+      currentSelDay = day;
+      pullAstralPanchangamDetails(day);
+    };
+
+    container.appendChild(cell);
+  }
+}
+
+function pullAstralPanchangamDetails(day) {
+  const lbl = document.getElementById("ui-detail-date");
+  const stat = document.getElementById("ui-detail-status");
+  const desc = document.getElementById("ui-detail-desc");
+
+  lbl.innerText = `PANCHANGAM AMALAN: ${day} ${monthNamesID[mMonth]} ${mYear}`;
+
+  if (day === 15) {
+    stat.innerText = "🌕 POURNAMI (BULAN PURNAMA PENUH)";
+    stat.style.color = "#ffffff";
+    desc.innerText = "Hari puncak limpahan manifestasi energi keibuan kosmik (Sri Lalitha Tripurasundari). Pikiran manusia berada pada level reseptif spiritual tertinggi. Waktu paling mulia untuk meditasi visualisasi, penguncingan Sri Suktam, atau menyalakan ghee lamp untuk kedamaian absolut.";
+  } else if (day === 1 || day === 30) {
+    stat.innerText = "🌑 AMAVASAI (BULAN MATI PEKAT)";
+    stat.style.color = "#ff7700";
+    desc.innerText = "Hari penutupan siklus lunar. Dimensi Pitru Loka (Leluhur) bersinggungan erat dengan bumi. Sangat diwajibkan menghaturkan ritual doa Tarpanam (persembahan wijen hitam dan air) guna memutus jerat kutukan karma keturunan, serta membersihkan rintangan misterius dalam hidup.";
+  } else if (day === 11 || day === 26) {
+    stat.innerText = "🔸 EKADASI VRATAM (PUASA MADHAVA)";
+    stat.style.color = "#ffd700";
+    desc.innerText = "Tithi ke-11 pasca Amavasai/Pournami. Hari puasa menahan diri dari konsumsi biji-bijian dan beras yang didedikasikan untuk Lord Maha Vishnu. Secara fisiologis membersihkan organ pencernaan dan secara metafisik meluluhkan tumpukan dosa karma perbuatan.";
+  } else if (day === 13 || day === 28) {
+    stat.innerText = "🔱 SHIVA PRADOSHAM SAMAYAM";
+    stat.style.color = "#b993ff";
+    desc.innerText = "Waktu senja sakral pembersihan semesta (1.5 jam sebelum matahari terbenam). Menurut kitab Purana, Lord Shiva menari di antara tanduk lembu suci Nandi untuk melebur residu energi negatif dunia. Dianjurkan menjapa mantra 'Om Namah Shivaya' secara fokus.";
+  } else if ([5, 8, 14, 23].includes(day)) {
+    stat.innerText = "✨ SIDDHA YOGA (HARI SUBHA DINAM)";
+    stat.style.color = "#00ffaa";
+    desc.innerText = "Kombinasi harmonis antara peredaran Bintang (Nakshatra) and Hari (Vasaram) melahirkan keselarasan energi alam semesta. Sangat baik untuk menandatangani berkas kontrak penting, peletakan batu pertama rumah, ataupun memulai pengobatan medis.";
+  } else {
+    stat.innerText = "🟢 AMRITA YOGA KOSMIK STABIL";
+    stat.style.color = "#e8d5a3";
+    desc.innerText = "Keseimbangan getaran elemen bumi harian berjalan normal and tenang. Waktu yang ideal untuk melanjutkan rutinitas Sadhana spiritual harian, mengkaji kitab suci jnana, and melatih keheningan indra batin.";
+  }
+}
+
+function offsetMonth(direction) {
+  mMonth += direction;
+  if (mMonth > 11) { mMonth = 0; mYear++; }
+  else if (mMonth < 0) { mMonth = 11; mYear--; }
+  currentSelDay = 1;
+  buildGrid();
+}
+
+window.onload = initShrineCalendar;
+</script>
 </body>
 </html>
